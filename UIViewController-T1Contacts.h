@@ -11,15 +11,15 @@
 - (void)_t1_showContactsPermissionErrorAlert;
 - (void)_t1_presentNewPersonViewControllerForPerson:(id)arg1 scribeContext:(id)arg2;
 - (void)_addToExistingContact:(id)arg1 withAvatar:(id)arg2 scribeContext:(id)arg3;
-- (void)_createNewContactWithUserReference:(id)arg1 avatar:(id)arg2 scribeContext:(id)arg3;
+- (void)_createNewContactWithUserReference:(id)arg1 avatar:(id)arg2 scribeContext:(id)arg3 account:(id)arg4;
 - (void)_t1_performAuthorizedContactsAction:(CDUnknownBlockType)arg1;
 - (id)_t1_editExistingContactActionItemForUserReference:(id)arg1 withAvatar:(id)arg2 scribeContext:(id)arg3;
-- (id)_t1_createNewContactActionItemWithUserReference:(id)arg1 avatar:(id)arg2 scribeContext:(id)arg3;
-- (id)t1_contactsMenuActionItemsWithUserReference:(id)arg1 avatar:(id)arg2 source:(id)arg3 scribeContext:(id)arg4;
-- (id)t1_contactsActionItemsWithUserReference:(id)arg1 avatar:(id)arg2 source:(id)arg3 scribeContext:(id)arg4;
+- (id)_t1_createNewContactActionItemWithUserReference:(id)arg1 avatar:(id)arg2 scribeContext:(id)arg3 account:(id)arg4;
+- (id)t1_contactsMenuActionItemsWithUserReference:(id)arg1 avatar:(id)arg2 source:(id)arg3 scribeContext:(id)arg4 account:(id)arg5;
+- (id)t1_contactsActionItemsWithUserReference:(id)arg1 avatar:(id)arg2 source:(id)arg3 scribeContext:(id)arg4 account:(id)arg5;
 - (id)_t1_contactsActionSheetWithActionItems:(id)arg1 source:(id)arg2;
 - (id)_t1_contactsMenuSheetWithActionItems:(id)arg1 source:(id)arg2;
-- (id)t1_contactsMenuSheetWithUserReference:(id)arg1 avatar:(id)arg2 source:(id)arg3 scribeContext:(id)arg4;
-- (id)t1_contactsMenuActionSheetWithUserReference:(id)arg1 avatar:(id)arg2 source:(id)arg3 scribeContext:(id)arg4;
+- (id)t1_contactsMenuSheetWithUserReference:(id)arg1 avatar:(id)arg2 source:(id)arg3 scribeContext:(id)arg4 account:(id)arg5;
+- (id)t1_contactsMenuActionSheetWithUserReference:(id)arg1 avatar:(id)arg2 source:(id)arg3 scribeContext:(id)arg4 account:(id)arg5;
 @end
 

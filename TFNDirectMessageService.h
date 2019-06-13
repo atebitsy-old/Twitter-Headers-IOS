@@ -6,15 +6,19 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, TFNDirectMessageActivityLog, TFNDirectMessageContext, TFNDirectMessageModel, TFNTwitterAccountModel;
-@protocol TFNDirectMessageInboxActions, TFNDirectMessageServiceRefreshObserver;
+@class NSString, TFNDirectMessageActivityLog, TFNDirectMessageContext, TFNDirectMessageContextState, TFNDirectMessageModel, TFNTwitterAccountModel;
+@protocol OS_dispatch_queue, TFNDirectMessageInboxActions, TFNDirectMessageServiceRefreshObserver;
 
 @interface TFNDirectMessageService : NSObject
 {
+    TFNDirectMessageContextState *_stagedModelContextState;
     TFNDirectMessageContext *_context;
     TFNDirectMessageModel *_model;
     id <TFNDirectMessageServiceRefreshObserver> _refreshObserver;
+    NSString *_accountID;
+    long long _authenticatedUserID;
     TFNTwitterAccountModel *_accountModel;
+    NSObject<OS_dispatch_queue> *_modelDiskLoadQueue;
 }
 
 + (void)private_reportErrorWhileDeleting:(id)arg1;
@@ -22,12 +26,16 @@
 + (void)purgeAllCaches;
 + (id)registeredServices;
 + (id)sharedDirectMessageServiceForAccount:(id)arg1;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *modelDiskLoadQueue; // @synthesize modelDiskLoadQueue=_modelDiskLoadQueue;
 @property(readonly, nonatomic) TFNTwitterAccountModel *accountModel; // @synthesize accountModel=_accountModel;
+@property(readonly, nonatomic) long long authenticatedUserID; // @synthesize authenticatedUserID=_authenticatedUserID;
+@property(readonly, copy, nonatomic) NSString *accountID; // @synthesize accountID=_accountID;
 @property(nonatomic) __weak id <TFNDirectMessageServiceRefreshObserver> refreshObserver; // @synthesize refreshObserver=_refreshObserver;
-@property(readonly, nonatomic) TFNDirectMessageContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (void)private_finishAsynchronousModelLoad;
+- (id)private_consumeStagedModelContextState;
 - (void)saveToDisk;
-- (void)loadFromDisk;
+- (void)loadFromDiskSynchronously:(_Bool)arg1;
 @property(readonly, nonatomic) TFNDirectMessageActivityLog *activityLog;
 - (id)conversationActionsWithSelectedUsers:(id)arg1;
 - (id)conversationActionsWithRecipientUserID:(long long)arg1;
@@ -39,9 +47,8 @@
 - (id)debugDescription;
 - (id)description;
 @property(readonly, nonatomic) id <TFNDirectMessageInboxActions> inboxActions;
+@property(readonly, nonatomic) TFNDirectMessageContext *context; // @synthesize context=_context;
 @property(retain, nonatomic) TFNDirectMessageModel *model; // @synthesize model=_model;
-@property(readonly, nonatomic) long long authenticatedUserID;
-@property(readonly, copy, nonatomic) NSString *accountID;
 
 @end
 

@@ -7,6 +7,6 @@
 #import <TFNUI/TFNActiveTextItem.h>
 
 @interface TFNActiveTextItem (T1Settings)
-+ (id)emptyItemWithTitle:(id)arg1 descriptionFormat:(id)arg2 activeText:(id)arg3;
++ (id)emptyItemWithTitle:(id)arg1 descriptionFormat:(id)arg2 activeText:(id)arg3 account:(id)arg4;
 @end
 

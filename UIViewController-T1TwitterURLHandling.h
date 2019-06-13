@@ -16,7 +16,6 @@
 - (id)_t1_openURL:(id)arg1 expandedURL:(id)arg2 account:(id)arg3 scribeContext:(id)arg4 forceAuthenticateWebViewController:(_Bool)arg5;
 - (id)_t1_openURL:(id)arg1 account:(id)arg2 scribeContext:(id)arg3 fromSourceStatus:(id)arg4 forceAuthenticateWebViewController:(_Bool)arg5;
 - (id)t1_openURL:(id)arg1 account:(id)arg2 scribeContext:(id)arg3 fromCardDataSource:(id)arg4;
-- (id)t1_openURL:(id)arg1 account:(id)arg2 scribeContext:(id)arg3 fromSessionSource:(id)arg4;
 - (id)t1_openURL:(id)arg1 account:(id)arg2 scribeContext:(id)arg3 fromSourceDirectMessageEntry:(id)arg4;
 - (id)t1_openURL:(id)arg1 account:(id)arg2 scribeContext:(id)arg3 fromSourceUser:(id)arg4;
 - (id)t1_openURL:(id)arg1 account:(id)arg2 scribeContext:(id)arg3 fromSourceStatus:(id)arg4 forceAuthenticateWebViewController:(_Bool)arg5;

@@ -16,6 +16,7 @@
 }
 
 @property(readonly, nonatomic) TFNTwitter *twitter; // @synthesize twitter=_twitter;
+- (id)tfs_taskState;
 - (void)tfs_triggerFromService:(id)arg1 event:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)initWithTwitter:(id)arg1;
 

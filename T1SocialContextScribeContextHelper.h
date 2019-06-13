@@ -11,6 +11,7 @@
 }
 
 + (id)socialContextScribeElementWithSocialContext:(id)arg1 defaultElementValue:(id)arg2;
++ (id)scribeContextFromContext:(id)arg1 forStatus:(id)arg2 withScribeComponent:(id)arg3;
 
 @end
 

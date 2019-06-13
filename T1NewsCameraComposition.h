@@ -9,13 +9,14 @@
 #import <T1Twitter/NSCopying-Protocol.h>
 #import <T1Twitter/TFNTwitterTweetTextCounterContext-Protocol.h>
 
-@class NSString, T1NewsCameraPlace, TFNTwitterNewsCameraThread, TFNTwitterTweetTextCounter;
+@class NSString, T1NewsCameraCompositionInReplyToContext, T1NewsCameraPlace, TFNTwitterNewsCameraThread, TFNTwitterTweetTextCounter;
 
 @interface T1NewsCameraComposition : NSObject <TFNTwitterTweetTextCounterContext, NSCopying>
 {
     _Bool _videoAttachmentMuted;
     TFNTwitterTweetTextCounter *_tweetTextCounter;
     NSString *_text;
+    T1NewsCameraCompositionInReplyToContext *_inReplyToContext;
     NSString *_attachmentDescription;
     NSString *_cameraPaletteID;
     TFNTwitterNewsCameraThread *_thread;
@@ -30,10 +31,12 @@
 @property(copy, nonatomic) NSString *cameraPaletteID; // @synthesize cameraPaletteID=_cameraPaletteID;
 @property(nonatomic, getter=isVideoAttachmentMuted) _Bool videoAttachmentMuted; // @synthesize videoAttachmentMuted=_videoAttachmentMuted;
 @property(copy, nonatomic) NSString *attachmentDescription; // @synthesize attachmentDescription=_attachmentDescription;
+@property(retain, nonatomic) T1NewsCameraCompositionInReplyToContext *inReplyToContext; // @synthesize inReplyToContext=_inReplyToContext;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(readonly, copy, nonatomic) TFNTwitterTweetTextCounter *tweetTextCounter; // @synthesize tweetTextCounter=_tweetTextCounter;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSString *textForCharacterCount;
+@property(readonly, nonatomic, getter=isReply) _Bool reply;
 @property(readonly, copy, nonatomic) NSString *textForTweeting;
 @property(readonly, nonatomic, getter=isValidForTweeting) _Bool validForTweeting;
 @property(readonly, copy) NSString *description;

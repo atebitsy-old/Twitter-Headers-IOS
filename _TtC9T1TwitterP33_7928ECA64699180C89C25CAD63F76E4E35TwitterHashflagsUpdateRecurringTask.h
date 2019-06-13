@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <T1Twitter/TFNTwitterGenericActiveAccountRecurringTask.h>
+#import <T1Twitter/TFNTwitterBaseTwitterRecurringTask.h>
 
-@interface _TtC9T1TwitterP33_7928ECA64699180C89C25CAD63F76E4E35TwitterHashflagsUpdateRecurringTask : TFNTwitterGenericActiveAccountRecurringTask
+@interface _TtC9T1TwitterP33_7928ECA64699180C89C25CAD63F76E4E35TwitterHashflagsUpdateRecurringTask : TFNTwitterBaseTwitterRecurringTask
 {
 }
 
 - (id)initWithTwitter:(id)arg1;
-- (void)triggerFromService:(id)arg1 account:(id)arg2 event:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)tfs_triggerFromService:(id)arg1 event:(id)arg2 completion:(CDUnknownBlockType)arg3;
 
 @end
 

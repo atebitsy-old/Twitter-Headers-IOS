@@ -14,7 +14,6 @@
 @property(nonatomic) struct CGSize controlOffset;
 @property(nonatomic) _Bool managesScrollViewContentInset;
 @property(nonatomic) _Bool loading;
-@property(nonatomic) _Bool showsIcon;
 - (void)updateScrollViewContentInset:(UIScrollView *)arg1 animated:(_Bool)arg2;
 - (void)scrollViewContentInsetDidReset:(UIScrollView *)arg1;
 - (void)scrollViewDidEndDragging:(UIScrollView *)arg1 willDecelerate:(_Bool)arg2;

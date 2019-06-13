@@ -40,7 +40,6 @@
 + (id)_tfn_parsePatternMatchingBroadcastLinkWithSourceURL:(id)arg1 nonUsernamePaths:(id)arg2 path:(id)arg3 wholePathRange:(struct _NSRange)arg4;
 + (id)_tfn_parsePatternMatchingLiveVideoTimelineWithSourceURL:(id)arg1 nonUsernamePaths:(id)arg2 path:(id)arg3 wholePathRange:(struct _NSRange)arg4;
 + (id)_tfn_parsePatternMatchingLiveEventTimelineWithSourceURL:(id)arg1 nonUsernamePaths:(id)arg2 path:(id)arg3 wholePathRange:(struct _NSRange)arg4;
-+ (id)_tfn_parsePatternMatchingStickerLinkWithSourceURL:(id)arg1 nonUsernamePaths:(id)arg2 path:(id)arg3 wholePathRange:(struct _NSRange)arg4;
 + (id)_tfn_parsePatternMatchingTopicLinkWithSourceURL:(id)arg1 nonUsernamePaths:(id)arg2 path:(id)arg3 wholePathRange:(struct _NSRange)arg4;
 + (id)_tfn_parsePatternMatchingMomentLinkWithSourceURL:(id)arg1 nonUsernamePaths:(id)arg2 path:(id)arg3 wholePathRange:(struct _NSRange)arg4;
 + (id)_tfn_parsePatternMatchingUserLinkWithSourceURL:(id)arg1 nonUsernamePaths:(id)arg2 path:(id)arg3 wholePathRange:(struct _NSRange)arg4;

@@ -15,17 +15,15 @@
     TNUTransactionMetrics *_networkTransactionMetrics;
     double _retryTimeout;
     long long _source;
-    unsigned long long _sourceType;
 }
 
-@property(readonly, nonatomic) unsigned long long sourceType; // @synthesize sourceType=_sourceType;
 @property(readonly, nonatomic) long long source; // @synthesize source=_source;
 @property(readonly, nonatomic) _Bool shouldDowngradeImageAttachments; // @synthesize shouldDowngradeImageAttachments=_shouldDowngradeImageAttachments;
 @property(readonly, nonatomic) double retryTimeout; // @synthesize retryTimeout=_retryTimeout;
 @property(readonly, nonatomic) TNUTransactionMetrics *networkTransactionMetrics; // @synthesize networkTransactionMetrics=_networkTransactionMetrics;
 @property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
-- (id)initWithAccount:(id)arg1 networkTransactionMetrics:(id)arg2 shouldDowngradeImageAttachments:(_Bool)arg3 source:(long long)arg4 sourceType:(unsigned long long)arg5;
+- (id)initWithAccount:(id)arg1 networkTransactionMetrics:(id)arg2 shouldDowngradeImageAttachments:(_Bool)arg3 source:(long long)arg4;
 - (id)init;
 
 @end

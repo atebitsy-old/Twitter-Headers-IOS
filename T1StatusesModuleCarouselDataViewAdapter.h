@@ -6,10 +6,13 @@
 
 #import <T1Twitter/T1TimelinesItemsViewControllerDataViewAdapter.h>
 
-@interface T1StatusesModuleCarouselDataViewAdapter : T1TimelinesItemsViewControllerDataViewAdapter
+#import <T1Twitter/T1TimelinesCarouselCollectionViewLayoutMetricsProvider-Protocol.h>
+
+@interface T1StatusesModuleCarouselDataViewAdapter : T1TimelinesItemsViewControllerDataViewAdapter <T1TimelinesCarouselCollectionViewLayoutMetricsProvider>
 {
 }
 
+- (id)layoutMetricsForCollectionViewLayout:(id)arg1;
 - (id)identifierForItem:(id)arg1;
 - (id)dataViewController:(id)arg1 tableViewCellForItem:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4;
 - (id)hostedTableViewCell:(id)arg1 viewControllerForItem:(id)arg2 atIndexPath:(id)arg3;

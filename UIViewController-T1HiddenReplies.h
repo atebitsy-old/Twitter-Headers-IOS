@@ -11,6 +11,7 @@
 - (void)_t1_displayMessage:(id)arg1 errorMessage:(id)arg2 success:(_Bool)arg3;
 - (void)hiddenRepliesEducationTakeoverViewControllerDidTapCancel:(id)arg1;
 - (void)hiddenRepliesEducationTakeoverViewController:(id)arg1 didTapHideReply:(id)arg2;
+- (void)showHiddenRepliesConsumptionEducationWithAccount:(id)arg1;
 - (void)showHiddenRepliesForStatus:(id)arg1 account:(id)arg2 fromViewController:(id)arg3 scribeContext:(id)arg4;
 - (void)unhideStatus:(id)arg1 account:(id)arg2 scribeContext:(id)arg3;
 - (void)hideStatus:(id)arg1 account:(id)arg2 scribeContext:(id)arg3;

@@ -19,6 +19,7 @@
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 @property(readonly, nonatomic) TFNDataViewController *dataViewController; // @synthesize dataViewController=_dataViewController;
 - (void).cxx_destruct;
+- (id)tfs_taskState;
 - (void)tfs_triggerFromService:(id)arg1 event:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)complete;
 @property(readonly, nonatomic, getter=isExecuting) _Bool executing;

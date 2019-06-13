@@ -23,7 +23,6 @@
 - (void)showAmbientNotificationForSentReplyStatus:(TFNTwitterStatus *)arg1 inReplyToStatus:(TFNTwitterStatus *)arg2 composition:(TFNTwitterComposition *)arg3;
 - (void)dockViewController:(TFNViewController<TFNTwitterDockable> *)arg1 delegate:(id <T1DockingControllerDelegate>)arg2 userAction:(long long)arg3 animationTransition:(long long)arg4;
 - (void)showTopicForTaxonomy:(NSString *)arg1 topicID:(NSString *)arg2 topicImpressionID:(NSString *)arg3 panel:(long long)arg4 source:(long long)arg5 completion:(void (^)(void))arg6;
-- (void)showStickerTimelineForStickerID:(NSString *)arg1 tabID:(NSString *)arg2 source:(long long)arg3 completion:(void (^)(void))arg4;
 - (void)showMomentsGuideWithSource:(long long)arg1 completion:(void (^)(void))arg2;
 - (void)showProfileMomentsWithSource:(long long)arg1 completion:(void (^)(void))arg2;
 - (void)showMomentCapsuleWithMomentID:(NSString *)arg1 source:(long long)arg2 navigationContext:(T1AppNavigationContext *)arg3 completion:(void (^)(void))arg4;
@@ -117,6 +116,5 @@
 - (void)showComposerWithMessage:(NSString *)arg1 replyToStatusID:(long long)arg2 source:(long long)arg3 completion:(void (^)(void))arg4;
 - (void)setCurrentPanel:(long long)arg1 preserveModals:(_Bool)arg2 animated:(_Bool)arg3 completion:(void (^)(void))arg4;
 - (void)setCurrentPanel:(long long)arg1 animated:(_Bool)arg2 completion:(void (^)(void))arg3;
-- (void)reloadHomeTimelineViewController;
 @end
 

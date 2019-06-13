@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)viewControllerWithAccount:(id)arg1 conversationID:(long long)arg2 conversationAuthor:(id)arg3;
++ (id)viewControllerWithStatus:(id)arg1 account:(id)arg2;
 - (id)init;
 
 @end

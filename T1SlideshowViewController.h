@@ -12,7 +12,6 @@
 #import <T1Twitter/T1SlideshowSeekControllerDelegate-Protocol.h>
 #import <T1Twitter/T1SlideshowSlideDelegate-Protocol.h>
 #import <T1Twitter/T1SlideshowUserListViewControllerDelegate-Protocol.h>
-#import <T1Twitter/T1StickerCanvasDelegate-Protocol.h>
 #import <T1Twitter/T1VideoBitRateManagerDelegate-Protocol.h>
 #import <T1Twitter/T1ZoomableImageViewZoomDelegate-Protocol.h>
 #import <T1Twitter/TAVPlaybackObserver-Protocol.h>
@@ -25,7 +24,7 @@
 @class CAGradientLayer, NSArray, NSMutableArray, NSString, T1AmbientNotificationViewController, T1AmplifyUIEventHandler, T1FullscreenMediaTransition, T1MediaInlineComposeController, T1SlideshowMediaAssetRenderer, T1SlideshowScrollView, T1SlideshowSeekController, T1SlideshowSlide, T1SlideshowStatusView, T1VideoBitRateManager, T1VideoDockContainerViewController, T1VolumeView, TAVAudioSessionModeToken, TAVPlaybackState, TAVPlayerViewConfiguration, TFNBatteryMonitorHandle, TFNButton, TFNCustomHitTestView, TFNPaddedButton, TFNTwitterAccount, TFNTwitterStatus, TFSTimer, TFSTwitterScribeContext, TLPSubscription, UIImageView, UIImpactFeedbackGenerator, UILabel, UINotificationFeedbackGenerator, UISelectionFeedbackGenerator, UIView, UIViewController;
 @protocol T1AutoplayFullscreenCoordinator, T1ImageTransitionDelegate, T1SlideshowViewControllerDataSource, T1SlideshowViewControllerDelegate, T1SlideshowViewControllerLoadingDelegate;
 
-@interface T1SlideshowViewController : TFNViewController <T1ZoomableImageViewZoomDelegate, T1SlideshowUserListViewControllerDelegate, T1AmplifyUIEventHandlerDelegate, T1StickerCanvasDelegate, TFNTooltipDelegate, TLPSubscriptionDelegate, T1VideoBitRateManagerDelegate, T1MediaInlineComposeControllerDelegate, TAVPlaybackObserver, T1SlideshowSeekControllerDelegate, UIScrollViewDelegate, TFNPresented, TFNLayoutMetricsEnvironment, T1ImageDisplayViewDelegate, T1SlideshowSlideDelegate>
+@interface T1SlideshowViewController : TFNViewController <T1ZoomableImageViewZoomDelegate, T1SlideshowUserListViewControllerDelegate, T1AmplifyUIEventHandlerDelegate, TFNTooltipDelegate, TLPSubscriptionDelegate, T1VideoBitRateManagerDelegate, T1MediaInlineComposeControllerDelegate, TAVPlaybackObserver, T1SlideshowSeekControllerDelegate, UIScrollViewDelegate, TFNPresented, TFNLayoutMetricsEnvironment, T1ImageDisplayViewDelegate, T1SlideshowSlideDelegate>
 {
     id <T1SlideshowViewControllerDataSource> _retainedDataSource;
     long long _slideCount;
@@ -68,7 +67,6 @@
     _Bool _displaySlideStatusActions;
     _Bool _displayQuickReplyView;
     _Bool _chromeVisible;
-    _Bool _stickerInteractionEnabled;
     _Bool _lowPowerModeEnabled;
     _Bool _blurredVideoBackgroundImageViewInitialState;
     T1VideoBitRateManager *_videoBitrateManager;
@@ -122,7 +120,6 @@
 @property(readonly, nonatomic) T1FullscreenMediaTransition *transition; // @synthesize transition=_transition;
 @property(readonly, nonatomic) T1SlideshowStatusView *statusView; // @synthesize statusView=_statusView;
 @property(readonly, nonatomic) T1SlideshowSlide *currentSlide; // @synthesize currentSlide=_currentSlide;
-@property(nonatomic, getter=isStickerInteractionEnabled) _Bool stickerInteractionEnabled; // @synthesize stickerInteractionEnabled=_stickerInteractionEnabled;
 @property(nonatomic, getter=isChromeVisible) _Bool chromeVisible; // @synthesize chromeVisible=_chromeVisible;
 @property(nonatomic) long long cardDisplayMode; // @synthesize cardDisplayMode=_cardDisplayMode;
 @property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
@@ -220,6 +217,7 @@
 - (void)_t1_updateDockButton;
 - (void)_t1_initializeDockButtonIfNeeded;
 - (void)_t1_showOverlay:(_Bool)arg1 showPreviewImage:(_Bool)arg2 animated:(_Bool)arg3;
+- (void)_t1_updateOverlayForState:(id)arg1;
 - (void)_t1_updateRetryButtonVisibility;
 @property(readonly, nonatomic) _Bool isQuickReplyEnabled;
 - (_Bool)_shouldShowStatusViewContent;
@@ -282,21 +280,14 @@
 - (void)_deactivateCurrentSlide;
 - (_Bool)_currentSlideIsLoading;
 - (_Bool)_hideLoadingIndicator;
-- (void)stickerCanvas:(id)arg1 didTapSticker:(id)arg2;
 - (void)tooltipDidTap:(id)arg1;
 - (void)_dismissTooltip:(id)arg1 ifVisibleAnimated:(_Bool)arg2;
-- (void)_showStickerTooltip;
-- (void)_setUpStickerTooltip;
-- (void)_animateStickersIfReadyWithDelay:(_Bool)arg1;
-- (void)_hideStickerCanvasForSlide:(id)arg1;
-- (void)_updateStickerCanvasFrameForSlide:(id)arg1 atIndex:(long long)arg2;
 - (void)_t1_addTLPSubscriptionIfNeeded;
 - (long long)_maximumSlideIndexWithLoading:(_Bool)arg1;
 - (long long)_maximumSlideIndex;
 - (void)_updateSlideDisplayResettingOffset:(_Bool)arg1 animateOffset:(_Bool)arg2 animateStatus:(_Bool)arg3;
 - (void)_setStatusViewNeedsUpdateForDisplayedStatus:(id)arg1 displayedMedia:(id)arg2 directMessagePlayable:(id)arg3 displayedTagSet:(id)arg4;
 - (void)_updateSlideIndex:(long long)arg1 resettingOffset:(_Bool)arg2 animateOffset:(_Bool)arg3 animateStatus:(_Bool)arg4;
-- (void)_applyPlacedStickers:(id)arg1 toSlide:(id)arg2 atIndex:(long long)arg3;
 - (void)_configureSlide:(id)arg1 atIndex:(long long)arg2;
 - (void)_configureSlides;
 - (void)_updateBlurredVideoBackgroundImageView:(id)arg1 duration:(double)arg2;

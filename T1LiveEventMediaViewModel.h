@@ -23,7 +23,6 @@
 @property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
-- (id)tavScribeContextForTwitterScribeContext:(id)arg1;
 - (_Bool)isEqualToViewModel:(id)arg1;
 - (id)description;
 - (unsigned long long)hash;

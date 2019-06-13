@@ -11,7 +11,6 @@
     // Error parsing type: , name: shouldAutoAdvance
     // Error parsing type: , name: autoplayFullscreenCoordinator
     // Error parsing type: , name: playerSessionProducer
-    // Error parsing type: , name: scribeElement
     // Error parsing type: , name: backgroundImage
     // Error parsing type: , name: mediaAspectRatio
     // Error parsing type: , name: account
@@ -19,7 +18,7 @@
 
 - (void).cxx_destruct;
 - (id)init;
-- (id)initWithAccount:(id)arg1 placeholderImage:(id)arg2 mediaAspectRatio:(double)arg3 autoplayFullscreenCoordinator:(id)arg4 playerSessionProducer:(id)arg5 scribeElement:(id)arg6 shouldAutoAdvance:(_Bool)arg7;
+- (id)initWithAccount:(id)arg1 placeholderImage:(id)arg2 mediaAspectRatio:(double)arg3 autoplayFullscreenCoordinator:(id)arg4 playerSessionProducer:(id)arg5 shouldAutoAdvance:(_Bool)arg6;
 @property(nonatomic, readonly) double mediaAspectRatio; // @synthesize mediaAspectRatio;
 
 @end

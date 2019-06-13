@@ -6,11 +6,9 @@
 
 #import <TFNUI/TFNItemsDataViewController.h>
 
-#import <T1Twitter/T1TwitterAuthenticated-Protocol.h>
+@class TFNTwitterAccount, TFNTwitterListList, TFSTwitterUserReference;
 
-@class NSString, TFNTwitterAccount, TFNTwitterListList, TFSTwitterUserReference;
-
-@interface T1ListsListViewController : TFNItemsDataViewController <T1TwitterAuthenticated>
+@interface T1ListsListViewController : TFNItemsDataViewController
 {
     TFNTwitterAccount *_account;
     TFSTwitterUserReference *_userReference;
@@ -21,7 +19,7 @@
 @property(copy, nonatomic) CDUnknownBlockType emptyListActionCallback; // @synthesize emptyListActionCallback=_emptyListActionCallback;
 @property(retain, nonatomic) TFNTwitterListList *listsList; // @synthesize listsList=_listsList;
 @property(retain, nonatomic) TFSTwitterUserReference *userReference; // @synthesize userReference=_userReference;
-@property(retain, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
+@property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
 - (id)scribePage;
 - (id)scribe;
@@ -35,12 +33,8 @@
 - (void)update:(_Bool)arg1;
 - (_Bool)_isOwnLists;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (id)initWithCollectionViewLayout:(id)arg1;
+- (id)initWithAccount:(id)arg1;
 
 @end
 

@@ -52,7 +52,6 @@
 - (_Bool)slideshowCanRequestLoadingMoreSlides:(id)arg1;
 - (void)slideshowDidRequestLoadingMoreSlides:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)slideshow:(id)arg1 dismissAndPresentViewController:(id)arg2;
-- (void)slideshow:(id)arg1 didSelectSticker:(id)arg2;
 - (void)slideshow:(id)arg1 status:(id)arg2 didSelectActiveRange:(id)arg3;
 - (void)slideshow:(id)arg1 didSelectUser:(id)arg2;
 - (void)slideshow:(id)arg1 didSelectStatusReply:(id)arg2;

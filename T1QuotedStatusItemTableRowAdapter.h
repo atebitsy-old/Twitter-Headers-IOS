@@ -6,10 +6,11 @@
 
 #import <TFNUI/TFNItemsTableRowAdapter.h>
 
-@class T1NewsCameraAnimatedPresenter, T1StatusMediaHandler;
+@class T1NewsCameraAnimatedPresenter, T1StatusMediaHandler, TFNTwitterAccount;
 
 @interface T1QuotedStatusItemTableRowAdapter : TFNItemsTableRowAdapter
 {
+    TFNTwitterAccount *_account;
     T1StatusMediaHandler *_statusMediaHandler;
     T1NewsCameraAnimatedPresenter *_newsCameraPresenter;
     CDUnknownBlockType _statusOptionsBlock;
@@ -18,6 +19,7 @@
 @property(copy, nonatomic) CDUnknownBlockType statusOptionsBlock; // @synthesize statusOptionsBlock=_statusOptionsBlock;
 @property(readonly, nonatomic) T1NewsCameraAnimatedPresenter *newsCameraPresenter; // @synthesize newsCameraPresenter=_newsCameraPresenter;
 @property(readonly, nonatomic) T1StatusMediaHandler *statusMediaHandler; // @synthesize statusMediaHandler=_statusMediaHandler;
+@property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
 - (id)_t1_newsCameraPresenterWithController:(id)arg1;
 - (id)dataViewController:(id)arg1 previewingViewControllerForItem:(id)arg2 withOptions:(id)arg3 location:(struct CGPoint)arg4 inCell:(id)arg5 atIndexPath:(id)arg6 outSourceRect:(out struct CGRect *)arg7;
@@ -25,7 +27,7 @@
 - (double)dataViewController:(id)arg1 tableViewHeightForItem:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4;
 - (void)setStatusMediaHandlerIfNotSetBefore:(id)arg1;
 - (id)init;
-- (id)initWithMediaHandler:(id)arg1 statusOptionsBlock:(CDUnknownBlockType)arg2;
+- (id)initWithAccount:(id)arg1 mediaHandler:(id)arg2 statusOptionsBlock:(CDUnknownBlockType)arg3;
 
 @end
 

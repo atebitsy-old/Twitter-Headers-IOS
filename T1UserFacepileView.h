@@ -13,6 +13,7 @@
 @interface T1UserFacepileView : UIView <TFNLayoutMetricsEnvironment>
 {
     _Bool _isRTL;
+    _Bool _scalesWithTextSize;
     _Bool _cascading;
     TIPImagePipeline *_imagePipeline;
     UIColor *_borderColor;
@@ -28,6 +29,7 @@
 @property(nonatomic, getter=isCascading) _Bool cascading; // @synthesize cascading=_cascading;
 @property(nonatomic) double borderWidth; // @synthesize borderWidth=_borderWidth;
 @property(retain, nonatomic) UIColor *borderColor; // @synthesize borderColor=_borderColor;
+@property(nonatomic) _Bool scalesWithTextSize; // @synthesize scalesWithTextSize=_scalesWithTextSize;
 @property(nonatomic) _Bool isRTL; // @synthesize isRTL=_isRTL;
 @property(retain, nonatomic) TIPImagePipeline *imagePipeline; // @synthesize imagePipeline=_imagePipeline;
 - (void).cxx_destruct;
@@ -36,6 +38,7 @@
 - (id)_userForAvatarImageView:(id)arg1;
 - (void)_avatarImageViewTapped:(id)arg1;
 - (void)layoutSubviews;
+- (struct CGSize)avatarSize;
 - (void)private_commonInit;
 - (struct CGSize)intrinsicContentSize;
 - (id)initWithCoder:(id)arg1;

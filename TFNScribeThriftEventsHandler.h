@@ -8,14 +8,16 @@
 
 #import <T1Twitter/TFSScribeOutgoingEventsHandler-Protocol.h>
 
-@class NSString, TFNTwitterAccount;
+@class NSString, TFNTwitterScribeFlush;
 
 @interface TFNScribeThriftEventsHandler : NSObject <TFSScribeOutgoingEventsHandler>
 {
-    TFNTwitterAccount *_account;
+    NSString *_accountID;
+    TFNTwitterScribeFlush *_scribeFlush;
 }
 
-@property(nonatomic) __weak TFNTwitterAccount *account; // @synthesize account=_account;
+@property(nonatomic) __weak TFNTwitterScribeFlush *scribeFlush; // @synthesize scribeFlush=_scribeFlush;
+@property(copy, nonatomic) NSString *accountID; // @synthesize accountID=_accountID;
 - (void).cxx_destruct;
 - (void)handleScribeOutgoingEvents:(id)arg1 eventParameters:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 

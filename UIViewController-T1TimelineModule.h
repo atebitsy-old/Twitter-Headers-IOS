@@ -7,7 +7,6 @@
 #import <UIKit/UIViewController.h>
 
 @interface UIViewController (T1TimelineModule)
-- (id)t1_menuSheetForTimelineModule:(id)arg1 actionItems:(id)arg2 dismissActionBlock:(CDUnknownBlockType)arg3 source:(id)arg4 doneBlock:(CDUnknownBlockType)arg5;
-- (id)t1_actionSheetForTimelineModule:(id)arg1 actionItems:(id)arg2 dismissActionBlock:(CDUnknownBlockType)arg3 source:(id)arg4 doneBlock:(CDUnknownBlockType)arg5;
+- (id)t1_menuSheetForTimelineModule:(id)arg1 actionItems:(id)arg2 dismissActionBlock:(CDUnknownBlockType)arg3 source:(id)arg4 account:(id)arg5 doneBlock:(CDUnknownBlockType)arg6;
 @end
 

@@ -26,8 +26,8 @@
 - (void)cancelAllUploaders;
 - (void)cancelUploadForAssets:(id)arg1;
 - (void)_startOrQueueUploader:(id)arg1;
-- (_Bool)uploadAssets:(id)arg1 fromAccount:(id)arg2 source:(long long)arg3 sourceType:(unsigned long long)arg4 networkTransactionMetrics:(id)arg5;
-- (_Bool)uploadAsset:(id)arg1 fromAccount:(id)arg2 source:(long long)arg3 sourceType:(unsigned long long)arg4 networkTransactionMetrics:(id)arg5;
+- (_Bool)uploadAssets:(id)arg1 fromAccount:(id)arg2 source:(long long)arg3 networkTransactionMetrics:(id)arg4;
+- (_Bool)uploadAsset:(id)arg1 fromAccount:(id)arg2 source:(long long)arg3 networkTransactionMetrics:(id)arg4;
 - (id)init;
 
 // Remaining properties

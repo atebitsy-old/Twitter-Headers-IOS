@@ -12,7 +12,7 @@
 {
     // Error parsing type: , name: account
     // Error parsing type: , name: changeCountryPresenter
-    // Error parsing type: , name: countryDescriptionItem
+    // Error parsing type: , name: countryDescriptionItem.storage
     // Error parsing type: , name: emailAndPhoneLoader
     // Error parsing type: , name: addEmailPresenter
     // Error parsing type: , name: addPhonePresenter

@@ -7,8 +7,6 @@
 #import <TFNUI/TFNButtonAnimationType.h>
 
 @interface TFNButtonAnimationType (TFNTwitterAdditions)
-+ (id)actionBarHeartSequenceAnimationTypeSpecialEvent;
-+ (id)inlineHeartSequenceAnimationTypeSpecialEvent;
 + (id)momentsHeartSequenceAnimationType;
 + (id)actionBarHeartSequenceAnimationType;
 + (id)inlineHeartSequenceAnimationType;

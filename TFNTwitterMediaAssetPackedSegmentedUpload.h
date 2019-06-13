@@ -20,7 +20,6 @@
     TFNTwitterMediaAsset *_asset;
     id <TFNTwitterMediaAssetUploadDelegate> _delegate;
     long long _uploadSource;
-    unsigned long long _uploadSourceType;
     TFNTwitterMediaUploadConfiguration *_configuration;
     id <TNUNetworkQualityProvider> _networkQualityProvider;
     TNUTransactionMetrics *_networkTransactionMetrics;
@@ -34,7 +33,6 @@
 @property(readonly, nonatomic) TNUTransactionMetrics *networkTransactionMetrics; // @synthesize networkTransactionMetrics=_networkTransactionMetrics;
 @property(readonly, nonatomic) id <TNUNetworkQualityProvider> networkQualityProvider; // @synthesize networkQualityProvider=_networkQualityProvider;
 @property(readonly, nonatomic) TFNTwitterMediaUploadConfiguration *configuration; // @synthesize configuration=_configuration;
-@property(readonly, nonatomic) unsigned long long uploadSourceType; // @synthesize uploadSourceType=_uploadSourceType;
 @property(readonly, nonatomic) long long uploadSource; // @synthesize uploadSource=_uploadSource;
 @property(nonatomic) __weak id <TFNTwitterMediaAssetUploadDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) TFNTwitterMediaAsset *asset; // @synthesize asset=_asset;
@@ -47,7 +45,7 @@
 - (void)cancel;
 - (_Bool)start;
 @property(readonly, nonatomic) unsigned long long status;
-- (id)initWithAccount:(id)arg1 identifier:(id)arg2 configuration:(id)arg3 asset:(id)arg4 uploadSource:(long long)arg5 uploadSourceType:(unsigned long long)arg6 networkQualityProvider:(id)arg7 networkTransactionMetrics:(id)arg8;
+- (id)initWithAccount:(id)arg1 identifier:(id)arg2 configuration:(id)arg3 asset:(id)arg4 uploadSource:(long long)arg5 networkQualityProvider:(id)arg6 networkTransactionMetrics:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

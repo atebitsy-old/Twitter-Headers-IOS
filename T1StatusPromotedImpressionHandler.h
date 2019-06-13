@@ -8,18 +8,20 @@
 
 #import <T1Twitter/UIScrollViewDelegate-Protocol.h>
 
-@class NSString, TFNDataViewController;
+@class NSString, TFNDataViewController, TFNTwitterAccount;
 
 @interface T1StatusPromotedImpressionHandler : NSObject <UIScrollViewDelegate>
 {
     TFNDataViewController *_dataViewController;
+    TFNTwitterAccount *_account;
 }
 
+@property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
 @property(nonatomic) __weak TFNDataViewController *dataViewController; // @synthesize dataViewController=_dataViewController;
 - (void).cxx_destruct;
 - (void)_t1_logStatusPromotedImpressionForCells:(id)arg1 controller:(id)arg2 account:(id)arg3;
 - (void)scrollViewDidScrollToTop:(id)arg1;
-- (id)initWithDataViewController:(id)arg1;
+- (id)initWithDataViewController:(id)arg1 account:(id)arg2;
 - (id)init;
 
 // Remaining properties

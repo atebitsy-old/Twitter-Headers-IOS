@@ -10,7 +10,6 @@
 @protocol TFNTwitterMediaAssetUploadDelegate, TNUNetworkQualityProvider;
 
 @protocol TFNTwitterMediaAssetUpload <NSObject>
-@property(readonly, nonatomic) unsigned long long uploadSourceType;
 @property(readonly, nonatomic) long long uploadSource;
 @property(nonatomic) __weak id <TFNTwitterMediaAssetUploadDelegate> delegate;
 @property(readonly, nonatomic) unsigned long long status;
@@ -22,6 +21,6 @@
 @property(readonly, nonatomic) float progress;
 - (void)cancel;
 - (_Bool)start;
-- (id)initWithAccount:(TFNTwitterAccount *)arg1 identifier:(NSUUID *)arg2 configuration:(TFNTwitterMediaUploadConfiguration *)arg3 asset:(TFNTwitterMediaAsset *)arg4 uploadSource:(long long)arg5 uploadSourceType:(unsigned long long)arg6 networkQualityProvider:(id <TNUNetworkQualityProvider>)arg7 networkTransactionMetrics:(TNUTransactionMetrics *)arg8;
+- (id)initWithAccount:(TFNTwitterAccount *)arg1 identifier:(NSUUID *)arg2 configuration:(TFNTwitterMediaUploadConfiguration *)arg3 asset:(TFNTwitterMediaAsset *)arg4 uploadSource:(long long)arg5 networkQualityProvider:(id <TNUNetworkQualityProvider>)arg6 networkTransactionMetrics:(TNUTransactionMetrics *)arg7;
 @end
 

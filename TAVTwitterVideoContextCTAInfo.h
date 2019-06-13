@@ -11,21 +11,21 @@
 @interface TAVTwitterVideoContextCTAInfo : NSObject
 {
     unsigned long long _type;
+    unsigned long long _openWebsiteType;
     NSString *_urlString;
     NSNumber *_appId;
     NSString *_appName;
-    unsigned long long _openWebsiteType;
 }
 
 + (id)withAmplifyVMAPPlaylistCTA:(id)arg1;
-@property(nonatomic) unsigned long long openWebsiteType; // @synthesize openWebsiteType=_openWebsiteType;
 @property(retain, nonatomic) NSString *appName; // @synthesize appName=_appName;
 @property(retain, nonatomic) NSNumber *appId; // @synthesize appId=_appId;
 @property(copy, nonatomic) NSString *urlString; // @synthesize urlString=_urlString;
+@property(nonatomic) unsigned long long openWebsiteType; // @synthesize openWebsiteType=_openWebsiteType;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
 - (id)initWatchURLCTAWithURLString:(id)arg1;
-- (id)initOpenURLCTAWithURLString:(id)arg1;
+- (id)initOpenURLCTAWithURLString:(id)arg1 openWebsiteType:(unsigned long long)arg2;
 - (id)initAppStoreCTAWithAppId:(id)arg1 appName:(id)arg2 urlString:(id)arg3;
 
 @end

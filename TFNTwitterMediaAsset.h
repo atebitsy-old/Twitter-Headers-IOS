@@ -8,13 +8,12 @@
 
 #import <T1Twitter/NSCoding-Protocol.h>
 #import <T1Twitter/NSCopying-Protocol.h>
-#import <T1Twitter/NSItemProviderReading-Protocol.h>
 #import <T1Twitter/TFNTwitterMediaAssetUploadDelegate-Protocol.h>
 
 @class NSDate, NSDictionary, NSString, NSUUID, TFNTwitterMediaAssetScribeValue, UIImage;
 @protocol NSCoding><NSCopying, NSObject><NSCopying><NSCoding, TFNTwitterMediaAssetUpload;
 
-@interface TFNTwitterMediaAsset : NSObject <NSCopying, NSCoding, TFNTwitterMediaAssetUploadDelegate, NSItemProviderReading>
+@interface TFNTwitterMediaAsset : NSObject <NSCopying, NSCoding, TFNTwitterMediaAssetUploadDelegate>
 {
     _Bool _excludeFromProgressCenter;
     _Bool _pendingUploadSuccess;
@@ -32,7 +31,6 @@
     NSString *_uploadingAccountID;
 }
 
-+ (id)readableTypeIdentifiersForItemProvider;
 + (id)objectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 + (id)videoImportMediaAssetForMediaAsset:(id)arg1;
 + (_Bool)isVideoImportMediaAsset:(id)arg1;

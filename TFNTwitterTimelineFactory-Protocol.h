@@ -7,9 +7,11 @@
 #import <T1Twitter/NSObject-Protocol.h>
 
 @class NSArray, NSDictionary, NSSet, NSString, TFNTwitterAccount, TFNTwitterTimeline;
+@protocol TFNTwitterHomeTimelineVariantCoordinator;
 
 @protocol TFNTwitterTimelineFactory <NSObject>
 - (id)urtNotificationsTimelineForAccount:(TFNTwitterAccount *)arg1;
+- (id <TFNTwitterHomeTimelineVariantCoordinator>)homeTimelineVariantCoordinatorForAccount:(TFNTwitterAccount *)arg1;
 - (TFNTwitterTimeline *)timelineForAccount:(TFNTwitterAccount *)arg1 identifier:(NSString *)arg2 savedPlistDictionary:(NSDictionary *)arg3;
 - (NSSet *)inUseTimelineIdentifiersForAccount:(TFNTwitterAccount *)arg1;
 - (NSArray *)timelineIdentifiers;

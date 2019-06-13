@@ -14,6 +14,7 @@
 - (id)_t1_tableViewCellReuseIdentifierForViewModel:(id)arg1 options:(unsigned long long)arg2 account:(id)arg3;
 - (_Bool)dataViewController:(id)arg1 shouldHighlightItem:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4;
 - (_Bool)dataViewController:(id)arg1 shouldSelectItem:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4;
+- (unsigned long long)_t1_tableViewController:(id)arg1 statusOptionsForViewModel:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4;
 - (id)dataViewController:(id)arg1 tableViewCellForItem:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4;
 
 @end

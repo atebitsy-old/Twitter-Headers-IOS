@@ -6,11 +6,9 @@
 
 #import <T1Twitter/NSObject-Protocol.h>
 
-@class NSDictionary, NSString, NSURLRequest, TFSAuthAccountOAuth1Credential;
+@class NSString, TFSAuthAccountOAuth1Credential;
 
 @protocol TFSAuthAccountAuthService <NSObject>
-- (void)reverseAuthForAccountID:(NSString *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
-- (void)signRequestWithSystemAccount:(NSURLRequest *)arg1 parameters:(NSDictionary *)arg2 multipart:(_Bool)arg3 accountID:(NSString *)arg4 completion:(void (^)(NSURLRequest *, NSError *))arg5;
 - (TFSAuthAccountOAuth1Credential *)credentialForAccountID:(NSString *)arg1;
 @end
 

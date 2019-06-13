@@ -42,7 +42,7 @@
 - (void)_layoutCTAButton;
 - (void)_layoutElements;
 - (void)layoutSubviews;
-- (void)updateWithCurrentPlaybackTime:(double)arg1 duration:(double)arg2;
+- (void)updateWithCurrentPlaybackState:(id)arg1;
 - (void)_playButtonDidTap;
 - (void)_ctaButtonDidTap;
 @property(readonly, nonatomic) double preferredHeight;

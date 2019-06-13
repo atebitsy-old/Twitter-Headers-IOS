@@ -23,7 +23,6 @@ __attribute__((visibility("hidden")))
 - (void)slideshow:(id)arg1 didDeleteStatus:(id)arg2;
 - (void)slideshow:(id)arg1 didSelectStatus:(id)arg2;
 - (void)slideshow:(id)arg1 didSelectStatusReply:(id)arg2;
-- (void)slideshow:(id)arg1 didSelectSticker:(id)arg2;
 - (void)setPreviewImageHidden:(_Bool)arg1 forImageTransitionViewController:(id)arg2 object:(id)arg3;
 - (void)imageTransitionViewController:(id)arg1 didTransition:(_Bool)arg2 object:(id)arg3;
 - (void)imageTransitionViewController:(id)arg1 willTransition:(_Bool)arg2 object:(id)arg3;

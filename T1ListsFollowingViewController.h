@@ -6,11 +6,10 @@
 
 #import <T1Twitter/T1ListsListViewController.h>
 
-@class TFNTwitterAccount, TFNTwitterListList, TFSTwitterUserReference;
+@class TFNTwitterListList, TFSTwitterUserReference;
 
 @interface T1ListsFollowingViewController : T1ListsListViewController
 {
-    TFNTwitterAccount *_account;
     TFSTwitterUserReference *_userReference;
     TFNTwitterListList *_listsList;
 }
@@ -19,8 +18,6 @@
 - (id)listsList;
 - (void)setUserReference:(id)arg1;
 - (id)userReference;
-- (void)setAccount:(id)arg1;
-- (id)account;
 - (void).cxx_destruct;
 - (id)scribeSection;
 - (void)_membershipsDidUpdate:(id)arg1;
@@ -28,7 +25,7 @@
 - (id)emptyListMessage;
 - (id)emptyListHeading;
 - (void)viewDidLoad;
-- (id)init;
+- (id)initWithAccount:(id)arg1;
 
 @end
 

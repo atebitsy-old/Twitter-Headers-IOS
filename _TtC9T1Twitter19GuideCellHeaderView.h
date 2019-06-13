@@ -20,8 +20,6 @@ __attribute__((visibility("hidden")))
     // Error parsing type: , name: badgeView
     // Error parsing type: , name: separatorView
     // Error parsing type: , name: timestampView
-    // Error parsing type: , name: avatarNameSpacingView
-    // Error parsing type: , name: nameVerifiedSpacingView
     // Error parsing type: , name: authorAvatarWidth.storage
     // Error parsing type: , name: imagePipeline
     // Error parsing type: , name: viewModel

@@ -50,6 +50,7 @@
     NSString *_tweetID;
     NSString *_moderatorChannel;
     NSArray *_heartThemes;
+    NSNumber *_scheduledStartTime;
     NSString *_copyrightViolationCopyrightHolderName;
     NSString *_copyrightViolationCopyrightContentName;
     double _replayEditedStartTime;
@@ -93,6 +94,7 @@
 @property(readonly, copy, nonatomic) NSString *copyrightViolationCopyrightContentName; // @synthesize copyrightViolationCopyrightContentName=_copyrightViolationCopyrightContentName;
 @property(readonly, copy, nonatomic) NSString *copyrightViolationCopyrightHolderName; // @synthesize copyrightViolationCopyrightHolderName=_copyrightViolationCopyrightHolderName;
 @property(readonly, nonatomic, getter=hasCopyrightViolationInterstitial) _Bool copyrightViolationInterstitial; // @synthesize copyrightViolationInterstitial=_copyrightViolationInterstitial;
+@property(readonly, nonatomic) NSNumber *scheduledStartTime; // @synthesize scheduledStartTime=_scheduledStartTime;
 @property(readonly, copy, nonatomic) NSArray *heartThemes; // @synthesize heartThemes=_heartThemes;
 @property(readonly, nonatomic, getter=isUnavailableInPeriscope) _Bool unavailableInPeriscope; // @synthesize unavailableInPeriscope=_unavailableInPeriscope;
 @property(readonly, nonatomic, getter=isHighLatency) _Bool highLatency; // @synthesize highLatency=_highLatency;
@@ -146,7 +148,6 @@
 - (id)endedOrTimedoutDate;
 - (_Bool)isEndedOrTimedOut;
 - (_Bool)isPlayable;
-- (_Bool)hasState;
 - (_Bool)_tfn_requiresCardDataImageWithCardData:(id)arg1;
 - (id)_t1_imageSpecForCardData:(id)arg1;
 - (struct CGSize)imageSizeWithCardData:(id)arg1;

@@ -9,7 +9,7 @@
 #import <T1Twitter/T1FollowControlDelegate-Protocol.h>
 #import <T1Twitter/T1UnifiedCardComponentViewEventDelegate-Protocol.h>
 
-@class NSArray, NSString, T1ActivityCellViewModel, T1AdaptiveMediaParameters, T1DismissButton, T1UnifiedCardView, T1UnifiedCardViewLayoutDelegate, T1UserFacepileView, TFNAttributedTextView, TIPImagePipeline, UIButton, UIImageView;
+@class NSArray, NSString, T1AdaptiveMediaParameters, T1DismissButton, T1UnifiedCardView, T1UnifiedCardViewLayoutDelegate, T1UserFacepileView, TFNAttributedTextView, TIPImagePipeline, UIButton, UIImageView, _TtC9T1Twitter23T1ActivityCellViewModel;
 @protocol T1UnifiedCardComponentViewRegistry;
 
 @interface T1ActivityCell : TFNTableViewCell <T1UnifiedCardComponentViewEventDelegate, T1FollowControlDelegate>
@@ -19,7 +19,7 @@
     id <T1UnifiedCardComponentViewRegistry> _componentRegistry;
     T1UnifiedCardViewLayoutDelegate *_cardViewLayoutDelegate;
     NSArray *_voiceOverCustomActions;
-    T1ActivityCellViewModel *_viewModel;
+    _TtC9T1Twitter23T1ActivityCellViewModel *_viewModel;
     UIImageView *_luckyCharmImageView;
     T1UserFacepileView *_facepileView;
     TFNAttributedTextView *_socialTextView;
@@ -50,7 +50,7 @@
 @property(retain, nonatomic) TFNAttributedTextView *socialTextView; // @synthesize socialTextView=_socialTextView;
 @property(retain, nonatomic) T1UserFacepileView *facepileView; // @synthesize facepileView=_facepileView;
 @property(retain, nonatomic) UIImageView *luckyCharmImageView; // @synthesize luckyCharmImageView=_luckyCharmImageView;
-@property(retain, nonatomic) T1ActivityCellViewModel *viewModel; // @synthesize viewModel=_viewModel;
+@property(retain, nonatomic) _TtC9T1Twitter23T1ActivityCellViewModel *viewModel; // @synthesize viewModel=_viewModel;
 @property(retain, nonatomic) NSArray *voiceOverCustomActions; // @synthesize voiceOverCustomActions=_voiceOverCustomActions;
 @property(nonatomic) __weak T1UnifiedCardViewLayoutDelegate *cardViewLayoutDelegate; // @synthesize cardViewLayoutDelegate=_cardViewLayoutDelegate;
 @property(retain, nonatomic) id <T1UnifiedCardComponentViewRegistry> componentRegistry; // @synthesize componentRegistry=_componentRegistry;

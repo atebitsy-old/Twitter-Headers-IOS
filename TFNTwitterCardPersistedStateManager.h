@@ -14,10 +14,11 @@
     NSMutableDictionary *_cards;
 }
 
++ (id)_cardsDirectoryNameForAccountID:(id)arg1;
 + (id)_cardsDirectoryPathForAccountID:(id)arg1;
-+ (id)_cardNameForCardContext:(id)arg1;
-+ (id)_fullPathForCardContext:(id)arg1 withAccountID:(id)arg2;
-+ (id)_cardDirectoryPathForContext:(id)arg1 withAccountID:(id)arg2;
++ (id)_cardNameForCacheId:(id)arg1;
++ (id)_fullPathForCacheId:(id)arg1 withAccountID:(id)arg2;
++ (id)_cardDirectoryPathForCacheId:(id)arg1 withAccountID:(id)arg2;
 + (id)_inMemoryQueue;
 + (id)_persistenceQueue;
 + (_Bool)isConversationCardUnlockedForCardData:(id)arg1 account:(id)arg2;
@@ -27,16 +28,17 @@
 - (void).cxx_destruct;
 - (void)persistence_ensureAccountCardsDirectoryExists;
 - (void)persistence_removeCardStateAtPath:(id)arg1;
-- (void)persistence_saveCardStateToDisk:(id)arg1 forContext:(id)arg2;
+- (void)persistence_saveCardStateToDisk:(id)arg1 forCacheId:(id)arg2;
 - (id)persistence_cardUrlsFromDiskSortedByAccessDate;
 - (void)persistence_loadCardForUrl:(id)arg1;
 - (void)persistence_loadMostRecentCardsFromDiskAndCleanup;
-- (id)inMemory_cardStateDictionaryForCardContext:(id)arg1;
+- (id)inMemory_cardStateDictionaryForCacheId:(id)arg1;
 - (void)clearAll;
-- (void)removeCardForContext:(id)arg1;
-- (void)removeValueForKey:(id)arg1 withCardContext:(id)arg2;
-- (id)objectForKey:(id)arg1 withCardContext:(id)arg2;
-- (void)setObject:(id)arg1 forKey:(id)arg2 withCardContext:(id)arg3;
+- (void)clearAllWithCompletion:(CDUnknownBlockType)arg1;
+- (void)removeCacheWithId:(id)arg1;
+- (void)removeValueForKey:(id)arg1 withCacheId:(id)arg2;
+- (id)objectForKey:(id)arg1 withCacheId:(id)arg2;
+- (void)setObject:(id)arg1 forKey:(id)arg2 withCacheId:(id)arg3;
 - (id)init;
 - (id)initWithAccountID:(id)arg1;
 

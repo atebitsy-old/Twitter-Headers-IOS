@@ -20,8 +20,8 @@
 }
 
 + (id)objectsWithFooterForSuggestsModule:(id)arg1 account:(id)arg2;
-@property(retain, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
-@property(retain, nonatomic) TFNTwitterSuggestsModule *suggestsModule; // @synthesize suggestsModule=_suggestsModule;
+@property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
+@property(readonly, nonatomic) TFNTwitterSuggestsModule *suggestsModule; // @synthesize suggestsModule=_suggestsModule;
 - (_Bool)isLogicalSectionController;
 - (void).cxx_destruct;
 - (id)timelineObjectForItemAtIndexPath:(id)arg1;

@@ -16,6 +16,7 @@
     UIViewController<TFNNavigationStack> *_originalNavigationController;
     UIViewController *_originalTopViewController;
     UIViewController *_originalPresentingViewController;
+    UIViewController *_originalPresentedViewController;
     long long _originalPresentationType;
     id <T1OnboardingWaitable> _waitingWaitable;
     id <UIViewControllerAnimatedTransitioning> _animationControllerForDismiss;

@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <TwitterLifecycleTools/TFNGenericBackgroundFetchTask.h>
+#import <TwitterLifecycleTools/TLTGenericBackgroundFetchTask.h>
 
-@interface T1HomeTimelineUpdateBackgroundFetchTask : TFNGenericBackgroundFetchTask
+@interface T1HomeTimelineUpdateBackgroundFetchTask : TLTGenericBackgroundFetchTask
 {
     // Error parsing type: , name: completion
     // Error parsing type: , name: result

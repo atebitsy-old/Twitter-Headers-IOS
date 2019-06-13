@@ -22,6 +22,7 @@
 - (void)tfs_priorityForEvent:(id)arg1 complete:(CDUnknownBlockType)arg2;
 - (void)_t1_queue_completePolling:(id)arg1 error:(id)arg2;
 - (void)_t1_queue_triggerWithAccountID:(id)arg1 configurationKey:(id)arg2 configurationValue:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (id)tfs_taskState;
 - (void)tfs_triggerFromService:(id)arg1 event:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)queue_cancel;
 - (void)cancel;

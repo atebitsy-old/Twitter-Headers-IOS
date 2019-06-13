@@ -41,7 +41,6 @@
 + (_Bool)isGraphQLAccountVerifyCredentialsEnabled;
 + (_Bool)isGraphQLUsersShowEnabled;
 + (_Bool)coreServices2StatusEnabled;
-+ (_Bool)coreServices2UserEnabled;
 + (_Bool)coreServices2UserBuilderEnabled;
 + (id)coreServices2TNLBackgroundIdleTimeout;
 + (id)coreServices2TNLForegroundIdleTimeout;
@@ -130,8 +129,6 @@
 + (_Bool)disableWatchdogDetection;
 + (_Bool)shouldScribeCrash;
 + (_Bool)shouldScribeError;
-+ (id)specialEventHashtags;
-+ (_Bool)isSpecialEventAnimationEnabled;
 + (_Bool)isSmartInvertColorsEnabled;
 + (_Bool)isNestedActionButtonEnabled;
 + (_Bool)isProfileCollapsingNavigationBarEnabled;

@@ -6,13 +6,12 @@
 
 #import <T1Twitter/NSObject-Protocol.h>
 
-@class T1SlideshowViewController, TFNTwitterStatus, TFNTwitterSticker, TFNTwitterUser, UIViewController;
+@class T1SlideshowViewController, TFNTwitterStatus, TFNTwitterUser, UIViewController;
 @protocol TFSActiveTextRange;
 
 @protocol T1SlideshowViewControllerDelegate <NSObject>
 - (void)slideshow:(T1SlideshowViewController *)arg1 didSelectStatusReply:(TFNTwitterStatus *)arg2;
 - (void)slideshow:(T1SlideshowViewController *)arg1 status:(TFNTwitterStatus *)arg2 didSelectActiveRange:(id <TFSActiveTextRange>)arg3;
-- (void)slideshow:(T1SlideshowViewController *)arg1 didSelectSticker:(TFNTwitterSticker *)arg2;
 - (void)slideshow:(T1SlideshowViewController *)arg1 dismissAndPresentViewController:(UIViewController *)arg2;
 - (void)slideshow:(T1SlideshowViewController *)arg1 didSelectUser:(TFNTwitterUser *)arg2;
 - (void)slideshow:(T1SlideshowViewController *)arg1 didDeleteStatus:(TFNTwitterStatus *)arg2;

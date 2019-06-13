@@ -11,7 +11,7 @@
 #import <T1Twitter/TFSAuthGuestAuthAPI-Protocol.h>
 #import <T1Twitter/TFSAuthKeychainSupport-Protocol.h>
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSOrderedSet, NSRecursiveLock, NSString, TFNTwitterScribe, TFNTwitterScribeFlush, TFSStopwatch, TFSTwitterRecurringTaskTimerEventSource;
+@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSOrderedSet, NSRecursiveLock, NSString, T1HashflagService, TFNTwitterScribe, TFNTwitterScribeFlush, TFSTwitterRecurringTaskTimerEventSource;
 @protocol TFSTwitterRecurringTask;
 
 @interface TFNTwitter : NSObject <TFSAuthAccountAuthService, TFSAuthGuestAuthAPI, TFSAuthKeychainSupport, TFNTwitterAccountPushSettingsProvider>
@@ -23,13 +23,8 @@
     double _clockDelta;
     _Bool _teamsAccountUpdateNeeded;
     _Bool _updatingTeamsAccount;
-    _Bool _syncingWithSystemAccounts;
     NSArray *_accounts;
     NSRecursiveLock *_teamsAccountsLock;
-    NSRecursiveLock *_systemAccountsLock;
-    double _lastSyncingErrorTime;
-    double _accountSyncingDuration;
-    TFSStopwatch *_accountSyncingStopwatch;
     NSMutableDictionary *_retainedCredentials;
     CDUnknownBlockType _buildOverrideAccountPushSettingsManager;
     long long _heartbeatCount;
@@ -55,11 +50,6 @@
 + (void)saveSharedTwitter;
 + (id)sharedTwitter;
 + (id)sharedTwitterPeek;
-+ (void)_resetSystemAccountStore;
-+ (id)sharedSystemAccountStore;
-+ (id)_systemAccountAuthQueue;
-+ (void)startOrResumeTFSSystemAuthQueue;
-+ (void)suspendTFSSystemAuthQueue;
 @property(nonatomic) __weak TFSTwitterRecurringTaskTimerEventSource *directMessageRefreshRecurringTaskTimerEventSource; // @synthesize directMessageRefreshRecurringTaskTimerEventSource=_directMessageRefreshRecurringTaskTimerEventSource;
 @property(retain, nonatomic) id <TFSTwitterRecurringTask> directMessageRefreshRecurringTask; // @synthesize directMessageRefreshRecurringTask=_directMessageRefreshRecurringTask;
 @property(retain, nonatomic) id registrationRecurringTasksContext; // @synthesize registrationRecurringTasksContext=_registrationRecurringTasksContext;
@@ -71,11 +61,6 @@
 @property(nonatomic) long long heartbeatCount; // @synthesize heartbeatCount=_heartbeatCount;
 @property(copy, nonatomic) CDUnknownBlockType buildOverrideAccountPushSettingsManager; // @synthesize buildOverrideAccountPushSettingsManager=_buildOverrideAccountPushSettingsManager;
 @property(retain, nonatomic) NSMutableDictionary *retainedCredentials; // @synthesize retainedCredentials=_retainedCredentials;
-@property(retain, nonatomic) TFSStopwatch *accountSyncingStopwatch; // @synthesize accountSyncingStopwatch=_accountSyncingStopwatch;
-@property(nonatomic) double accountSyncingDuration; // @synthesize accountSyncingDuration=_accountSyncingDuration;
-@property(nonatomic) double lastSyncingErrorTime; // @synthesize lastSyncingErrorTime=_lastSyncingErrorTime;
-@property(nonatomic) _Bool syncingWithSystemAccounts; // @synthesize syncingWithSystemAccounts=_syncingWithSystemAccounts;
-@property(readonly, nonatomic) NSRecursiveLock *systemAccountsLock; // @synthesize systemAccountsLock=_systemAccountsLock;
 @property(readonly, nonatomic) NSRecursiveLock *teamsAccountsLock; // @synthesize teamsAccountsLock=_teamsAccountsLock;
 @property(nonatomic) _Bool updatingTeamsAccount; // @synthesize updatingTeamsAccount=_updatingTeamsAccount;
 @property(nonatomic) _Bool teamsAccountUpdateNeeded; // @synthesize teamsAccountUpdateNeeded=_teamsAccountUpdateNeeded;
@@ -119,7 +104,7 @@
 - (id)accountWithUserReference:(id)arg1;
 - (id)accountWithUsername:(id)arg1;
 - (id)accountWithUserID:(long long)arg1;
-- (void)removeAccount:(id)arg1 fromSystemAccounts:(_Bool)arg2 withAccountRemovalCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)removeAccount:(id)arg1 withAccountRemovalCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_logoutOauthSessionWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_finishedRemovingAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_prepareToRemoveAccount:(id)arg1 notifyAccountsDidChange:(_Bool)arg2;
@@ -127,8 +112,7 @@
 - (void)removeTeamsAccount:(id)arg1;
 - (_Bool)addOrUpdateTeamsAccount:(id)arg1;
 - (id)addOrUpdateAccount:(id)arg1;
-- (void)_addAccount:(id)arg1 addToSystemAccount:(_Bool)arg2 shouldNotifyAccountsDidChange:(_Bool)arg3;
-- (void)_addAccount:(id)arg1 addToSystemAccount:(_Bool)arg2;
+- (void)_addAccount:(id)arg1 shouldNotifyAccountsDidChange:(_Bool)arg2;
 - (void)addAccount:(id)arg1;
 - (void)resetAccountsOAuthCredentials;
 - (void)saveMomentsState:(_Bool)arg1;
@@ -144,6 +128,7 @@
 - (id)init;
 - (void)scheduleRecurringForegroundServerAccountBadgesFetchTask;
 - (void)scheduleRecurringHashflagsUpdateTask;
+@property(nonatomic, readonly) T1HashflagService *hashflagService;
 - (void)_removeAllAccountsForTest;
 - (void)_addAccountForTest:(id)arg1;
 - (id)_createUpdateActiveAccountForPushBadgingTask:(id)arg1;
@@ -170,18 +155,7 @@
 - (void)createSecondaryRecurringTasks;
 - (void)createAccountLoadedRecurringTasks;
 - (void)prepareRecurringTasksRegistrationsWithContext:(id)arg1;
-- (void)_scribeDuplicateUsername:(unsigned long long)arg1;
-- (void)_systemAccountsDidChange:(id)arg1;
-- (void)_didFinishSynchronizeSystemAccounts;
-- (void)_synchronizeSystemAccountsWithReason:(unsigned long long)arg1;
-- (void)_synchronizeSystemAccounts:(id)arg1;
-- (void)_accountStoreDidReturnSyncingError;
-- (void)_userDidNotGrantAccessToSystemAccounts;
-- (void)_setupSystemAccountInAllAccounts:(id)arg1;
-- (void)_linkAccounts:(id)arg1 toSystemAccounts:(id)arg2;
-- (_Bool)_removeStrandedAccounts;
-- (void)_resetSystemAccounts;
-- (void)suspend;
+- (void)_synchronizeAccountsWithReason:(unsigned long long)arg1;
 - (void)resumeWithAccountSyncReason:(unsigned long long)arg1;
 - (void)startup;
 - (void)_updateOwnerAccountContributeeUserIDs:(id)arg1;
@@ -206,12 +180,9 @@
 - (void)fetchAppTokenFromKeychain:(CDUnknownBlockType)arg1;
 - (void)guestActivateWithAppToken:(id)arg1 responseBlock:(CDUnknownBlockType)arg2;
 - (void)appTokenExchangeWithResponseBlock:(CDUnknownBlockType)arg1;
-- (void)reverseAuthForAccountID:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)signRequestWithSystemAccount:(id)arg1 parameters:(id)arg2 multipart:(_Bool)arg3 accountID:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (id)credentialForAccountID:(id)arg1;
 - (void)releaseRetainedCredentialForAccountID:(id)arg1;
 - (_Bool)retainCredentialForAccountID:(id)arg1;
-- (id)accountWithTFSAccountID:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

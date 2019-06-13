@@ -9,15 +9,19 @@
 #import <T1Twitter/NSCoding-Protocol.h>
 #import <T1Twitter/TFNDirectMessageUser-Protocol.h>
 
-@class NSNumber, NSString, TFNDirectMessageUser, TFSTwitterEntityMedia, TFSTwitterEntitySet, TFSTwitterUserReference;
+@class NSNumber, NSString, TFNDirectMessageUser, TFSModelContext, TFSTwitterEntityMedia, TFSTwitterEntitySet, TFSTwitterUserReference;
 
 @interface TFNDirectMessageCachedUser : NSObject <TFNDirectMessageUser, NSCoding>
 {
     TFNDirectMessageUser *_directMessageUser;
     long long _userID;
     NSNumber *_userIDNumber;
+    TFSModelContext *_modelContext;
+    id _userObserver;
 }
 
+@property(retain, nonatomic) id userObserver; // @synthesize userObserver=_userObserver;
+@property(retain, nonatomic) TFSModelContext *modelContext; // @synthesize modelContext=_modelContext;
 @property(readonly, nonatomic) NSNumber *userIDNumber; // @synthesize userIDNumber=_userIDNumber;
 @property(readonly, nonatomic) long long userID; // @synthesize userID=_userID;
 - (void).cxx_destruct;

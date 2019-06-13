@@ -23,7 +23,6 @@
 @property(readonly, nonatomic) TFNTwitterStatus *status; // @synthesize status=_status;
 @property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
-- (id)_t1_tavScribeContext;
 - (id)entityURL;
 - (struct CGSize)imageDimentions;
 - (id)imageUrlString;

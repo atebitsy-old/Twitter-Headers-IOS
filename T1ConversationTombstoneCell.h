@@ -6,8 +6,6 @@
 
 #import <TFNUI/TFNTextCell.h>
 
-@class NSString;
-
 @interface T1ConversationTombstoneCell : TFNTextCell
 {
     // Error parsing type: , name: showTopConnector
@@ -24,8 +22,6 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
-@property(nonatomic, copy) NSString *accessibilityLabel;
-@property(nonatomic) _Bool isAccessibilityElement;
 - (void)prepareForReuse;
 - (void)updateWith:(id)arg1 buttonRichText:(id)arg2;
 - (void)didTapOnViewButtonWithTombstoneView:(id)arg1;

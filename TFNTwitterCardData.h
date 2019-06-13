@@ -90,9 +90,8 @@
 @property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
+- (id)initWithInstanceData:(id)arg1 name:(id)arg2 URL:(id)arg3 bindingsToScribe:(id)arg4 usersByIDNumber:(id)arg5;
 - (id)initWithInstanceData:(id)arg1 name:(id)arg2 URL:(id)arg3 usersByIDNumber:(id)arg4;
-- (id)initWithInstanceData:(id)arg1 cardName:(id)arg2 urlString:(id)arg3;
-- (id)initWithInstanceData:(id)arg1 cardName:(id)arg2;
 - (id)initWithPlistDictionary:(id)arg1 users:(id)arg2;
 - (id)initWithPlistDictionary:(id)arg1;
 - (id)initWithJSONDictionary:(id)arg1;
@@ -111,10 +110,14 @@
 - (_Bool)containsUnifiedCard;
 - (id)withLegacyCardsMigratedToUC:(id)arg1;
 - (id)withPromotedContent:(id)arg1;
+- (id)broadcastPostLiveSlateImageSpec;
+- (id)broadcastPreLiveSlateImageSpec;
 - (_Bool)broadcastIsHighLatency;
 - (id)broadcastImageSpec;
 - (_Bool)broadcastRequiresFineGrainGeoblocking;
+- (unsigned long long)broadcastState;
 - (double)broadcastReplayEditedStartTime;
+- (id)broadcastScheduledStartTime;
 - (double)broadcastTimecode;
 - (id)broadcastOrientation;
 - (_Bool)broadcastIsThreeSixty;

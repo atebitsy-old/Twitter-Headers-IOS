@@ -4,30 +4,54 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <TFNUI/TFNAttributedTextView.h>
+#import <UIKit/UIView.h>
 
-@class T1TweetDetailsFooterItem, T1TweetDetailsFooterItemPlaceRange, T1TweetDetailsFooterItemSourceRange, T1TweetDetailsFooterItemTimestampRange;
+#import <T1Twitter/TFNAttributedTextViewDelegate-Protocol.h>
 
-@interface T1TweetDetailsFooterTextView : TFNAttributedTextView
+@class NSString, T1TweetDetailsFooterItem, T1TweetDetailsFooterItemPlaceRange, T1TweetDetailsFooterItemSourceRange, T1TweetDetailsFooterItemTimestampRange, TFNAttributedTextView, TFNButton, TFNTwitterAccount;
+@protocol T1StatusViewModel, T1TweetDetailsFooterTextViewDelegate;
+
+@interface T1TweetDetailsFooterTextView : UIView <TFNAttributedTextViewDelegate>
 {
+    TFNTwitterAccount *_account;
+    id <T1TweetDetailsFooterTextViewDelegate> _delegate;
+    id <T1StatusViewModel> _viewModel;
+    unsigned long long _options;
     T1TweetDetailsFooterItem *_footerItem;
     T1TweetDetailsFooterItemTimestampRange *_activeTimestampRange;
     T1TweetDetailsFooterItemPlaceRange *_activePlaceRange;
     T1TweetDetailsFooterItemSourceRange *_activeSourceRange;
+    TFNAttributedTextView *_textView;
+    TFNButton *_hiddenRepliesButton;
 }
 
++ (struct CGSize)sizeForViewModel:(id)arg1 footerItem:(id)arg2 maximumWidth:(double)arg3;
+@property(retain, nonatomic) TFNButton *hiddenRepliesButton; // @synthesize hiddenRepliesButton=_hiddenRepliesButton;
+@property(retain, nonatomic) TFNAttributedTextView *textView; // @synthesize textView=_textView;
 @property(retain, nonatomic) T1TweetDetailsFooterItemSourceRange *activeSourceRange; // @synthesize activeSourceRange=_activeSourceRange;
 @property(retain, nonatomic) T1TweetDetailsFooterItemPlaceRange *activePlaceRange; // @synthesize activePlaceRange=_activePlaceRange;
 @property(retain, nonatomic) T1TweetDetailsFooterItemTimestampRange *activeTimestampRange; // @synthesize activeTimestampRange=_activeTimestampRange;
 @property(retain, nonatomic) T1TweetDetailsFooterItem *footerItem; // @synthesize footerItem=_footerItem;
+@property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
+@property(readonly, nonatomic) id <T1StatusViewModel> viewModel; // @synthesize viewModel=_viewModel;
+@property(nonatomic) __weak id <T1TweetDetailsFooterTextViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
-- (id)_t1_joinerAttributedString;
-- (id)_t1_sourceAttributedString;
-- (id)_t1_locationAttributedString;
-- (id)_t1_timestampAttributedString;
-- (void)_t1_updateFooterTextView;
+- (void)attributedTextView:(id)arg1 didTapRange:(id)arg2 rect:(struct CGRect)arg3;
+- (void)_t1_didTapHiddenRepliesButton:(id)arg1;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)setViewModel:(id)arg1 options:(unsigned long long)arg2 account:(id)arg3;
+- (void)updateFooterTextView;
 - (void)layoutMetricsDidChange:(id)arg1;
 - (void)updateFontSize;
+- (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -18,7 +18,6 @@
     // Error parsing type: , name: authenticatedUserID
     // Error parsing type: , name: advertiserUser
     // Error parsing type: , name: isPinned
-    // Error parsing type: , name: isPartOfSpecialEvent
     // Error parsing type: , name: statusItemViewModelDidUpdateNotificationName
     // Error parsing type: , name: entryID
     // Error parsing type: , name: status
@@ -177,7 +176,6 @@
 @property(nonatomic, readonly) _Bool hasModeratedReplies;
 @property(nonatomic, readonly) TFSURTRichText *quotePivotDisplayText;
 @property(nonatomic, readonly) _Bool hasQuotePivot;
-@property(nonatomic, readonly) _Bool isPartOfSpecialEvent; // @synthesize isPartOfSpecialEvent;
 @property(nonatomic, readonly) _Bool isPinned; // @synthesize isPinned;
 @property(nonatomic, readonly) NSArray *hiddenURLEntities;
 @property(nonatomic, readonly) NSArray *hiddenMentionEntities;

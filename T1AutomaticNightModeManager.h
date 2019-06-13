@@ -6,33 +6,31 @@
 
 #import <objc/NSObject.h>
 
-@class TFNTwitterAccount;
+@class T1SunriseSunset, TFNTwitterAccount;
 
 @interface T1AutomaticNightModeManager : NSObject
 {
     _Bool _running;
-    _Bool _backgrounded;
+    _Bool _shouldIgnoreOverride;
     TFNTwitterAccount *_currentAccount;
+    T1SunriseSunset *_overrideSunriseSunset;
 }
 
 + (id)sharedManager;
-@property(nonatomic) __weak TFNTwitterAccount *currentAccount; // @synthesize currentAccount=_currentAccount;
+@property(retain, nonatomic) T1SunriseSunset *overrideSunriseSunset; // @synthesize overrideSunriseSunset=_overrideSunriseSunset;
+@property(nonatomic) _Bool shouldIgnoreOverride; // @synthesize shouldIgnoreOverride=_shouldIgnoreOverride;
+@property(retain, nonatomic) TFNTwitterAccount *currentAccount; // @synthesize currentAccount=_currentAccount;
 - (void).cxx_destruct;
-- (void)_t1_transitionToNightTime;
-- (void)_t1_transitionToDayTime;
-- (void)_t1_invalidateCachedDate;
-- (void)_t1_performTransitionForEvent:(long long)arg1;
-- (void)_t1_transitionIfNeededForLocation:(id)arg1;
+- (void)_t1_geoAuthorizationStatusUpdated:(id)arg1;
+- (void)_t1_cancelScheduledTransition;
+- (void)_t1_transitionForLocation:(id)arg1;
 - (void)_t1_transitionIfNeeded;
-- (_Bool)_t1_canScheduleSunriseSunset;
-- (void)_t1_userDidLogOut:(id)arg1;
-- (void)_t1_activeAccountDidUpdate:(id)arg1;
-- (void)_t1_timezoneDidChange:(id)arg1;
-- (void)_t1_applicationSignficantTimeChange;
+- (void)userDidPerformOverride;
+- (void)_t1_scheduleTransitionForDate:(id)arg1;
+- (void)_t1_accountDidBecomeInactiveOrWasRemoved:(id)arg1;
+- (void)_t1_accountDidBecomeActive:(id)arg1;
 - (void)_t1_applicationDidEnterBackground;
-- (void)_t1_applicationWillEnterForeground;
-- (void)clearCachedTransitionDate;
-- (void)scheduleTransitionForDate:(id)arg1;
+- (void)_t1_applicationDidBecomeActive;
 - (void)stop;
 - (void)startWithAccount:(id)arg1;
 

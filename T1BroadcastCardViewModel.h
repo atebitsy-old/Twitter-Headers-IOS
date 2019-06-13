@@ -31,7 +31,6 @@
 - (void)_t1_processBroadcastUnavailable;
 - (void)_t1_processBroadcastAvailable:(id)arg1;
 - (void)_t1_processGetBroadcastResponse:(id)arg1;
-- (unsigned long long)detailsViewDisplayStyle;
 @property(readonly, nonatomic) _Bool broadcastRequiresAttribution;
 @property(readonly, nonatomic, getter=isInErrorState) _Bool inErrorState;
 @property(readonly, nonatomic) UIColor *backgroundColor;

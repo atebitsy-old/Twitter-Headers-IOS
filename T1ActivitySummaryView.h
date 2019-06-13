@@ -7,6 +7,7 @@
 #import <UIKit/UIView.h>
 
 @class TFNTappableHighlightView, TFNTwitterAccount, UILabel;
+@protocol T1ActivitySummaryViewDelegate, T1StatusViewModel;
 
 @interface T1ActivitySummaryView : UIView
 {
@@ -19,33 +20,39 @@
     id _favoritesTarget;
     SEL _favoritesAction;
     UIView *_accessibilityAnchorView;
-    TFNTwitterAccount *_account;
     unsigned long long _favoriteCount;
     unsigned long long _retweetCount;
+    TFNTwitterAccount *_account;
+    id <T1StatusViewModel> _viewModel;
+    unsigned long long _options;
+    id <T1ActivitySummaryViewDelegate> _delegate;
     long long _style;
 }
 
 + (double)activityDefaultSpacing;
++ (struct CGSize)sizeForViewModel:(id)arg1 options:(unsigned long long)arg2 account:(id)arg3 maximumWidth:(double)arg4;
 @property(nonatomic) long long style; // @synthesize style=_style;
-@property(readonly, nonatomic) unsigned long long retweetCount; // @synthesize retweetCount=_retweetCount;
-@property(readonly, nonatomic) unsigned long long favoriteCount; // @synthesize favoriteCount=_favoriteCount;
+@property(nonatomic) __weak id <T1ActivitySummaryViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
+@property(readonly, nonatomic) id <T1StatusViewModel> viewModel; // @synthesize viewModel=_viewModel;
 @property(retain, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
 - (long long)indexOfAccessibilityElement:(id)arg1;
 - (id)accessibilityElementAtIndex:(long long)arg1;
 - (void)_favoritesAction;
 - (void)_retweetsAction;
+- (id)viewForActionWithType:(long long)arg1;
 - (struct CGRect)favoritesFrame;
 - (void)setFavoritesTarget:(id)arg1 action:(SEL)arg2;
 - (struct CGRect)retweetsFrame;
 - (void)setRetweetsTarget:(id)arg1 action:(SEL)arg2;
-- (id)_attributedStatLabelForCount:(id)arg1 format:(id)arg2;
-- (id)_attributedFavoritesLabel;
-- (id)_attributedRetweetsLabel;
 - (void)_updateStyle;
 - (void)update;
 - (void)layoutSubviews;
+- (void)setViewModel:(id)arg1 options:(unsigned long long)arg2 account:(id)arg3;
 - (void)setFavoriteCount:(unsigned long long)arg1 retweetCount:(unsigned long long)arg2;
+@property(readonly, nonatomic) unsigned long long retweetCount; // @synthesize retweetCount=_retweetCount;
+@property(readonly, nonatomic) unsigned long long favoriteCount; // @synthesize favoriteCount=_favoriteCount;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

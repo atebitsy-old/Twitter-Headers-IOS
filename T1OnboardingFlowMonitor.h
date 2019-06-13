@@ -24,6 +24,7 @@
 - (void)private_unmonitorFlow:(id)arg1;
 - (void)private_monitorFlow:(id)arg1;
 - (id)private_inProgressFlows;
+@property(readonly, nonatomic) _Bool willViewAccountOnFlowCompletion;
 - (void)removeFlowCompletionObserver:(id)arg1;
 - (void)addFlowCompletionObserver:(id)arg1 selector:(SEL)arg2;
 - (void)completeFlowAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;

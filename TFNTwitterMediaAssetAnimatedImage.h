@@ -6,9 +6,11 @@
 
 #import <T1Twitter/TFNTwitterMediaAssetALAsset.h>
 
-@class NSData;
+#import <T1Twitter/NSItemProviderReading-Protocol.h>
 
-@interface TFNTwitterMediaAssetAnimatedImage : TFNTwitterMediaAssetALAsset
+@class NSData, NSString;
+
+@interface TFNTwitterMediaAssetAnimatedImage : TFNTwitterMediaAssetALAsset <NSItemProviderReading>
 {
     NSData *_sourceData;
     struct CGSize _sourceImageDimensions;
@@ -28,6 +30,12 @@
 - (struct CGSize)assetDimensions;
 - (void)renderAnimatedGIFImageWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithData:(id)arg1 imageDimensions:(struct CGSize)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

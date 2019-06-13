@@ -30,7 +30,7 @@
 - (void)_scrubDidEnd;
 - (void)_scrubDidChange;
 - (void)_scrubDidBegin;
-- (void)updateWithCurrentPlaybackTime:(double)arg1 duration:(double)arg2;
+- (void)updateWithCurrentPlaybackState:(id)arg1;
 - (double)sliderTimeWithDuration:(double)arg1;
 - (id)newBarLabel;
 @property(readonly, nonatomic) TFNTwitterMediaSlider *slider; // @synthesize slider=_slider;

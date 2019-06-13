@@ -8,12 +8,13 @@
 
 #import <T1Twitter/TFNCellVisibilityBroadcasterDelegate-Protocol.h>
 
-@class NSMutableSet, NSString, T1StatusMediaHandler, T1StatusTableSlideshowManager, TFNTwitterStatus, TFSTwitterScribeContext;
+@class NSMutableSet, NSString, T1StatusMediaHandler, T1StatusTableSlideshowManager, TFNTwitterAccount, TFNTwitterStatus, TFSTwitterScribeContext;
 
 @interface T1CardItemTableRowAdapter : TFNItemsTableRowAdapter <TFNCellVisibilityBroadcasterDelegate>
 {
     TFSTwitterScribeContext *_scribeContext;
     TFNTwitterStatus *_status;
+    TFNTwitterAccount *_account;
     T1StatusMediaHandler *_mediaHandler;
     T1StatusTableSlideshowManager *_slideshowManager;
     NSMutableSet *_cardItemImpressionCache;
@@ -22,6 +23,7 @@
 @property(retain, nonatomic) NSMutableSet *cardItemImpressionCache; // @synthesize cardItemImpressionCache=_cardItemImpressionCache;
 @property(readonly, nonatomic) __weak T1StatusTableSlideshowManager *slideshowManager; // @synthesize slideshowManager=_slideshowManager;
 @property(readonly, nonatomic) __weak T1StatusMediaHandler *mediaHandler; // @synthesize mediaHandler=_mediaHandler;
+@property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
 @property(retain, nonatomic) TFNTwitterStatus *status; // @synthesize status=_status;
 @property(copy, nonatomic) TFSTwitterScribeContext *scribeContext; // @synthesize scribeContext=_scribeContext;
 - (void).cxx_destruct;
@@ -30,8 +32,8 @@
 - (id)dataViewController:(id)arg1 tableViewCellForItem:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4;
 - (double)dataViewController:(id)arg1 tableViewHeightForItem:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4;
 - (void)setStatusMediaHandlerIfNotSetBefore:(id)arg1;
-- (id)initWithStatusMediaHandler:(id)arg1 slideshowManager:(id)arg2;
-- (id)initWithStatusMediaHandler:(id)arg1;
+- (id)initWithAccount:(id)arg1 statusMediaHandler:(id)arg2 slideshowManager:(id)arg3;
+- (id)initWithAccount:(id)arg1 statusMediaHandler:(id)arg2;
 - (id)init;
 
 // Remaining properties

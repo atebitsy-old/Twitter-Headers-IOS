@@ -163,12 +163,12 @@
 - (id)t1_openURL:(id)arg1 fromSourceStatus:(id)arg2;
 - (CDUnknownBlockType)didProvideShowLessOftenFeedbackForStatus:(id)arg1 carousel:(id)arg2;
 - (id)negativeFeedbackActionsForStatus:(id)arg1;
-- (void)_t1_processInitialHomeLoadIfNecessary;
-- (void)_t1_showSwitchToastIfNecessary;
+- (void)_t1_processInitialHomeLoadIfNecessaryWithLoadSource:(long long)arg1;
+- (void)_t1_showSwitchToastIfNecessaryWithLoadSource:(long long)arg1;
 - (void)_t1_showToastForTimelineSwitchWithDuration:(double)arg1;
 - (void)_t1_showToastForTimelineSwitch;
 - (void)_t1_processManualTimelineVariantSwitch;
-- (void)_t1_processAutoSwitchedToTop;
+- (void)_t1_processAutoSwitchedToTopWithLoadSource:(long long)arg1;
 - (void)_t1_checkForAutomaticSwitchToTop;
 - (void)_t1_action_didTapHomeTimelineContextItemButton:(id)arg1;
 - (_Bool)t1_showsPeopleAction;

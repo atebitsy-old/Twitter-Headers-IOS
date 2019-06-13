@@ -14,7 +14,7 @@
 
 @interface T1TabBarViewController : UIViewController <TFNCustomTabBarDelegate, T1TabBarIntegration>
 {
-    _Bool _tabBarHidden;
+    double _maximumTabWidth;
     id <T1TabBarViewControllerDelegate> _delegate;
     TFNCustomTabBar *_tabBar;
     UIView *_tabBarDivider;
@@ -27,7 +27,6 @@
 @property(readonly, nonatomic) UIView *tabBarDivider; // @synthesize tabBarDivider=_tabBarDivider;
 @property(readonly, nonatomic) TFNCustomTabBar *tabBar; // @synthesize tabBar=_tabBar;
 @property(nonatomic) __weak id <T1TabBarViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic, getter=isTabBarHidden) _Bool tabBarHidden; // @synthesize tabBarHidden=_tabBarHidden;
 - (void).cxx_destruct;
 - (long long)customTabBar:(id)arg1 contentModeForTabAtIndex:(long long)arg2 withView:(id)arg3;
 - (struct CGSize)customTabBar:(id)arg1 sizeForTabAtIndex:(long long)arg2 withView:(id)arg3;
@@ -37,11 +36,13 @@
 - (_Bool)customTabBar:(id)arg1 selectTabRequiresLongPressFailureForTabAtIndex:(long long)arg2 withView:(id)arg3;
 @property(nonatomic, getter=isTabBarShadowHidden) _Bool tabBarShadowHidden;
 - (void)setTabBarHidden:(_Bool)arg1 withDuration:(double)arg2;
+@property(readonly, nonatomic) _Bool isTabBarHidden;
 - (struct CGRect)tabBarFrameInView:(id)arg1;
 - (void)_t1_layoutTabBar;
 - (void)viewWillLayoutSubviews;
 - (void)loadView;
 - (struct CGSize)preferredContentSize;
+@property(nonatomic) double maximumTabWidth; // @synthesize maximumTabWidth=_maximumTabWidth;
 @property(nonatomic) long long selectedTabIndex;
 @property(copy, nonatomic) NSArray *tabViews;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

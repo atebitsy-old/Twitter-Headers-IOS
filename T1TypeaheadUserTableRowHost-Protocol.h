@@ -10,5 +10,8 @@
 
 @protocol T1TypeaheadUserTableRowHost <NSObject>
 - (void)typeaheadUserAdapter:(T1TypeaheadUserTableRowAdapter *)arg1 didSelectUser:(TFSTwitterTypeaheadUser *)arg2 atIndexPath:(NSIndexPath *)arg3;
+
+@optional
+- (void)typeaheadUserAdapter:(T1TypeaheadUserTableRowAdapter *)arg1 didLongPressUser:(TFSTwitterTypeaheadUser *)arg2 atIndexPath:(NSIndexPath *)arg3;
 @end
 

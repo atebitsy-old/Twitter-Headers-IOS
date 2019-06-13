@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <TwitterLifecycleTools/TFNGenericBackgroundFetchTask.h>
+#import <TwitterLifecycleTools/TLTGenericBackgroundFetchTask.h>
 
-@interface T1SpotlightBackgroundFetchTask : TFNGenericBackgroundFetchTask
+@interface T1SpotlightBackgroundFetchTask : TLTGenericBackgroundFetchTask
 {
     CDUnknownBlockType _completion;
     unsigned long long _result;

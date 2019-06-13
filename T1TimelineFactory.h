@@ -21,6 +21,7 @@
 - (id)timelineForAccount:(id)arg1 identifier:(id)arg2 savedPlistDictionary:(id)arg3;
 - (id)inUseTimelineIdentifiersForAccount:(id)arg1;
 - (id)timelineIdentifiers;
+- (id)homeTimelineVariantCoordinatorForAccount:(id)arg1;
 - (void)_autoplaySettingsDidChange;
 - (void)_networkQualityDidChange;
 - (void)_deviceFeatureSwitchesDidUpdate:(id)arg1;

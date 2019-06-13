@@ -28,7 +28,7 @@
 - (void)layoutSubviews;
 - (void)_updateSkipCountDownLabelWithCurrentPlaybackTime:(double)arg1;
 - (void)_showSkipButtonWithCurrentPlaybackTime:(double)arg1 duration:(double)arg2;
-- (void)updateWithCurrentPlaybackTime:(double)arg1 duration:(double)arg2;
+- (void)updateWithCurrentPlaybackState:(id)arg1;
 - (void)_skipAdButtonTap:(id)arg1 event:(id)arg2;
 @property(readonly, nonatomic) T1VideoAdButton *skipAdButton; // @synthesize skipAdButton=_skipAdButton;
 @property(readonly, nonatomic) T1TimeDurationPillView *durationPillView; // @synthesize durationPillView=_durationPillView;

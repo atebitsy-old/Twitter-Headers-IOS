@@ -46,6 +46,8 @@
 - (_Bool)shouldPauseLivePipelineUpdates;
 - (void)setLivePipelineTweetManager:(id)arg1;
 - (id)livePipelineTweetManager;
+- (id)activitySummary;
+- (id)footerTextView;
 - (id)inlineActions;
 - (id)inlineImages;
 - (id)autoplayPlayerContainer;

@@ -6,41 +6,43 @@
 
 #import <objc/NSObject.h>
 
-#import <T1Twitter/NSCopying-Protocol.h>
+@class NSDate, NSString, TFNTwitterAccount;
 
-@class NSDate, NSString;
-
-@interface TFNTwitterMediaAssetPackedSegmentedUploadPerformanceScribeValue : NSObject <NSCopying>
+@interface TFNTwitterMediaAssetPackedSegmentedUploadPerformanceScribeValue : NSObject
 {
-    _Bool _isPerformanceEvent;
     unsigned long long _process;
     unsigned long long _action;
     unsigned long long _assetType;
     long long _uploadSource;
     unsigned long long _uploadSourceType;
     NSString *_sessionID;
-    NSString *_processID;
     NSDate *_startDate;
     NSDate *_completeDate;
+    NSString *_metadata;
+    TFNTwitterAccount *_account;
 }
 
-@property(retain, nonatomic) NSDate *completeDate; // @synthesize completeDate=_completeDate;
-@property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
-@property(copy, nonatomic) NSString *processID; // @synthesize processID=_processID;
-@property(copy, nonatomic) NSString *sessionID; // @synthesize sessionID=_sessionID;
-@property(nonatomic) _Bool isPerformanceEvent; // @synthesize isPerformanceEvent=_isPerformanceEvent;
-@property(nonatomic) unsigned long long uploadSourceType; // @synthesize uploadSourceType=_uploadSourceType;
-@property(nonatomic) long long uploadSource; // @synthesize uploadSource=_uploadSource;
-@property(nonatomic) unsigned long long assetType; // @synthesize assetType=_assetType;
-@property(nonatomic) unsigned long long action; // @synthesize action=_action;
-@property(nonatomic) unsigned long long process; // @synthesize process=_process;
+@property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
+@property(retain, nonatomic) NSString *metadata; // @synthesize metadata=_metadata;
+@property(readonly, nonatomic) NSDate *completeDate; // @synthesize completeDate=_completeDate;
+@property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
+@property(readonly, nonatomic) NSString *sessionID; // @synthesize sessionID=_sessionID;
+@property(readonly, nonatomic) unsigned long long uploadSourceType; // @synthesize uploadSourceType=_uploadSourceType;
+@property(readonly, nonatomic) long long uploadSource; // @synthesize uploadSource=_uploadSource;
+@property(readonly, nonatomic) unsigned long long assetType; // @synthesize assetType=_assetType;
+@property(readonly, nonatomic) unsigned long long action; // @synthesize action=_action;
+@property(readonly, nonatomic) unsigned long long process; // @synthesize process=_process;
 - (void).cxx_destruct;
-- (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) NSString *scribeEnvironment;
+@property(readonly, nonatomic) NSString *scribeUploadSource;
+@property(readonly, nonatomic) NSString *scribeAction;
+@property(readonly, nonatomic) NSString *scribeElement;
+@property(readonly, nonatomic) double duration;
+@property(readonly, nonatomic) NSString *eventName;
+@property(readonly, nonatomic) _Bool shouldScribeToPerftown;
 @property(readonly, nonatomic) _Bool isLocalFile;
-@property(readonly, copy, nonatomic) NSString *scribeEnvironment;
-@property(readonly, copy, nonatomic) NSString *scribeUploadSource;
-@property(readonly, copy, nonatomic) NSString *scribeAction;
-@property(readonly, copy, nonatomic) NSString *scribeElement;
+- (id)initWithContext:(id)arg1 process:(unsigned long long)arg2 action:(unsigned long long)arg3 startDate:(id)arg4 completeDate:(id)arg5;
+- (id)initWithAccount:(id)arg1 sessionID:(id)arg2 assetType:(unsigned long long)arg3 uploadSource:(long long)arg4 uploadSourceType:(unsigned long long)arg5 process:(unsigned long long)arg6 action:(unsigned long long)arg7 startDate:(id)arg8 completeDate:(id)arg9;
 
 @end
 

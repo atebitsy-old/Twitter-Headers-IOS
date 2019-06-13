@@ -11,16 +11,16 @@
 
 @interface T1CardMediaViewModel : NSObject
 {
-    long long _mediaType;
+    unsigned long long _mediaType;
     TFNTwitterCardImageSpec *_imageSpec;
     id <T1InlineMediaViewModel> _inlineMediaViewModel;
 }
 
 @property(readonly, nonatomic) id <T1InlineMediaViewModel> inlineMediaViewModel; // @synthesize inlineMediaViewModel=_inlineMediaViewModel;
 @property(readonly, nonatomic) TFNTwitterCardImageSpec *imageSpec; // @synthesize imageSpec=_imageSpec;
-@property(readonly, nonatomic) long long mediaType; // @synthesize mediaType=_mediaType;
+@property(readonly, nonatomic) unsigned long long mediaType; // @synthesize mediaType=_mediaType;
 - (void).cxx_destruct;
-- (id)initWithMediaType:(long long)arg1 imageSpec:(id)arg2 inlineMediaViewModel:(id)arg3;
+- (id)initWithMediaType:(unsigned long long)arg1 imageSpec:(id)arg2 inlineMediaViewModel:(id)arg3;
 - (id)init;
 
 @end

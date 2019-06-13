@@ -15,6 +15,8 @@
 {
     TFSScribe *_scribeService;
     id <TFNTwitterScribeWriter> _scribeWriter;
+    long long _jsonFlushState;
+    long long _thriftFlushState;
     TFNTwitterAccount *_account;
     TFNTwitterScribeImpressionLogger *_impressionLogger;
     TFNScribeThriftEventsHandler *_thriftEventsHandler;
@@ -26,11 +28,13 @@
 @property(retain, nonatomic) TFNScribeThriftEventsHandler *thriftEventsHandler; // @synthesize thriftEventsHandler=_thriftEventsHandler;
 @property(retain, nonatomic) TFNTwitterScribeImpressionLogger *impressionLogger; // @synthesize impressionLogger=_impressionLogger;
 @property(nonatomic) __weak TFNTwitterAccount *account; // @synthesize account=_account;
+@property long long thriftFlushState; // @synthesize thriftFlushState=_thriftFlushState;
+@property long long jsonFlushState; // @synthesize jsonFlushState=_jsonFlushState;
 - (void).cxx_destruct;
+- (id)eventsForImpressionsBatch:(id)arg1;
 - (void)handleScribeOutgoingEvents:(id)arg1 eventParameters:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)flushWithToken:(id)arg1 thriftToken:(id)arg2;
 - (void)flush;
-- (id)eventsForImpressionsBatch:(id)arg1;
 @property(readonly, nonatomic) TFSScribe *scribeService; // @synthesize scribeService=_scribeService;
 - (id)_tfn_scribeThriftGroups;
 - (id)_tfn_scribeGroups;

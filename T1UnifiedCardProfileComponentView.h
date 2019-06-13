@@ -37,6 +37,7 @@
 - (void)prepareForReuse;
 - (void)setupActions;
 - (id)t1_accessibilityCustomActions;
+- (id)accessibilityLabel;
 - (id)calculatedLayoutMetrics;
 @property(readonly, nonatomic) UIView *autoplayableContainerView;
 @property(readonly, nonatomic) _Bool shouldDelayContainerTouchDownHighlighting;

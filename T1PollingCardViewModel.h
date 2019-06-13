@@ -6,18 +6,15 @@
 
 #import <objc/NSObject.h>
 
-#import <T1Twitter/T1InlineMediaViewModel-Protocol.h>
 #import <T1Twitter/TFNTwitterCardContextModel-Protocol.h>
 
-@class NSArray, NSDate, NSMutableArray, NSNumber, NSSet, NSString, T1CardMediaViewModel, T1PlayerSessionProducer, TFNTwitterCardContext, TFNTwitterCardImageSpec, TFNTwitterCardPersistedStateManager;
-@protocol T1InlineMediaViewModel, TFNTwitterAVPlayerSessionSource;
+@class NSArray, NSDate, NSMutableArray, NSNumber, NSSet, NSString, T1CardMediaViewModel, TFNTwitterCardContext, TFNTwitterCardImageSpec, TFNTwitterCardPersistedStateManager;
+@protocol T1InlineMediaViewModel, T1PlayerFactoryIdentifiable;
 
-@interface T1PollingCardViewModel : NSObject <T1InlineMediaViewModel, TFNTwitterCardContextModel>
+@interface T1PollingCardViewModel : NSObject <TFNTwitterCardContextModel>
 {
     _Bool _countsAreFinal;
     _Bool _refreshing;
-    T1PlayerSessionProducer *_playerSessionProducer;
-    id <TFNTwitterAVPlayerSessionSource> _playerSessionSource;
     TFNTwitterCardContext *_cardContext;
     unsigned long long _numberOfChoices;
     NSString *_capiURI;
@@ -30,12 +27,14 @@
     NSString *_cardURL;
     NSNumber *_selectedChoice;
     NSDate *_pollEnd;
+    id <T1PlayerFactoryIdentifiable> _playerFactoryIdentifiable;
 }
 
 + (id)_sharedCountFormatter;
 + (id)_sharedPercentFormatter;
 + (id)_sharedDateFormatter;
 + (unsigned long long)_numberOfChoicesFromCardName:(long long)arg1;
+@property(readonly, nonatomic) id <T1PlayerFactoryIdentifiable> playerFactoryIdentifiable; // @synthesize playerFactoryIdentifiable=_playerFactoryIdentifiable;
 @property(nonatomic, getter=isRefreshing) _Bool refreshing; // @synthesize refreshing=_refreshing;
 @property(retain, nonatomic) NSDate *pollEnd; // @synthesize pollEnd=_pollEnd;
 @property(nonatomic) _Bool countsAreFinal; // @synthesize countsAreFinal=_countsAreFinal;
@@ -50,15 +49,7 @@
 @property(copy, nonatomic) NSString *capiURI; // @synthesize capiURI=_capiURI;
 @property(nonatomic) unsigned long long numberOfChoices; // @synthesize numberOfChoices=_numberOfChoices;
 @property(retain, nonatomic) TFNTwitterCardContext *cardContext; // @synthesize cardContext=_cardContext;
-@property(readonly, nonatomic) id <TFNTwitterAVPlayerSessionSource> playerSessionSource; // @synthesize playerSessionSource=_playerSessionSource;
-@property(readonly, nonatomic) T1PlayerSessionProducer *playerSessionProducer; // @synthesize playerSessionProducer=_playerSessionProducer;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) _Bool shouldShowAdCountdownForQuotedTweet;
-@property(readonly, nonatomic) _Bool watchAgainButtonEnabled;
-@property(readonly, nonatomic) unsigned long long viewCount;
-@property(readonly, nonatomic) unsigned long long playerIconViewType;
-@property(readonly, nonatomic) unsigned long long mediaType;
-@property(readonly, nonatomic) double pillViewTimeInterval;
 - (id)themeForDisplayMode:(long long)arg1;
 - (_Bool)_updateFromNotificationCardData:(id)arg1;
 - (void)_voteResponseNotification:(id)arg1;

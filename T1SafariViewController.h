@@ -60,7 +60,6 @@
 - (void)_toggleGestureRecognizerForTraitCollection:(id)arg1;
 - (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
-- (void)viewDidLayoutSubviews;
 - (void)viewWillFullyDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

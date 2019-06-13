@@ -38,10 +38,11 @@
 
 @property(readonly, nonatomic) __weak TFNTwitterAccount *account; // @synthesize account=_account;
 @property(nonatomic) __weak T1HomeTimelineSegmentedViewController *delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) double mostRecentAutoSwitchInactiveTime; // @synthesize mostRecentAutoSwitchInactiveTime=_mostRecentAutoSwitchInactiveTime;
-@property(readonly, nonatomic) double mostRecentAutoSwitchThreshold; // @synthesize mostRecentAutoSwitchThreshold=_mostRecentAutoSwitchThreshold;
-@property(nonatomic, getter=isTimelineLoadingAfterManualSwitch) _Bool timelineLoadingAfterManualSwitch; // @synthesize timelineLoadingAfterManualSwitch=_timelineLoadingAfterManualSwitch;
-@property(readonly, nonatomic) _Bool isLatestSwitchEnabled; // @synthesize isLatestSwitchEnabled=_isLatestSwitchEnabled;
+- (void)setTimelineLoadingAfterManualSwitch:(_Bool)arg1;
+- (_Bool)isTimelineLoadingAfterManualSwitch;
+- (double)mostRecentAutoSwitchInactiveTime;
+- (double)mostRecentAutoSwitchThreshold;
+- (_Bool)isLatestSwitchEnabled;
 - (void).cxx_destruct;
 - (void)navigateToTimelineAtIndex:(long long)arg1;
 - (long long)currentlyActiveTimelineIndex;

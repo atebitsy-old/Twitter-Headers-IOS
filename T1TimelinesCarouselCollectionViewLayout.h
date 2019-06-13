@@ -9,7 +9,7 @@
 #import <T1Twitter/T1TimelinesLayoutMetricsSource-Protocol.h>
 
 @class NSMutableDictionary, NSString, TFNLayoutMetrics;
-@protocol T1TimelinesCarouselCollectionViewItemSizeProvider;
+@protocol T1TimelinesCarouselCollectionViewItemSizeProvider, T1TimelinesCarouselCollectionViewLayoutMetricsProvider;
 
 @interface T1TimelinesCarouselCollectionViewLayout : UICollectionViewLayout <T1TimelinesLayoutMetricsSource>
 {
@@ -21,14 +21,14 @@
     _Bool _includesTopInset;
     _Bool _includesBottomInset;
     double _minimumLineSpacing;
-    id _layoutMetricsProvider;
+    id <T1TimelinesCarouselCollectionViewLayoutMetricsProvider> _layoutMetricsProvider;
     id <T1TimelinesCarouselCollectionViewItemSizeProvider> _itemSizeProvider;
     struct CGSize _itemSize;
 }
 
 @property(nonatomic) struct CGSize itemSize; // @synthesize itemSize=_itemSize;
 @property(nonatomic) __weak id <T1TimelinesCarouselCollectionViewItemSizeProvider> itemSizeProvider; // @synthesize itemSizeProvider=_itemSizeProvider;
-@property(nonatomic) __weak id layoutMetricsProvider; // @synthesize layoutMetricsProvider=_layoutMetricsProvider;
+@property(nonatomic) __weak id <T1TimelinesCarouselCollectionViewLayoutMetricsProvider> layoutMetricsProvider; // @synthesize layoutMetricsProvider=_layoutMetricsProvider;
 @property(readonly, nonatomic) struct UIEdgeInsets contentEdgeInsets; // @synthesize contentEdgeInsets=_contentEdgeInsets;
 @property(nonatomic) double minimumLineSpacing; // @synthesize minimumLineSpacing=_minimumLineSpacing;
 @property(nonatomic) _Bool includesBottomInset; // @synthesize includesBottomInset=_includesBottomInset;

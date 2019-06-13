@@ -226,7 +226,6 @@
 - (_Bool)_t1_shouldShowUserRecommendationItem;
 - (void)slideshow:(id)arg1 didSelectStatusReply:(id)arg2;
 - (void)slideshow:(id)arg1 dismissAndPresentViewController:(id)arg2;
-- (void)slideshow:(id)arg1 didSelectSticker:(id)arg2;
 - (void)slideshow:(id)arg1 status:(id)arg2 didSelectActiveRange:(id)arg3;
 - (void)slideshow:(id)arg1 didSelectUser:(id)arg2;
 - (void)slideshow:(id)arg1 didSelectStatus:(id)arg2;
@@ -324,6 +323,7 @@
 - (id)scribeSection;
 - (id)scribePage;
 - (id)scribe;
+- (id)calculatedLayoutMetrics;
 - (_Bool)_t1_cancelEditingIfAppropriateForTraitCollection:(id)arg1;
 - (_Bool)_t1_shouldDisplayReplyBarWithTraitCollection:(id)arg1;
 - (void)_t1_updateReplyBarForTraitCollection:(id)arg1;
@@ -387,6 +387,8 @@
 - (_Bool)shareButtonDisabled;
 - (_Bool)retweetDisabled;
 @property(readonly, nonatomic) _Bool replyDisabled;
+- (void)_t1_showHiddenRepliesEducationPromptIfNecessary;
+- (void)_t1_updateHiddenRepliesIconLegacy;
 - (void)_t1_updateHiddenRepliesIcon;
 - (void)_t1_updateReplyBadge;
 - (void)_t1_updateQuotePivot;

@@ -6,10 +6,11 @@
 
 #import <T1Twitter/TFNForm.h>
 
-@class NSDictionary, NSMutableDictionary, NSSet, NSString, T1AddKeywordDurationItem, T1MuteKeywordDurationViewController, TFNFormBooleanItem, TFNFormCustomItem, TFNFormField, TFSTwitterMutedKeyword;
+@class NSDictionary, NSMutableDictionary, NSSet, NSString, T1AddKeywordDurationItem, T1MuteKeywordDurationViewController, TFNFormBooleanItem, TFNFormCustomItem, TFNFormField, TFNTwitterAccount, TFSTwitterMutedKeyword;
 
 @interface T1KeywordForm : TFNForm
 {
+    TFNTwitterAccount *_account;
     NSString *_pendingDiscouragedWord;
     _Bool _requestInFlight;
     TFNFormField *_keywordField;
@@ -51,8 +52,8 @@
 - (id)indexPathForObject:(id)arg1;
 - (id)sections;
 - (void)private_sharedInit;
-- (id)initWithKeyword:(id)arg1;
-- (id)initWithLastSavedMutedKeywordConfiguration:(id)arg1;
+- (id)initWithKeyword:(id)arg1 account:(id)arg2;
+- (id)initWithLastSavedMutedKeywordConfiguration:(id)arg1 account:(id)arg2;
 
 @end
 

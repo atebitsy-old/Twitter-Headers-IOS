@@ -40,8 +40,8 @@
 - (void)_t1_setupAttributedText;
 - (id)initForNoActionWithText:(id)arg1;
 - (id)initWithText:(id)arg1 callsToAction:(id)arg2;
-- (id)initWithFormatString:(id)arg1 callToActionText:(id)arg2 url:(id)arg3 scribeContext:(id)arg4;
-- (id)initForLearnMoreActionWithFormatString:(id)arg1 url:(id)arg2 scribeContext:(id)arg3;
+- (id)initWithFormatString:(id)arg1 callToActionText:(id)arg2 url:(id)arg3 scribeContext:(id)arg4 account:(id)arg5;
+- (id)initForLearnMoreActionWithFormatString:(id)arg1 url:(id)arg2 scribeContext:(id)arg3 account:(id)arg4;
 - (id)initWithText:(id)arg1 entities:(id)arg2 navigationLinkActionBlock:(CDUnknownBlockType)arg3;
 
 // Remaining properties

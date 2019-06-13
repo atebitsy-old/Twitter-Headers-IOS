@@ -71,6 +71,7 @@
 - (void)recentSearchTypeaheadController:(id)arg1 didSelectResult:(id)arg2;
 - (void)searchQueryAdapter:(id)arg1 didTapAheadItem:(id)arg2 atIndexPath:(id)arg3;
 - (void)searchQueryAdapter:(id)arg1 didSelectItem:(id)arg2 atIndexPath:(id)arg3;
+- (void)typeaheadUserAdapter:(id)arg1 didLongPressUser:(id)arg2 atIndexPath:(id)arg3;
 - (void)typeaheadUserAdapter:(id)arg1 didSelectUser:(id)arg2 atIndexPath:(id)arg3;
 - (struct CGRect)rectForTouchMask;
 - (void)clearSectionCellWantsClear:(id)arg1;
@@ -81,6 +82,7 @@
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)_t1_hydrateRecentSearchResults:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_t1_queueRecentSearchResultsUpdateIfNeeded;
+- (void)_t1_scribeLongPressForItem:(id)arg1;
 - (void)_t1_scribeClickForItem:(id)arg1;
 - (void)_t1_scribeResultsImpression;
 - (id)_t1_scribeItemForResult:(id)arg1;

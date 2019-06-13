@@ -11,7 +11,6 @@
 @interface T1MultiPhotoViewImageView : TFNTappableImageView
 {
     T1ImageViewFetchHelper *_fetchHelper;
-    UIView *_stickerBadgeView;
     UIView *_altTextBadgeView;
     long long _index;
     TFSTwitterMediaColorPalette *_palette;
@@ -26,7 +25,6 @@
 @property(retain, nonatomic) TFSTwitterMediaColorPalette *palette; // @synthesize palette=_palette;
 @property(nonatomic) long long index; // @synthesize index=_index;
 @property(retain, nonatomic) UIView *altTextBadgeView; // @synthesize altTextBadgeView=_altTextBadgeView;
-@property(retain, nonatomic) UIView *stickerBadgeView; // @synthesize stickerBadgeView=_stickerBadgeView;
 @property(readonly, nonatomic) T1ImageViewFetchHelper *fetchHelper; // @synthesize fetchHelper=_fetchHelper;
 - (void).cxx_destruct;
 - (void)setBackgroundColor:(id)arg1;

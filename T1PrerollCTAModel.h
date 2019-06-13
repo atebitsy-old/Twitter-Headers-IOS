@@ -14,6 +14,7 @@
     NSString *_advertiserName;
     NSURL *_url;
     unsigned long long _type;
+    unsigned long long _openWebsiteType;
     double _mediaAspectRatio;
     id <TAVPlaylistItemKey> _playlistItemKey;
     id _transitionObject;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) id transitionObject; // @synthesize transitionObject=_transitionObject;
 @property(readonly, nonatomic) id <TAVPlaylistItemKey> playlistItemKey; // @synthesize playlistItemKey=_playlistItemKey;
 @property(readonly, nonatomic) double mediaAspectRatio; // @synthesize mediaAspectRatio=_mediaAspectRatio;
+@property(readonly, nonatomic) unsigned long long openWebsiteType; // @synthesize openWebsiteType=_openWebsiteType;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(readonly, nonatomic) NSString *advertiserName; // @synthesize advertiserName=_advertiserName;

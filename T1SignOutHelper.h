@@ -12,7 +12,6 @@
 
 + (void)_presentCannotUnenrollAccount:(id)arg1 scribePage:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)_removeAccount:(id)arg1 scribePage:(id)arg2;
-+ (void)showSignOutSystemAccountAlert;
 + (void)confirmAndRemove2FAFromAccount:(id)arg1 scribePage:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)confirmLogoutOfAccount:(id)arg1 scribePage:(id)arg2 didConfirm:(CDUnknownBlockType)arg3;
 + (void)removePushTokenFromAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;

@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     // Error parsing type: , name: mediaStatus
     // Error parsing type: , name: cropsMoment
     // Error parsing type: , name: mediaInfo
+    // Error parsing type: , name: broadcast
     // Error parsing type: , name: localState
 }
 

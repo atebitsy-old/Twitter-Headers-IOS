@@ -6,13 +6,14 @@
 
 #import <objc/NSObject.h>
 
+#import <T1Twitter/NSCopying-Protocol.h>
 #import <T1Twitter/TFNTwitterPromotedEventMetadata-Protocol.h>
 #import <T1Twitter/TFNTwitterStatusSocialContext-Protocol.h>
 #import <T1Twitter/TFSPlistSerialization-Protocol.h>
 
 @class NSArray, NSDictionary, NSString, TFNTwitterPromotedAdMetadataContainer;
 
-@interface TFNTwitterPromotedContent : NSObject <TFSPlistSerialization, TFNTwitterPromotedEventMetadata, TFNTwitterStatusSocialContext>
+@interface TFNTwitterPromotedContent : NSObject <TFSPlistSerialization, TFNTwitterPromotedEventMetadata, TFNTwitterStatusSocialContext, NSCopying>
 {
     NSString *_impressionID;
     NSString *_disclosureType;
@@ -69,6 +70,7 @@
 @property(readonly, nonatomic) _Bool isPoliticalAd;
 @property(readonly, nonatomic) _Bool isIssueAd;
 @property(readonly, nonatomic) long long unifiedDisclosureType;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithPromotedContent:(id)arg1 socialContextUserReferences:(id)arg2 socialContextType:(long long)arg3;

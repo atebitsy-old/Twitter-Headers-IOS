@@ -9,44 +9,25 @@
 #import <T1Twitter/NSCoding-Protocol.h>
 #import <T1Twitter/TFSPlistSerialization-Protocol.h>
 
-@class NSArray, NSData, NSDate, NSNumber, NSString, TFNTwitterSharedUserData, TFSCallbackDispatcher, TFSTwitterEntityMedia, TFSTwitterEntitySet, TFSTwitterPlace, TFSTwitterRelationship, TFSTwitterUserDesignatorInfo, TFSTwitterUserExtendedProfile, TFSTwitterUserReference;
+@class NSArray, NSDate, NSNumber, NSString, TFNTwitterSharedUserData, TFSCallbackDispatcher, TFSTwitterEntityMedia, TFSTwitterEntitySet, TFSTwitterPlace, TFSTwitterRelationship, TFSTwitterUserDesignatorInfo, TFSTwitterUserExtendedProfile, TFSTwitterUserReference;
 
 @interface TFNTwitterCanonicalUser : NSObject <NSCoding, TFSPlistSerialization>
 {
     _Bool _couldBeStale;
-    _Bool _isWhitelistedForAdsSubscription;
-    _Bool _needsPhoneVerification;
     _Bool _assimilatingSharedUserData;
     TFSTwitterUserExtendedProfile *_extendedProfile;
     TFSCallbackDispatcher *_updateEventDispatcher;
-    NSString *_phoneNumber;
-    long long _advertiserAccountType;
-    NSArray *_advertiserAccountServiceLevels;
-    long long _analyticsType;
     TFNTwitterSharedUserData *_sharedUserData;
-    NSString *_pendingProfileBannerMediaEntityToken;
-    NSData *_advertiserAccountServiceLevelsJSONData;
 }
 
-+ (long long)_parseAnalyticsTypeFromJSONDictionary:(id)arg1;
-+ (long long)numberOfColumnsInUsers;
-@property(readonly, nonatomic) NSData *advertiserAccountServiceLevelsJSONData; // @synthesize advertiserAccountServiceLevelsJSONData=_advertiserAccountServiceLevelsJSONData;
-@property(readonly, copy, nonatomic) NSString *pendingProfileBannerMediaEntityToken; // @synthesize pendingProfileBannerMediaEntityToken=_pendingProfileBannerMediaEntityToken;
 @property(readonly, nonatomic) _Bool assimilatingSharedUserData; // @synthesize assimilatingSharedUserData=_assimilatingSharedUserData;
 @property(readonly, nonatomic) TFNTwitterSharedUserData *sharedUserData; // @synthesize sharedUserData=_sharedUserData;
-@property(nonatomic) long long analyticsType; // @synthesize analyticsType=_analyticsType;
-@property(retain, nonatomic) NSArray *advertiserAccountServiceLevels; // @synthesize advertiserAccountServiceLevels=_advertiserAccountServiceLevels;
-@property(nonatomic) long long advertiserAccountType; // @synthesize advertiserAccountType=_advertiserAccountType;
-@property(copy, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
-@property(nonatomic) _Bool needsPhoneVerification; // @synthesize needsPhoneVerification=_needsPhoneVerification;
-@property(nonatomic) _Bool isWhitelistedForAdsSubscription; // @synthesize isWhitelistedForAdsSubscription=_isWhitelistedForAdsSubscription;
 @property(readonly, nonatomic) TFSCallbackDispatcher *updateEventDispatcher; // @synthesize updateEventDispatcher=_updateEventDispatcher;
 @property(nonatomic) _Bool couldBeStale; // @synthesize couldBeStale=_couldBeStale;
 - (void).cxx_destruct;
 - (id)_constructMediaEntityFromDictionary:(id)arg1 imageURL:(id)arg2 colorPaletteKey:(id)arg3;
 - (long long)private_profileInterstitialTypeForString:(id)arg1;
 - (long long)_translatorTypeFromJSONDictionary:(id)arg1;
-- (long long)_advertiserAccountTypeFromString:(id)arg1;
 - (id)_structuredLocationForJSONDictionary:(id)arg1 fromGraphQL:(_Bool)arg2;
 - (void)_postUpdateNotificationWithUserInfo:(id)arg1;
 - (void)assumeOptionalPersistentAPIFieldsFromUser:(id)arg1;
@@ -118,6 +99,7 @@
 @property(readonly, nonatomic) _Bool suspended;
 @property(readonly, nonatomic) _Bool isLifelineInstitution;
 @property(readonly, nonatomic) _Bool isPartialUser;
+- (id)accountUserDetails;
 @property(readonly, nonatomic) _Bool protectedUser;
 @property(readonly, nonatomic) _Bool verified;
 @property(readonly, nonatomic) TFSTwitterEntityMedia *profileBannerMediaEntity;
@@ -125,8 +107,6 @@
 @property(readonly, copy, nonatomic) NSString *fullName;
 @property(readonly, copy, nonatomic) NSString *username;
 @property(readonly, nonatomic) long long userID;
-- (_Bool)insertIntoUsersWithTransaction:(id)arg1 existingUser:(id)arg2 error:(id *)arg3;
-- (id)initWithResultSet:(id)arg1 columnIndex:(long long *)arg2;
 - (id)plistDictionaryValue;
 - (id)initWithPlistDictionary:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

@@ -8,18 +8,26 @@
 
 #import <T1Twitter/NSCoding-Protocol.h>
 
-@class TFNDirectMessageModel;
+@class NSDictionary, TFNDirectMessageActivityLog, TFNDirectMessageInbox;
 
 @interface TFNDirectMessageContextState : NSObject <NSCoding>
 {
-    TFNDirectMessageModel *_model;
+    TFNDirectMessageInbox *_inbox;
+    NSDictionary *_cachedUsersByUserID;
+    NSDictionary *_outgoingMessages;
+    NSDictionary *_maxDeletedEventIDs;
+    TFNDirectMessageActivityLog *_activityLog;
 }
 
-@property(readonly, nonatomic) TFNDirectMessageModel *model; // @synthesize model=_model;
+@property(readonly, nonatomic) TFNDirectMessageActivityLog *activityLog; // @synthesize activityLog=_activityLog;
+@property(readonly, nonatomic) NSDictionary *maxDeletedEventIDs; // @synthesize maxDeletedEventIDs=_maxDeletedEventIDs;
+@property(readonly, nonatomic) NSDictionary *outgoingMessages; // @synthesize outgoingMessages=_outgoingMessages;
+@property(readonly, nonatomic) NSDictionary *cachedUsersByUserID; // @synthesize cachedUsersByUserID=_cachedUsersByUserID;
+@property(readonly, nonatomic) TFNDirectMessageInbox *inbox; // @synthesize inbox=_inbox;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithModel:(id)arg1;
+- (id)initWithInbox:(id)arg1 cachedUsersByID:(id)arg2 outgoingMessages:(id)arg3 maxDeletedEventIDs:(id)arg4 activityLog:(id)arg5;
 
 @end
 

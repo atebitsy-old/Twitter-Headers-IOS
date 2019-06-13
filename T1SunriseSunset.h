@@ -16,6 +16,9 @@
     NSDate *_sunset;
     NSDate *_nextSunrise;
     NSDate *_nextSunset;
+    NSDate *_previousSunriseOrSunset;
+    NSDate *_previousSunrise;
+    NSDate *_previousSunset;
     NSDate *_date;
     struct CLLocationCoordinate2D _location;
 }
@@ -27,12 +30,19 @@
 - (id)_t1_calculateSunriseSunset:(long long)arg1 forDate:(id)arg2;
 @property(readonly, nonatomic) NSDate *nextDefaultSunset;
 @property(readonly, nonatomic) NSDate *nextDefaultSunrise;
+@property(readonly, nonatomic) NSDate *previousDefaultSunset;
+@property(readonly, nonatomic) NSDate *previousDefaultSunrise;
+@property(readonly, nonatomic) NSDate *previousSunriseOrSunset; // @synthesize previousSunriseOrSunset=_previousSunriseOrSunset;
+@property(readonly, nonatomic) NSDate *previousSunrise; // @synthesize previousSunrise=_previousSunrise;
+@property(readonly, nonatomic) NSDate *previousSunset; // @synthesize previousSunset=_previousSunset;
 @property(readonly, nonatomic) NSDate *nextSunset; // @synthesize nextSunset=_nextSunset;
 @property(readonly, nonatomic) NSDate *nextSunrise; // @synthesize nextSunrise=_nextSunrise;
+@property(readonly, nonatomic) NSDate *nextSunriseOrSunset;
 @property(readonly, nonatomic) NSDate *defaultSunset;
 @property(readonly, nonatomic) NSDate *defaultSunrise;
 @property(readonly, nonatomic) NSDate *sunset; // @synthesize sunset=_sunset;
 @property(readonly, nonatomic) NSDate *sunrise; // @synthesize sunrise=_sunrise;
+@property(readonly, nonatomic) _Bool isNightTime;
 @property(readonly, nonatomic) _Bool isDayTime;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

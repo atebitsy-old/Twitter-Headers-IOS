@@ -10,7 +10,7 @@
 
 @protocol T1TabBarIntegration <NSObject>
 @property(nonatomic, getter=isTabBarShadowHidden) _Bool tabBarShadowHidden;
-@property(nonatomic, getter=isTabBarHidden) _Bool tabBarHidden;
+@property(readonly, nonatomic) _Bool isTabBarHidden;
 - (void)setTabBarHidden:(_Bool)arg1 withDuration:(double)arg2;
 - (struct CGRect)tabBarFrameInView:(UIView *)arg1;
 @end

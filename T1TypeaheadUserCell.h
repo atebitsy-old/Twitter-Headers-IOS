@@ -6,7 +6,7 @@
 
 #import <TFNUI/TFNTableViewCell.h>
 
-@class T1AffiliateBadgeView, UIImageView, UILabel;
+@class T1AffiliateBadgeView, UIImageView, UILabel, UILongPressGestureRecognizer;
 
 @interface T1TypeaheadUserCell : TFNTableViewCell
 {
@@ -17,6 +17,8 @@
     UILabel *_contextLabel;
     UIImageView *_contextBadgeImageView;
     T1AffiliateBadgeView *_affiliateBadgeView;
+    CDUnknownBlockType _longPressBlock;
+    UILongPressGestureRecognizer *_longPressGestureRecognizer;
 }
 
 + (double)preferredHeightForLayoutMetrics:(id)arg1 includingContext:(_Bool)arg2 includingAffiliateBadge:(_Bool)arg3 textFont:(id)arg4 detailTextFont:(id)arg5 contextFont:(id)arg6;
@@ -26,6 +28,8 @@
 + (id)defaultDetailTextFont;
 + (id)defaultTextColor;
 + (id)defaultTextFont;
+@property(retain, nonatomic) UILongPressGestureRecognizer *longPressGestureRecognizer; // @synthesize longPressGestureRecognizer=_longPressGestureRecognizer;
+@property(copy, nonatomic) CDUnknownBlockType longPressBlock; // @synthesize longPressBlock=_longPressBlock;
 @property(readonly, nonatomic) T1AffiliateBadgeView *affiliateBadgeView; // @synthesize affiliateBadgeView=_affiliateBadgeView;
 @property(readonly, nonatomic) UIImageView *contextBadgeImageView; // @synthesize contextBadgeImageView=_contextBadgeImageView;
 @property(readonly, nonatomic) UILabel *contextLabel; // @synthesize contextLabel=_contextLabel;
@@ -34,9 +38,11 @@
 @property(readonly, nonatomic) UILabel *textLabel; // @synthesize textLabel=_textLabel;
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 - (void).cxx_destruct;
+- (void)_t1_didLongPress:(id)arg1;
 - (void)configureWithText:(id)arg1 detailText:(id)arg2 imageURL:(id)arg3 imageDimensions:(struct CGSize)arg4 badge:(id)arg5 context:(id)arg6 contextIcon:(unsigned long long)arg7 affiliateText:(id)arg8 affiliateImageURLString:(id)arg9 imagePipeline:(id)arg10 useDarkMode:(_Bool)arg11;
 - (void)layoutSubviews;
 - (id)calculatedLayoutMetrics;
+- (void)dealloc;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end

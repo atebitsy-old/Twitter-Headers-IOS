@@ -16,14 +16,12 @@
     TFNTwitterMediaUploadConfiguration *_configuration;
     TFNTwitterMediaAsset *_asset;
     long long _uploadSource;
-    unsigned long long _uploadSourceType;
     TNUTransactionMetrics *_networkTransactionMetrics;
     id <TNUNetworkQualityProvider> _networkQualityProvider;
 }
 
 @property(readonly, nonatomic) id <TNUNetworkQualityProvider> networkQualityProvider; // @synthesize networkQualityProvider=_networkQualityProvider;
 @property(readonly, nonatomic) TNUTransactionMetrics *networkTransactionMetrics; // @synthesize networkTransactionMetrics=_networkTransactionMetrics;
-@property(readonly, nonatomic) unsigned long long uploadSourceType; // @synthesize uploadSourceType=_uploadSourceType;
 @property(readonly, nonatomic) long long uploadSource; // @synthesize uploadSource=_uploadSource;
 @property(readonly, nonatomic) TFNTwitterMediaAsset *asset; // @synthesize asset=_asset;
 @property(readonly, nonatomic) TFNTwitterMediaUploadConfiguration *configuration; // @synthesize configuration=_configuration;
@@ -41,7 +39,7 @@
 @property(readonly, nonatomic) unsigned long long minimumSegmentSize;
 @property(readonly, nonatomic) unsigned long long segmentSize;
 - (void)dealloc;
-- (id)initWithAccount:(id)arg1 identifier:(id)arg2 configuration:(id)arg3 asset:(id)arg4 networkTransactionMetrics:(id)arg5 uploadSource:(long long)arg6 uploadSourceType:(unsigned long long)arg7 networkQualityProvider:(id)arg8;
+- (id)initWithAccount:(id)arg1 identifier:(id)arg2 configuration:(id)arg3 asset:(id)arg4 networkTransactionMetrics:(id)arg5 uploadSource:(long long)arg6 networkQualityProvider:(id)arg7;
 - (id)init;
 
 @end

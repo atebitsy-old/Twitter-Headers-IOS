@@ -14,6 +14,7 @@
 {
     _Bool _autoplayEnabled;
     _Bool _autoplayUpdateTimerRunning;
+    TFNTwitterAccount *_account;
     double _autoplayStartPlayerViewVisibleYFraction;
     double _autoplaySuspendUpdateSpeed;
     TFSTimer *_autoplayUpdateTimer;
@@ -27,7 +28,7 @@
     struct CGPoint _lastVerticalScrollSpeedUpdateContentOffset;
 }
 
-+ (id)statusMediaHandlerForDataViewController:(id)arg1;
++ (id)statusMediaHandlerForDataViewController:(id)arg1 account:(id)arg2;
 @property(nonatomic) double verticalScrollSpeed; // @synthesize verticalScrollSpeed=_verticalScrollSpeed;
 @property(nonatomic) double lastVerticalScrollSpeedUpdateTime; // @synthesize lastVerticalScrollSpeedUpdateTime=_lastVerticalScrollSpeedUpdateTime;
 @property(nonatomic) struct CGPoint lastVerticalScrollSpeedUpdateContentOffset; // @synthesize lastVerticalScrollSpeedUpdateContentOffset=_lastVerticalScrollSpeedUpdateContentOffset;
@@ -41,13 +42,13 @@
 @property(readonly, nonatomic) double autoplaySuspendUpdateSpeed; // @synthesize autoplaySuspendUpdateSpeed=_autoplaySuspendUpdateSpeed;
 @property(readonly, nonatomic) double autoplayStartPlayerViewVisibleYFraction; // @synthesize autoplayStartPlayerViewVisibleYFraction=_autoplayStartPlayerViewVisibleYFraction;
 @property(readonly, nonatomic) _Bool autoplayEnabled; // @synthesize autoplayEnabled=_autoplayEnabled;
+@property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
 - (void).cxx_destruct;
 - (void)viewController:(id)arg1 didEndFullscreenPresentationWithPlayerSession:(id)arg2;
 - (long long)t1_autoplayManagerMode;
 - (void)viewController:(id)arg1 willBeginFullscreenPresentationWithPlayerSession:(id)arg2;
 - (void)_t1_dockingControllerDidDismissCurrentDockedView;
 - (void)_updateAutoplayIfNeededOnVideoChangeInSource:(id)arg1;
-- (_Bool)_isLiveEventPlayableInSource:(id)arg1;
 - (void)_liveEventCardViewModelDidUpdateBroadcast:(id)arg1;
 - (id)_buildScribeContextWithController:(id)arg1 withSource:(id)arg2;
 - (_Bool)_shouldUpdateAutoplay;
@@ -65,13 +66,13 @@
 - (void)willDisplayPlayerViewContainerCell:(struct UIView *)arg1;
 - (void)addSlideshowPresenter:(id)arg1 forViewController:(id)arg2;
 - (id)slideshowPresenterForViewController:(id)arg1;
-@property(readonly, nonatomic) TFNTwitterAccount *account;
 - (id)presentPlayerFromPlayerViewContainerCell:(struct UIView *)arg1 status:(id)arg2 previewing:(_Bool)arg3;
 - (void)dealloc;
 - (void)addSubDataViewController:(id)arg1;
 - (void)_updateFeatureSwitches;
 - (void)_t1_setupAutoplayManager;
-- (id)initWithMainDataViewController:(id)arg1;
+- (id)initWithMainDataViewController:(id)arg1 account:(id)arg2;
+- (id)init;
 - (_Bool)shouldAutoplayableManagerUpdateActive;
 
 // Remaining properties

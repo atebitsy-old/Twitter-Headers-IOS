@@ -7,6 +7,7 @@
 #import <objc/NSObject.h>
 
 @class NSArray, NSOperation, TFNTwitterAccount, TFNTwitterHomeTimeline, TFNTwitterTimeline;
+@protocol TFNTwitterHomeTimelineVariantCoordinator;
 
 @interface TFNTwitterTimelineManager : NSObject
 {
@@ -15,12 +16,14 @@
     NSOperation *_loadOtherTimelinesOperation;
     id _urtNotificationsTimeline;
     TFNTwitterTimeline *_selectedTimeline;
+    id <TFNTwitterHomeTimelineVariantCoordinator> _homeTimelineVariantCoordinator;
     TFNTwitterAccount *_account;
 }
 
 + (void)setTimelineFactory:(id)arg1;
 + (id)timelineFactory;
 @property(nonatomic) __weak TFNTwitterAccount *account; // @synthesize account=_account;
+@property(readonly, nonatomic) id <TFNTwitterHomeTimelineVariantCoordinator> homeTimelineVariantCoordinator; // @synthesize homeTimelineVariantCoordinator=_homeTimelineVariantCoordinator;
 @property(retain, nonatomic) TFNTwitterTimeline *selectedTimeline; // @synthesize selectedTimeline=_selectedTimeline;
 @property(readonly, nonatomic) id urtNotificationsTimeline; // @synthesize urtNotificationsTimeline=_urtNotificationsTimeline;
 @property(readonly, copy, nonatomic) NSArray *timelines; // @synthesize timelines=_timelines;
@@ -34,6 +37,8 @@
 - (void)saveAllTimelines:(_Bool)arg1;
 - (void)refreshAllTimelinesWithSource:(long long)arg1;
 - (id)allRefreshableTimelines;
+- (void)performTimelineSwitchForAutoSwitch:(_Bool)arg1 useLatestTweetsTimeline:(_Bool)arg2 timelineLoadingAfterManualSwitch:(_Bool)arg3 source:(long long)arg4 withCompletion:(CDUnknownBlockType)arg5;
+- (_Bool)shouldResetToTopTimeline;
 - (void)reconstructTimelineForIdentifier:(id)arg1;
 - (id)timelineWithIdentifier:(id)arg1;
 @property(readonly, nonatomic) TFNTwitterHomeTimeline *homeTimeline;

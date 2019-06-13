@@ -9,7 +9,7 @@
 #import <T1Twitter/T1ImageDisplayViewDownloadDelegate-Protocol.h>
 #import <T1Twitter/TAVPlaybackObserver-Protocol.h>
 
-@class NSString, T1AnimatedGIFImageView, T1CardActivityIndicatorView, T1ImageDisplayView, T1PlayerSessionProducer, T1SlideshowSeekView, T1SlideshowSlideViewModel, T1StickerCanvas, T1StickerCanvasContentModeAssistView, TAVPlaybackState, TAVPlayerView, TFNButton, UIView;
+@class NSString, T1AnimatedGIFImageView, T1CardActivityIndicatorView, T1ImageDisplayView, T1PlayerSessionProducer, T1SlideshowSeekView, T1SlideshowSlideViewModel, TAVPlaybackState, TAVPlayerView, TFNButton, UIView;
 @protocol T1SlideshowSlideDelegate;
 
 @interface T1SlideshowSlide : NSObject <TAVPlaybackObserver, T1ImageDisplayViewDownloadDelegate>
@@ -18,8 +18,6 @@
     T1ImageDisplayView *_imageDisplayView;
     T1AnimatedGIFImageView *_animatedGIFView;
     TAVPlayerView *_tavPlayerView;
-    T1StickerCanvasContentModeAssistView *_stickerCanvasWrapper;
-    T1StickerCanvas *_stickerCanvas;
     UIView *_overlayView;
     TFNButton *_watchAgainButton;
     T1SlideshowSeekView *_seekView;
@@ -36,8 +34,6 @@
 @property(retain, nonatomic) T1SlideshowSeekView *seekView; // @synthesize seekView=_seekView;
 @property(readonly, nonatomic) TFNButton *watchAgainButton; // @synthesize watchAgainButton=_watchAgainButton;
 @property(readonly, nonatomic) UIView *overlayView; // @synthesize overlayView=_overlayView;
-@property(readonly, nonatomic) T1StickerCanvas *stickerCanvas; // @synthesize stickerCanvas=_stickerCanvas;
-@property(readonly, nonatomic) T1StickerCanvasContentModeAssistView *stickerCanvasWrapper; // @synthesize stickerCanvasWrapper=_stickerCanvasWrapper;
 @property(readonly, nonatomic) TAVPlayerView *tavPlayerView; // @synthesize tavPlayerView=_tavPlayerView;
 @property(readonly, nonatomic) T1AnimatedGIFImageView *animatedGIFView; // @synthesize animatedGIFView=_animatedGIFView;
 @property(readonly, nonatomic) T1ImageDisplayView *imageDisplayView; // @synthesize imageDisplayView=_imageDisplayView;

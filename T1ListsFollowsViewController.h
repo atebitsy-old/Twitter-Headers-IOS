@@ -6,7 +6,7 @@
 
 #import <T1Twitter/T1ListsListViewController.h>
 
-@class NSMutableSet, NSSet, T1ListTableRowAdapter, TFNTwitterAccount, TFNTwitterUserListListFollowing, TFSTwitterUserReference;
+@class NSMutableSet, NSSet, T1ListTableRowAdapter, TFNTwitterUserListListFollowing, TFSTwitterUserReference;
 @protocol T1ListsOwnerDelegate;
 
 @interface T1ListsFollowsViewController : T1ListsListViewController
@@ -15,7 +15,6 @@
     NSMutableSet *_selectedLists;
     NSSet *_originalSet;
     TFNTwitterUserListListFollowing *_ownedListsFollowingUser;
-    TFNTwitterAccount *_account;
     TFSTwitterUserReference *_userReference;
     TFSTwitterUserReference *_targetUserReference;
     id <T1ListsOwnerDelegate> _delegate;
@@ -27,8 +26,6 @@
 @property(retain, nonatomic) TFSTwitterUserReference *targetUserReference; // @synthesize targetUserReference=_targetUserReference;
 - (void)setUserReference:(id)arg1;
 - (id)userReference;
-- (void)setAccount:(id)arg1;
-- (id)account;
 - (void).cxx_destruct;
 - (id)scribeSection;
 - (void)didSelectItem:(id)arg1 atIndexPath:(id)arg2;
@@ -50,7 +47,7 @@
 - (id)emptyListMessage;
 - (id)emptyListHeading;
 - (void)viewDidLoad;
-- (id)init;
+- (id)initWithAccount:(id)arg1;
 
 @end
 

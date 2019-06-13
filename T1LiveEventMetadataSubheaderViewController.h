@@ -10,7 +10,7 @@
 #import <T1Twitter/TFNAttributedTextViewDelegate-Protocol.h>
 #import <T1Twitter/TFNLayoutMetricsEnvironment-Protocol.h>
 
-@class NSLayoutConstraint, NSString, T1LiveEventAuthorAttributionView, TFNAttributedTextView, TFNTwitterAccount, TFNTwitterLiveEvent, UILabel, UIStackView, UIView;
+@class NSLayoutConstraint, NSString, T1LiveEventAuthorAttributionView, TFNAttributedTextView, TFNTwitterAccount, TFNTwitterLiveEvent, UILabel, UIStackView;
 @protocol T1LiveEventMetadataSubheaderViewControllerDelegate;
 
 @interface T1LiveEventMetadataSubheaderViewController : TFNViewController <TFNLayoutMetricsEnvironment, TFNAttributedTextViewDelegate, T1ResizableHeaderSubheader>
@@ -26,7 +26,6 @@
     T1LiveEventAuthorAttributionView *_authorAttributionView;
     UILabel *_titleLabel;
     TFNAttributedTextView *_descriptionTextView;
-    UIView *_belowTitleSpaceView;
     double _desiredHeight;
     NSLayoutConstraint *_verticalContentStackViewLeadingConstraint;
     NSLayoutConstraint *_verticalContentStackViewTrailingConstraint;
@@ -37,7 +36,6 @@
 @property(retain, nonatomic) NSLayoutConstraint *verticalContentStackViewTrailingConstraint; // @synthesize verticalContentStackViewTrailingConstraint=_verticalContentStackViewTrailingConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *verticalContentStackViewLeadingConstraint; // @synthesize verticalContentStackViewLeadingConstraint=_verticalContentStackViewLeadingConstraint;
 @property(nonatomic) double desiredHeight; // @synthesize desiredHeight=_desiredHeight;
-@property(retain, nonatomic) UIView *belowTitleSpaceView; // @synthesize belowTitleSpaceView=_belowTitleSpaceView;
 @property(retain, nonatomic) TFNAttributedTextView *descriptionTextView; // @synthesize descriptionTextView=_descriptionTextView;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) T1LiveEventAuthorAttributionView *authorAttributionView; // @synthesize authorAttributionView=_authorAttributionView;

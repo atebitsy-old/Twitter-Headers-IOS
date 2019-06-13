@@ -21,6 +21,7 @@
     NSString *_source;
 }
 
++ (id)t1_tweetDetailsFooterItemWithViewModel:(id)arg1;
 @property(nonatomic) _Bool showHiddenRepliesButton; // @synthesize showHiddenRepliesButton=_showHiddenRepliesButton;
 @property(nonatomic) _Bool includesTopPadding; // @synthesize includesTopPadding=_includesTopPadding;
 @property(nonatomic) _Bool isRankedTimelineTweet; // @synthesize isRankedTimelineTweet=_isRankedTimelineTweet;
@@ -31,6 +32,8 @@
 @property(copy, nonatomic) NSString *accessibilityTimestamp; // @synthesize accessibilityTimestamp=_accessibilityTimestamp;
 @property(copy, nonatomic) NSString *timeAgo; // @synthesize timeAgo=_timeAgo;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

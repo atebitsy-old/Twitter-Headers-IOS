@@ -44,6 +44,8 @@
 @property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
+- (void)_t1_updateImage:(unsigned long long)arg1 imageFile:(id)arg2 imageSize:(struct CGSize)arg3 responseBlock:(CDUnknownBlockType)arg4;
+- (CDUnknownBlockType)_t1_preprocessBlockForImage:(unsigned long long)arg1 dimensions:(struct CGSize)arg2;
 - (void)_completeUpload;
 - (void)_uploadImage;
 - (void)_writeUploadImageToTempFile;

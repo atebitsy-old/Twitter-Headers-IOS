@@ -13,7 +13,6 @@
 
 + (id)sharedManager;
 @property(nonatomic, getter=isReady) _Bool ready; // @synthesize ready=_ready;
-- (void)cancelAllAuthOperationsWithAccountID:(id)arg1;
 - (void)_handleAccountAuthRequestResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (long long)accountAuthErrorCodeFromAPIResponse:(id)arg1;
 - (void)handleRequestResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;

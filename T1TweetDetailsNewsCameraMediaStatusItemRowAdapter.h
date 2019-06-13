@@ -17,7 +17,7 @@
 @property(retain, nonatomic) T1StatusMediaHandler *statusMediaHandler; // @synthesize statusMediaHandler=_statusMediaHandler;
 @property(copy, nonatomic) CDUnknownBlockType statusOptionsBlock; // @synthesize statusOptionsBlock=_statusOptionsBlock;
 - (void).cxx_destruct;
-- (id)_t1_statusMediaHandlerForTableViewController:(id)arg1;
+- (id)_t1_statusMediaHandlerForTableViewController:(id)arg1 account:(id)arg2;
 - (id)dataViewController:(id)arg1 previewingViewControllerForItem:(id)arg2 withOptions:(id)arg3 location:(struct CGPoint)arg4 inCell:(id)arg5 atIndexPath:(id)arg6 outSourceRect:(out struct CGRect *)arg7;
 - (id)dataViewController:(id)arg1 tableViewCellForItem:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4;
 - (double)dataViewController:(id)arg1 tableViewHeightForItem:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4;

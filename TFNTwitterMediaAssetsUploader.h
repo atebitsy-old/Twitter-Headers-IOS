@@ -22,7 +22,6 @@
     TFNTwitterAccount *_account;
     NSArray *_assets;
     long long _source;
-    unsigned long long _sourceType;
     double _startTime;
     double _endTime;
     id <TNUNetworkQualityProvider> _networkQualityProvider;
@@ -33,7 +32,6 @@
 @property(retain, nonatomic) id <TNUNetworkQualityProvider> networkQualityProvider; // @synthesize networkQualityProvider=_networkQualityProvider;
 @property(readonly, nonatomic) double endTime; // @synthesize endTime=_endTime;
 @property(readonly, nonatomic) double startTime; // @synthesize startTime=_startTime;
-@property(nonatomic) unsigned long long sourceType; // @synthesize sourceType=_sourceType;
 @property(nonatomic) long long source; // @synthesize source=_source;
 @property(readonly, nonatomic) NSArray *assets; // @synthesize assets=_assets;
 @property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;

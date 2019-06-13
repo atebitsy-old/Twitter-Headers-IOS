@@ -11,23 +11,19 @@
 @interface T1HashflagService : NSObject
 {
     // Error parsing type: , name: lastConfigVersion
-    // Error parsing type: , name: accountID
-    // Error parsing type: , name: modelContext
-    // Error parsing type: , name: uid
+    // Error parsing type: , name: filePath
     // Error parsing type: , name: manager
-    // Error parsing type: , name: observer
+    // Error parsing type: , name: apiCommandService
+    // Error parsing type: , name: fileAccessQueue
+    // Error parsing type: , name: lastRefreshedAt
     // Error parsing type: , name: refreshCommand
 }
 
 - (void).cxx_destruct;
 - (id)init;
 @property(nonatomic, copy) NSString *lastConfigVersion; // @synthesize lastConfigVersion;
-@property(nonatomic, readonly) _Bool isObserving;
 - (void)removeAllHashflags;
 - (void)refreshIfOlderThanMaxAge:(double)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)stopObserving;
-- (void)startObserving;
-- (id)initWithAccountID:(id)arg1 modelContext:(id)arg2 uid:(id)arg3 manager:(id)arg4;
 
 @end
 

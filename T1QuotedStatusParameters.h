@@ -28,6 +28,7 @@
 - (double)mediaMaxWidthWithLayoutMetrics:(id)arg1;
 - (struct UIEdgeInsets)contentEdgeInsetsWithLayoutMetrics:(id)arg1;
 - (double)mediaVerticalTextMarginWithLayoutMetrics:(id)arg1;
+- (double)mediaVerticalMarginWithLayoutMetrics:(id)arg1;
 - (double)mediaTextMarginWithLayoutMetrics:(id)arg1;
 - (double)conversationContextMarginWithLayoutMetrics:(id)arg1;
 - (double)authorBodyMarginForConversationWithLayoutMetrics:(id)arg1;

@@ -60,6 +60,8 @@
 - (id)_t1_main_loadNewsCameraCaptureViewController;
 - (id)_t1_main_loadTweetComposeNavigationController;
 - (void)_t1_main_updateContentViewControllerAnimated:(_Bool)arg1;
+@property(readonly, copy, nonatomic) NSArray *currentCompositions;
+@property(readonly, nonatomic) TFNTwitterAccount *currentAccount;
 - (id)initWithAccount:(id)arg1 compositions:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

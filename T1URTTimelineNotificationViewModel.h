@@ -6,11 +6,9 @@
 
 #import <objc/NSObject.h>
 
-#import <T1Twitter/T1ActivityItemAdaptable-Protocol.h>
-
 @class NSDictionary, NSString, T1URTFeedbackContext, T1URTURLViewModel, TFNTwitterUnifiedCard;
 
-@interface T1URTTimelineNotificationViewModel : NSObject <T1ActivityItemAdaptable>
+@interface T1URTTimelineNotificationViewModel : NSObject
 {
     // Error parsing type: , name: notification
     // Error parsing type: , name: urtUrl
@@ -36,7 +34,6 @@
 @property(nonatomic, readonly) NSString *entryID; // @synthesize entryID;
 @property(nonatomic, readonly) T1URTFeedbackContext *feedbackContext; // @synthesize feedbackContext;
 @property(nonatomic, readonly) TFNTwitterUnifiedCard *unifiedCard;
-@property(nonatomic, readonly) long long activityCellAdaptableType;
 @property(nonatomic, readonly) T1URTURLViewModel *urlViewModel;
 
 @end

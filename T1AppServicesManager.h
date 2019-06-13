@@ -86,7 +86,6 @@
 - (_Bool)_purgeDirectory:(id)arg1;
 - (void)_purgeLocalArchivesAndSettings;
 - (_Bool)_purgeArchivesIfNecessary;
-- (void)_updateAccountModel;
 - (void)_updateImagePipelines:(id)arg1;
 - (void)_updateScribeServiceSettings;
 - (void)_t1_updateAPIErrorMonitorSetting;
@@ -113,7 +112,6 @@
 - (void)_setupURTTimelineEncodingPolicyConfiguration;
 - (void)setUpCoreServicesWithConfiguration:(id)arg1;
 - (void)saveServiceStatesSavingStreamsAsynchronously:(_Bool)arg1;
-@property(readonly, nonatomic) _Bool didResetCanary;
 - (id)init;
 
 @end

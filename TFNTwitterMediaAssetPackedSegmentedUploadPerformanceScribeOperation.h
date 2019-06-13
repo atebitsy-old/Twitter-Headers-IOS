@@ -6,24 +6,24 @@
 
 #import <TFSUtilities/TFSDependentConcurrentOperation.h>
 
-#import <T1Twitter/TFNTwitterMediaAssetPackedSegmentedUploadPerformanceScribeValueDependency-Protocol.h>
+@class NSDate, TFNTwitterMediaAssetPackedSegmentedUploadContext;
 
-@class TFNTwitterAccount, TFNTwitterMediaAssetPackedSegmentedUploadPerformanceScribeValue;
-
-@interface TFNTwitterMediaAssetPackedSegmentedUploadPerformanceScribeOperation : TFSDependentConcurrentOperation <TFNTwitterMediaAssetPackedSegmentedUploadPerformanceScribeValueDependency>
+@interface TFNTwitterMediaAssetPackedSegmentedUploadPerformanceScribeOperation : TFSDependentConcurrentOperation
 {
-    TFNTwitterMediaAssetPackedSegmentedUploadPerformanceScribeValue *_scribeValue;
-    TFNTwitterAccount *_account;
+    unsigned long long _action;
+    TFNTwitterMediaAssetPackedSegmentedUploadContext *_context;
+    unsigned long long _process;
+    NSDate *_startDate;
 }
 
-@property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
-@property(copy) TFNTwitterMediaAssetPackedSegmentedUploadPerformanceScribeValue *scribeValue; // @synthesize scribeValue=_scribeValue;
+@property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
+@property(readonly, nonatomic) unsigned long long process; // @synthesize process=_process;
+@property(readonly, nonatomic) TFNTwitterMediaAssetPackedSegmentedUploadContext *context; // @synthesize context=_context;
+@property unsigned long long action; // @synthesize action=_action;
 - (void).cxx_destruct;
-- (void)_tfn_main_scribeRegularEventWithScribeValue:(id)arg1;
-- (void)_tfn_main_scribePerformanceEventWithScribeValue:(id)arg1;
 - (void)_tfn_main_run;
 - (void)run;
-- (id)initWithAccount:(id)arg1;
+- (id)initWithContext:(id)arg1 process:(unsigned long long)arg2;
 
 @end
 

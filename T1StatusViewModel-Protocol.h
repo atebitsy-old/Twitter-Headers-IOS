@@ -104,7 +104,6 @@
 @property(readonly, nonatomic) NSString *withheldScope;
 @property(readonly, nonatomic) _Bool displayAsNewsCameraTweet;
 @property(readonly, nonatomic) _Bool displayAsWithheld;
-@property(readonly, nonatomic) _Bool isPartOfSpecialEvent;
 @property(readonly, nonatomic) _Bool hasModeratedReplies;
 @property(readonly, nonatomic) UIColor *replyBadgeBackgroundColor;
 @property(readonly, copy, nonatomic) NSString *replyBadgeText;

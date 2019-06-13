@@ -27,9 +27,10 @@
 @property(nonatomic) double warningTimeInterval; // @synthesize warningTimeInterval=_warningTimeInterval;
 @property(nonatomic) double completedTimeInterval; // @synthesize completedTimeInterval=_completedTimeInterval;
 @property(nonatomic) double currentTimeInterval; // @synthesize currentTimeInterval=_currentTimeInterval;
-@property(nonatomic) double autoplayAdCountdownValue; // @synthesize autoplayAdCountdownValue=_autoplayAdCountdownValue;
+@property(readonly, nonatomic) double autoplayAdCountdownValue; // @synthesize autoplayAdCountdownValue=_autoplayAdCountdownValue;
 - (void).cxx_destruct;
 - (void)setViewCount:(long long)arg1 inPrimaryLabel:(_Bool)arg2;
+- (void)setAutoplayAdCountdownValue:(double)arg1 adType:(unsigned long long)arg2;
 - (void)_updateStateAnimated:(_Bool)arg1;
 - (void)setFont:(id)arg1;
 - (id)_formattedTime:(double)arg1;

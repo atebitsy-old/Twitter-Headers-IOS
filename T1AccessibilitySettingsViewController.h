@@ -17,14 +17,14 @@
     // Error parsing type: , name: linkShortenedItem
     // Error parsing type: , name: magicTapItem
     // Error parsing type: , name: highContrastItem
-    // Error parsing type: , name: altTextHelpItem
+    // Error parsing type: , name: altTextHelpItem.storage
     // Error parsing type: , name: SFSVCItem
     // Error parsing type: , name: altTextItem.storage
     // Error parsing type: , name: reduceMotionItem
     // Error parsing type: , name: reduceMotionHelpItem
     // Error parsing type: , name: videoAutoplayItem.storage
     // Error parsing type: , name: videoAutoplayDescriptionItem.storage
-    // Error parsing type: , name: videoAutoplayHelpItem
+    // Error parsing type: , name: videoAutoplayHelpItem.storage
 }
 
 - (void).cxx_destruct;

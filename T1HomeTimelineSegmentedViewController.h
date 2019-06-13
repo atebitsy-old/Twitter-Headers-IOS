@@ -57,7 +57,6 @@
 - (_Bool)tfn_prefersNavigationBarShadowHidden;
 - (void)_t1_fakeRecurringTaskForegroundRefresh:(id)arg1;
 - (void)viewDidLoad;
-- (void)dealloc;
 - (id)initWithAccount:(id)arg1 timelineViewControllers:(id)arg2 tabTitles:(id)arg3 initialViewControllerIndex:(unsigned long long)arg4;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

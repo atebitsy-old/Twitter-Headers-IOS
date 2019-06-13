@@ -11,6 +11,7 @@
     _Bool _viewAccountOnCompletion;
 }
 
+- (_Bool)willViewAccountOnFlowCompletion;
 - (void)completeFlowAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithViewAccountOnCompletion:(_Bool)arg1;
 

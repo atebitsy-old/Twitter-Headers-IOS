@@ -14,5 +14,8 @@
 - (void)completeFlowAnimated:(_Bool)arg1 completion:(void (^)(void))arg2;
 - (void)removeFlowCompletionObserver:(NSObject *)arg1;
 - (void)addFlowCompletionObserver:(NSObject *)arg1 selector:(SEL)arg2;
+
+@optional
+@property(readonly, nonatomic) _Bool willViewAccountOnFlowCompletion;
 @end
 

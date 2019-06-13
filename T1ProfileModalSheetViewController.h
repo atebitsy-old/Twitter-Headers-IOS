@@ -26,6 +26,8 @@
 @property(nonatomic) __weak id <T1ModalViewControllerNonModalPresentationDelegate> nonModalPresentationDelegate; // @synthesize nonModalPresentationDelegate=_nonModalPresentationDelegate;
 - (void).cxx_destruct;
 - (void)_t1_voiceOverStatusDidChange:(id)arg1;
+- (void)_t1_animateSlidingInSubviewsOfView:(id)arg1 excludingView:(id)arg2 dx:(double)arg3 dy:(double)arg4 completion:(CDUnknownBlockType)arg5;
+- (id)_t1_addSnapshotOfView:(id)arg1 toHostView:(id)arg2;
 - (void)modalViewController:(id)arg1 nonModallyPresentViewControllerCreatedFromBlock:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) TFSTwitterScribeContext *scribeContext;
 - (void)dismissAndPresentViewControllerCreatedFromBlock:(CDUnknownBlockType)arg1;

@@ -70,7 +70,7 @@
 - (void)_t1_removeCarouselViewControllerForUnifiedID:(id)arg1;
 - (void)_t1_addCarouselViewControllerForUnifiedID:(id)arg1 toParentViewController:(id)arg2;
 - (void)_updateStatusView:(id)arg1 carouselViewControllerForTableViewController:(id)arg2 withMediaHandler:(id)arg3 scribeContext:(id)arg4 account:(id)arg5;
-- (id)_statusMediaHandlerForTableViewController:(id)arg1;
+- (id)_statusMediaHandlerForTableViewController:(id)arg1 account:(id)arg2;
 - (id)_newsCameraPresenterForTableViewController:(id)arg1;
 - (id)_slideshowManagerForTableViewController:(id)arg1 account:(id)arg2;
 - (id)tableViewController:(id)arg1 didSelectViewModel:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4 scribeSection:(id)arg5 scribeComponent:(id)arg6 impressionParameters:(id)arg7;

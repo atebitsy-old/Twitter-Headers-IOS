@@ -126,6 +126,9 @@
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (void)private_loadDashHostView;
+- (void)eagerlyLoadViews;
+- (void)tfn_addDirectlyOwnedViewControllersToMutableArray:(id)arg1;
 - (double)private_dashFullWidthForSize:(struct CGSize)arg1;
 - (double)private_dashContentWidthForSize:(struct CGSize)arg1;
 @property(readonly, nonatomic) double dashFullWidth;

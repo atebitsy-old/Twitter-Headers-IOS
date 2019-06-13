@@ -26,6 +26,7 @@
 @property(readonly, nonatomic) NSString *displayFullName;
 @property(readonly, nonatomic) TFSTwitterUserReference *userReference;
 @property(readonly, nonatomic) NSNumber *userIDNumber;
+- (id)updatedTimestamp;
 @property(readonly, nonatomic) _Bool blocking;
 @property(readonly, nonatomic) _Bool following;
 @property(readonly, nonatomic) _Bool followRequestSent;

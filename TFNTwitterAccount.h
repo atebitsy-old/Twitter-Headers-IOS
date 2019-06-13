@@ -10,14 +10,13 @@
 #import <T1Twitter/TFNTwitterAPIConfiguration-Protocol.h>
 #import <T1Twitter/TFNTwitterMediaUploadConfiguration-Protocol.h>
 
-@class ACAccount, NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSOperation, NSString, T1AccountNotificationSettingsManager, T1AdaptiveMediaParameters, T1HashflagService, TFNDirectMessageService, TFNMomentsTutorialManager, TFNPeriscopeAccount, TFNPeriscopeAuthenticationController, TFNTwitterAPIConfiguration, TFNTwitterAccountModel, TFNTwitterAdsAccountUsersSet, TFNTwitterCachableVideoMonetizationSettings, TFNTwitterCanonicalUser, TFNTwitterCardPersistedStateManager, TFNTwitterCompositionOutboxController, TFNTwitterCompositionPersistenceManager, TFNTwitterHomeMutingSet, TFNTwitterLoginVerification, TFNTwitterMomentsStateManager, TFNTwitterNewsCameraMoments, TFNTwitterPromotedEventLogger, TFNTwitterScribe, TFNTwitterScribeFlush, TFNTwitterSearchTypeaheadStore, TFNTwitterSettings, TFNTwitterTeams, TFNTwitterTimelineManager, TFNTwitterUser, TFNTwitterUserDataSource, TFSObservable, TFSObservableInput, TFSTwitterUserReference;
+@class NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSNumber, NSOperation, NSString, T1AccountNotificationSettingsManager, T1AdaptiveMediaParameters, TFNDirectMessageService, TFNMomentsTutorialManager, TFNPeriscopeAccount, TFNPeriscopeAuthenticationController, TFNTwitterAPIConfiguration, TFNTwitterAccountModel, TFNTwitterAdsAccountUsersSet, TFNTwitterCachableVideoMonetizationSettings, TFNTwitterCanonicalUser, TFNTwitterCardPersistedStateManager, TFNTwitterCompositionOutboxController, TFNTwitterCompositionPersistenceManager, TFNTwitterHomeMutingSet, TFNTwitterLoginVerification, TFNTwitterMomentsStateManager, TFNTwitterNewsCameraMoments, TFNTwitterPromotedEventLogger, TFNTwitterScribe, TFNTwitterScribeFlush, TFNTwitterSearchTypeaheadStore, TFNTwitterSettings, TFNTwitterTeams, TFNTwitterTimelineManager, TFNTwitterUser, TFNTwitterUserDataSource, TFSObservable, TFSObservableInput, TFSTwitterAccountUserDetails, TFSTwitterUserReference;
 @protocol OS_dispatch_queue, T1CardViewRegistry, TFNTwitterAccountPushSettingsManager, TFNTwitterAccountPushSettingsProvider, TFNTwitterFeatureSwitches, TFNTwitterGeoDataProvider, TFNTwitterMomentsGuideDataManager, TFNTwitterPromotableTrend, TFSTwitterCanonicalUser, _TtP9T1Twitter24PeopleAddressBookService_;
 
 @interface TFNTwitterAccount : NSObject <T1AudioPartnerDataProvider, TFNTwitterAPIConfiguration, TFNTwitterMediaUploadConfiguration>
 {
     NSMutableDictionary *_followCountUpdaters;
     NSMutableDictionary *_unfollowCountUpdaters;
-    ACAccount *_systemAccount;
     NSMutableArray *_savedSearches;
     NSArray *_sulCategories;
     NSArray *_followerRequests;
@@ -68,20 +67,13 @@
     NSOperation *_blockedContentOperation;
     NSOperation *_homeMutingSetOperation;
     _Bool _allowDeferredPasswordFetch;
-    _Bool _deferredMigratedToAppOAuthCredentials;
-    double _deferredLastOAuthCredentialsMigrationScribe;
     TFNPeriscopeAuthenticationController *_periscopeAuthenticationController;
     TFSObservableInput *_pinnedTweetIDObservableInput;
-    _Bool _migratedToAppOAuthCredentials;
     _Bool _verified;
     _Bool _scribeShouldSuspend;
-    _Bool _systemAccountIsInvalid;
-    _Bool _addingToSystem;
-    _Bool _neverAddToSystem;
-    _Bool _migratedOAuthCredentialsToBothKeychainGroups;
+    _Bool _needsPhoneVerification;
     _Bool _everTweetedFromThisDevice;
     _Bool _hasAttemptedToSaveWebCredentials;
-    _Bool _shouldReauthAfterAccountSyncing;
     _Bool _accountHasBeenRemoved;
     _Bool _doingReverseAuth;
     _Bool _hasFailedReverseAuth;
@@ -95,14 +87,13 @@
     _Bool _videoDockingDockButtonTooltipShownInitial;
     _Bool _videoDockingSwipeToDismissTooltipShownInitial;
     _Bool _processingBlockedIDs;
+    _Bool _migratedOAuthCredentialsToBothKeychainGroups;
     _Bool _periscopeAuthenticationInProgress;
-    int _oAuthCredentialsMigrationErrorCount;
     int _backupCodeScreenshots;
     NSString *_accountID;
     NSString *_displayFullName;
     NSString *_displayUsername;
     id <TFNTwitterGeoDataProvider> _geoDataProvider;
-    NSDate *_lastOAuthCredentialsMigrationScribe;
     NSString *_oAuthTokenSecret;
     TFNTwitterCompositionOutboxController *_outboxController;
     TFSObservable *_pinnedTweetIDObservable;
@@ -110,8 +101,6 @@
     NSDate *_lastActiveDate;
     long long _lastScribeFlushId;
     NSString *_oAuthToken;
-    NSString *_systemAccountIdentifier;
-    unsigned long long _oAuthCredentialsKeychainGroupMigrationErrorCount;
     TFNTwitterNewsCameraMoments *_newsCameraMoments;
     NSDictionary *_lastSavedMutedKeywordConfiguration;
     id <TFNTwitterAccountPushSettingsProvider> _pushSettingsProvider;
@@ -141,9 +130,12 @@
     NSDictionary *_timelineManagerDic;
     NSMutableSet *_lastPassBlockedIDs;
     TFNTwitterCachableVideoMonetizationSettings *_cachedMonetizationSettings;
+    unsigned long long _oAuthCredentialsKeychainGroupMigrationErrorCount;
     TFNTwitterHomeMutingSet *_homeMutingSet;
     id _vitModeEnabledToken;
     TFNTwitterScribeFlush *_scribeFlush;
+    TFSTwitterAccountUserDetails *_accountUserDetails;
+    id _accountUserDetailsObserver;
 }
 
 + (unsigned long long)minPasswordLength;
@@ -160,14 +152,17 @@
 + (id)guestScribeThriftGroup;
 + (id)guestScribeGroup;
 + (id)contributeeAccountWithUser:(id)arg1 privilige:(_Bool)arg2 contributorAccountID:(id)arg3 contributorUserID:(long long)arg4;
-+ (long long)_tfn_twitterRequestMethodForMethod:(long long)arg1;
 + (void)removeKnownDeviceTokenForTesting;
 + (id)knownDeviceToken;
 + (void)setKnownDeviceToken:(id)arg1;
+@property(retain, nonatomic) id accountUserDetailsObserver; // @synthesize accountUserDetailsObserver=_accountUserDetailsObserver;
+@property(retain, nonatomic) TFSTwitterAccountUserDetails *accountUserDetails; // @synthesize accountUserDetails=_accountUserDetails;
 @property(retain, nonatomic) TFNTwitterScribeFlush *scribeFlush; // @synthesize scribeFlush=_scribeFlush;
 @property(retain, nonatomic) id vitModeEnabledToken; // @synthesize vitModeEnabledToken=_vitModeEnabledToken;
 @property(retain, nonatomic) TFNTwitterHomeMutingSet *homeMutingSet; // @synthesize homeMutingSet=_homeMutingSet;
 @property(nonatomic) _Bool periscopeAuthenticationInProgress; // @synthesize periscopeAuthenticationInProgress=_periscopeAuthenticationInProgress;
+@property(nonatomic) unsigned long long oAuthCredentialsKeychainGroupMigrationErrorCount; // @synthesize oAuthCredentialsKeychainGroupMigrationErrorCount=_oAuthCredentialsKeychainGroupMigrationErrorCount;
+@property(nonatomic) _Bool migratedOAuthCredentialsToBothKeychainGroups; // @synthesize migratedOAuthCredentialsToBothKeychainGroups=_migratedOAuthCredentialsToBothKeychainGroups;
 @property(retain, nonatomic) TFNTwitterCachableVideoMonetizationSettings *cachedMonetizationSettings; // @synthesize cachedMonetizationSettings=_cachedMonetizationSettings;
 @property(retain, nonatomic) NSMutableSet *lastPassBlockedIDs; // @synthesize lastPassBlockedIDs=_lastPassBlockedIDs;
 @property(readonly, nonatomic) NSDictionary *timelineManagerDic; // @synthesize timelineManagerDic=_timelineManagerDic;
@@ -200,7 +195,6 @@
 @property(readonly, nonatomic) NSMutableSet *blockedIDs; // @synthesize blockedIDs=_blockedIDs;
 @property _Bool accountHasBeenRemoved; // @synthesize accountHasBeenRemoved=_accountHasBeenRemoved;
 @property(nonatomic) unsigned long long lastReauthSuccessMachTime; // @synthesize lastReauthSuccessMachTime=_lastReauthSuccessMachTime;
-@property(nonatomic) _Bool shouldReauthAfterAccountSyncing; // @synthesize shouldReauthAfterAccountSyncing=_shouldReauthAfterAccountSyncing;
 @property(nonatomic) _Bool hasAttemptedToSaveWebCredentials; // @synthesize hasAttemptedToSaveWebCredentials=_hasAttemptedToSaveWebCredentials;
 @property(readonly, copy, nonatomic) NSString *fullName; // @synthesize fullName=_fullName;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
@@ -212,16 +206,10 @@
 @property(retain, nonatomic) TFNTwitterTeams *teams; // @synthesize teams=_teams;
 @property(nonatomic) int backupCodeScreenshots; // @synthesize backupCodeScreenshots=_backupCodeScreenshots;
 @property(readonly, nonatomic) TFNTwitterLoginVerification *loginVerification; // @synthesize loginVerification=_loginVerification;
+@property(nonatomic) _Bool needsPhoneVerification; // @synthesize needsPhoneVerification=_needsPhoneVerification;
 @property(nonatomic) __weak id <TFNTwitterAccountPushSettingsProvider> pushSettingsProvider; // @synthesize pushSettingsProvider=_pushSettingsProvider;
 @property(retain, nonatomic) NSDictionary *lastSavedMutedKeywordConfiguration; // @synthesize lastSavedMutedKeywordConfiguration=_lastSavedMutedKeywordConfiguration;
 @property(readonly, nonatomic) TFNTwitterNewsCameraMoments *newsCameraMoments; // @synthesize newsCameraMoments=_newsCameraMoments;
-@property(nonatomic) unsigned long long oAuthCredentialsKeychainGroupMigrationErrorCount; // @synthesize oAuthCredentialsKeychainGroupMigrationErrorCount=_oAuthCredentialsKeychainGroupMigrationErrorCount;
-@property(nonatomic) _Bool migratedOAuthCredentialsToBothKeychainGroups; // @synthesize migratedOAuthCredentialsToBothKeychainGroups=_migratedOAuthCredentialsToBothKeychainGroups;
-@property(nonatomic) int oAuthCredentialsMigrationErrorCount; // @synthesize oAuthCredentialsMigrationErrorCount=_oAuthCredentialsMigrationErrorCount;
-@property(nonatomic) _Bool neverAddToSystem; // @synthesize neverAddToSystem=_neverAddToSystem;
-@property(nonatomic) _Bool addingToSystem; // @synthesize addingToSystem=_addingToSystem;
-@property(nonatomic) _Bool systemAccountIsInvalid; // @synthesize systemAccountIsInvalid=_systemAccountIsInvalid;
-@property(copy, nonatomic) NSString *systemAccountIdentifier; // @synthesize systemAccountIdentifier=_systemAccountIdentifier;
 @property(copy, nonatomic) NSString *oAuthToken; // @synthesize oAuthToken=_oAuthToken;
 @property(nonatomic) _Bool scribeShouldSuspend; // @synthesize scribeShouldSuspend=_scribeShouldSuspend;
 @property(nonatomic) long long lastScribeFlushId; // @synthesize lastScribeFlushId=_lastScribeFlushId;
@@ -233,6 +221,7 @@
 - (void).cxx_destruct;
 - (id)pinnedTweetIDObservableInput;
 - (_Bool)isBadgeWithUnreadCountEnabled;
+- (void)_tfn_configureAccountUserDetailsObserverIfNecessary;
 - (id)_detailInfoDictionary;
 - (void)_loadDetailInfoWithDictionary:(id)arg1;
 - (void)_saveDetailInfoToDisk;
@@ -323,6 +312,7 @@
 - (void)lookUpUserForID:(long long)arg1 source:(unsigned long long)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_refreshMyUserForce:(_Bool)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (id)_apiConfiguration;
+- (void)_tfn_accountUserDetailsUpdated:(id)arg1;
 - (void)_userDataSourceDidUpdate:(id)arg1;
 - (void)removeStatusFromStreams:(id)arg1 reason:(unsigned long long)arg2 relatedToUser:(id)arg3;
 - (void)removeStatusFromStreams:(id)arg1 reason:(unsigned long long)arg2;
@@ -371,7 +361,6 @@
 - (void)resetOAuthCredentials;
 @property(readonly, nonatomic) NSString *oAuthConsumerSecret;
 @property(readonly, nonatomic) NSString *oAuthConsumerKey;
-@property(readonly, nonatomic) _Bool hasCredentials;
 @property(readonly, nonatomic) _Bool hasOAuthTokens;
 - (void)updateScribeOptions;
 - (id)_scribeOptionsFromDictionary:(id)arg1;
@@ -388,7 +377,6 @@
 @property(readonly, nonatomic, getter=isUsingRetainedGeoDataForCreatingTweetAllowed) _Bool usingRetainedGeoDataForCreatingTweetAllowed;
 @property(readonly, nonatomic) id <TFNTwitterGeoDataProvider> geoDataProvider; // @synthesize geoDataProvider=_geoDataProvider;
 @property(retain, nonatomic) TFNTwitterSettings *settings;
-@property(nonatomic) _Bool needsPhoneVerification;
 @property(readonly, nonatomic) _Bool isWhitelistedForAdsSubscription;
 @property(readonly, nonatomic) id <TFNTwitterAccountPushSettingsManager> pushSettings;
 @property(readonly, nonatomic) NSString *displayFullName; // @synthesize displayFullName=_displayFullName;
@@ -409,8 +397,6 @@
 - (id)_keychainErrorScribeParameters:(id)arg1;
 - (void)_migrateOAuthCredentialsToBothKeychainGroups;
 - (void)_performDeferredPasswordFetchIfAllowed;
-@property(retain, nonatomic) NSDate *lastOAuthCredentialsMigrationScribe; // @synthesize lastOAuthCredentialsMigrationScribe=_lastOAuthCredentialsMigrationScribe;
-@property(nonatomic) _Bool migratedToAppOAuthCredentials; // @synthesize migratedToAppOAuthCredentials=_migratedToAppOAuthCredentials;
 @property(copy, nonatomic) NSString *oAuthTokenSecret; // @synthesize oAuthTokenSecret=_oAuthTokenSecret;
 - (void)_saveOAuthTokenSecretWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)saveOAuthCredentialWithCompletionBlock:(CDUnknownBlockType)arg1;
@@ -496,6 +482,7 @@
 - (unsigned long long)cardComposePreviewPermittedRetryCount;
 - (_Bool)shouldCardComposePreviewTombstoneIfNotDisplayed;
 - (long long)cardComposePreviewFetchDelayMsec;
+- (_Bool)isLifelineAlertEnabled;
 - (_Bool)isComposerPostTweetAmbientNotificationEnabled;
 - (_Bool)isQuoteTweetWithGIFReactWithGIFEnabled;
 - (_Bool)isQuoteTweetWithGIFAuthoringEnabled;
@@ -515,9 +502,11 @@
 - (_Bool)isStatusCellQuoteTweetPrefetchingEnabled;
 - (_Bool)isStatusCellTwoStepPrefetchingEnabled;
 - (_Bool)isStatusCellPrefetchingEnabled;
+- (_Bool)isParallelColorPaletteInitializationEnabled;
 - (_Bool)isGuideEventSummaryImpressionLimitingEnabled;
 - (_Bool)isGuideAutolayoutHeightCachingEnabled;
 - (_Bool)isDashSectionsCachingEnabled;
+- (_Bool)isDashLazyViewInitializationEnabled;
 - (unsigned long long)dataViewModelBoundViewCacheLimit;
 - (unsigned long long)dataViewGeneralViewCacheLimit;
 - (_Bool)isStatusViewAttachmentReuseEnabled;
@@ -545,6 +534,7 @@
 - (_Bool)isMuteConversationEnabled;
 - (_Bool)isSMS2faEnabled;
 - (_Bool)isAutoMutedListEnabled;
+- (_Bool)isConversationsIncreasedDensityEnabled;
 - (_Bool)isTweetDetailsInlineReplyRemovalEnabled;
 - (_Bool)isTweetDetailsViewControllerURTV2Enabled;
 - (_Bool)isTweetDetailsModernStatusViewsFocalTweetEnabled;
@@ -587,6 +577,11 @@
 - (id)profileBirthdayBalloonOverrides;
 - (_Bool)isProfileBirthdayBalloonOverridesEnabled;
 - (_Bool)isEditProfileUsernameEnabled;
+- (void)saveTimestampForLatestTimelineUpdate;
+- (_Bool)isAddListsToHomeEnabled;
+- (_Bool)isMultipleHomeTimelinesEnabled;
+- (_Bool)isLatestHomeTimelineActive;
+- (_Bool)isInitialDefaultToHome;
 - (double)latestTimelineProgressiveAutoSwitchThresholdMultiplier;
 - (double)latestTimelineProgressiveAutoSwitchHalfLife;
 - (double)latestTimelineProgressiveAutoSwitchMaximumTime;
@@ -712,7 +707,6 @@
 @property(readonly, nonatomic) double autoplayStartPlayerViewVisibleYFraction;
 @property(readonly, nonatomic) long long autoplayableManagerMode;
 - (void)voiceOverStatusDidChange;
-- (void)registerForVoiceOverStatusChangeNotifications;
 @property(readonly, nonatomic) _Bool autoplayEnabled;
 @property(readonly, nonatomic) _Bool autoplayAvailable;
 - (_Bool)autoplayPrerequisitesMet;
@@ -722,6 +716,7 @@
 - (double)appDidBecomeActiveUrtNtabThrottleRate;
 - (double)pushReceiptUrtNtabThrottleRate;
 - (double)baselineUrtNtabThrottleRate;
+- (_Bool)isDismissTypeX;
 - (_Bool)isInRuxHoldback;
 - (_Bool)isSubscribeToConversationEnabled;
 - (id)deviceFollowingTooltipBucketWithImpression:(_Bool)arg1;
@@ -744,7 +739,6 @@
 @property(readonly, nonatomic) id <T1CardViewRegistry> cardRegistry;
 @property(nonatomic, readonly) id <_TtP9T1Twitter24PeopleAddressBookService_> addressBookService;
 @property(nonatomic, readonly) T1AccountNotificationSettingsManager *notificationSettingsManager;
-@property(nonatomic, readonly) T1HashflagService *hashflagService;
 - (unsigned long long)unreadDMsCount;
 @property(readonly, nonatomic) TFNDirectMessageService *directMessages;
 - (void)markAllFollowerRequestsAsRead;
@@ -779,18 +773,9 @@
 - (void)_lookupRelationshipsForUsersWithIDs:(id)arg1 usersWithUsernames:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)lookupRelationshipsForUsers:(id)arg1 responseBlock:(CDUnknownBlockType)arg2;
 - (void)lookupRelationshipsForUsers:(id)arg1;
-- (long long)_profileRequestVisibilityForExtendedProfileVisibility:(long long)arg1;
-- (CDUnknownBlockType)_updatePinnedTweetResponseBlockWithResponseBlock:(CDUnknownBlockType)arg1 pendingStateToken:(id)arg2;
-- (void)unpinTweetWithID:(id)arg1 responseBlock:(CDUnknownBlockType)arg2;
-- (void)pinTweetWithID:(id)arg1 responseBlock:(CDUnknownBlockType)arg2;
-- (void)updateProfileName:(id)arg1 username:(id)arg2 email:(id)arg3 urlString:(id)arg4 location:(id)arg5 placeID:(id)arg6 description:(id)arg7 birthday:(id)arg8 responseBlock:(CDUnknownBlockType)arg9;
-- (void)removeBannerImageWithResponseBlock:(CDUnknownBlockType)arg1;
-- (void)updateBannerImage:(id)arg1 imageSize:(struct CGSize)arg2 responseBlock:(CDUnknownBlockType)arg3;
-- (void)updateProfileImage:(id)arg1 imageSize:(struct CGSize)arg2 responseBlock:(CDUnknownBlockType)arg3;
-- (CDUnknownBlockType)_tfn_preprocessBlockForImageWithDimensions:(struct CGSize)arg1 mediaEntityAccessorSelector:(SEL)arg2;
 - (_Bool)isNewsCameraConsumptionEnabled;
-- (_Bool)isNewsCameraForAttachmentEnabled;
-- (_Bool)isNewsCameraInTweetComposerEnabled;
+- (_Bool)isNewsCameraRetweetWithCameraEnabled;
+- (_Bool)isNewsCameraReplyEnabled;
 - (_Bool)isNewsCameraThreadingEnabled;
 - (_Bool)isNewsCameraHomeTimelineSwipeEntrypointEnabled;
 - (_Bool)isNewsCameraHomeTimelineIconEntrypointEnabled;
@@ -826,27 +811,18 @@
 - (void)updateSettingsDiscoverableByPhone:(_Bool)arg1 responseBlock:(CDUnknownBlockType)arg2;
 - (void)updateSettingsDiscoverableByEmail:(_Bool)arg1 responseBlock:(CDUnknownBlockType)arg2;
 - (_Bool)isEmojiCountingEnabled;
-- (_Bool)_pendingAppOAuthCredentialsMigration;
-- (_Bool)_hasAppOAuthCredentials;
-- (void)_incrementOAuthCredentialMigrationErrorCountIfNecessary:(id)arg1;
-- (void)_handleReverseAuthAccessTokenResponseWithSuccess:(_Bool)arg1 response:(id)arg2 error:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_tfn_handleReverseAuthRequestTokenResponseWithSuccess:(_Bool)arg1 authParameters:(id)arg2 error:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)scribeAppOAuthCredentialsMigrationStateIfNeeded;
-- (_Bool)_needsScribeAppOAuthCredentialsMigrationState;
-- (id)signRequest:(id)arg1 error:(id *)arg2;
-- (_Bool)isOwnedByUs;
-- (void)updateSystemAccount;
-- (void)_addToSystemAccountsWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)addToSystemAccounts;
-@property(readonly, nonatomic) ACAccount *systemAccount;
-- (void)_resetSystemAccount;
-- (void)_setSystemAccount:(id)arg1;
 - (void)listWithUserID:(id)arg1 username:(id)arg2 slug:(id)arg3 responseBlock:(CDUnknownBlockType)arg4;
 - (void)unfollowList:(id)arg1 responseBlock:(CDUnknownBlockType)arg2;
 - (void)followList:(id)arg1 responseBlock:(CDUnknownBlockType)arg2;
 - (_Bool)ownsList:(id)arg1;
 - (_Bool)_listSet:(id)arg1 containsList:(id)arg2;
 - (id)definitiveLists:(id)arg1;
+- (long long)_profileRequestVisibilityForExtendedProfileVisibility:(long long)arg1;
+- (CDUnknownBlockType)_updatePinnedTweetResponseBlockWithResponseBlock:(CDUnknownBlockType)arg1 pendingStateToken:(id)arg2;
+- (void)unpinTweetWithID:(id)arg1 responseBlock:(CDUnknownBlockType)arg2;
+- (void)pinTweetWithID:(id)arg1 responseBlock:(CDUnknownBlockType)arg2;
+- (void)updateProfileName:(id)arg1 username:(id)arg2 email:(id)arg3 urlString:(id)arg4 location:(id)arg5 placeID:(id)arg6 description:(id)arg7 birthday:(id)arg8 responseBlock:(CDUnknownBlockType)arg9;
+- (void)removeBannerImageWithResponseBlock:(CDUnknownBlockType)arg1;
 - (void)_postNotificationWithName:(id)arg1 error:(id)arg2;
 @property(readonly, nonatomic) NSArray *sulCategories;
 - (void)updateSULCategories;
@@ -909,13 +885,13 @@
 @property(readonly, nonatomic) _Bool isTAVResourceLoaderOnErrorEnabled;
 @property(readonly, nonatomic) _Bool isAVRKitPreferredForAllVideos;
 - (id)_tfn_baseSignedMutableURLRequest:(id)arg1 parameters:(id)arg2;
-- (id)authenticatedMutableURLRequestForURLRequest:(id)arg1 parameters:(id)arg2 multipart:(_Bool)arg3 requireSystemAuth:(_Bool)arg4 allowPartialAuth:(_Bool)arg5 error:(id *)arg6;
+- (id)authenticatedMutableURLRequestForURLRequest:(id)arg1 parameters:(id)arg2 multipart:(_Bool)arg3 allowPartialAuth:(_Bool)arg4 error:(id *)arg5;
 - (id)authenticatedMutableURLRequestForURLRequest:(id)arg1 parameters:(id)arg2 multipart:(_Bool)arg3;
 @property(readonly, nonatomic) long long analyticsType;
 @property(readonly, nonatomic) NSArray *advertiserAccountServiceLevels;
 @property(readonly, nonatomic) long long advertiserAccountType;
-@property(readonly, nonatomic) _Bool isMediaUploadAllPerformanceLoggingEnabled;
-@property(readonly, nonatomic) _Bool isMediaUploadLocalTweetVideoPerformanceLoggingEnabled;
+@property(readonly, nonatomic, getter=isMediaUploadAllPerformanceLoggingEnabled) _Bool mediaUploadAllPerformanceLoggingEnabled;
+@property(readonly, nonatomic, getter=isMediaUploadLocalTweetVideoPerformanceLoggingEnabled) _Bool mediaUploadLocalTweetVideoPerformanceLoggingEnabled;
 @property(readonly, nonatomic) unsigned long long animatedLivePhotoType;
 @property(readonly, nonatomic, getter=isAnimatedLivePhotoAttachmentEnabled) _Bool animatedLivePhotoAttachmentEnabled;
 @property(readonly, nonatomic, getter=isVideoExportSessionVideoCompositionDisabled) _Bool videoExportSessionVideoCompositionDisabled;
@@ -947,6 +923,7 @@
 - (void)getHasConfirmedPhoneNumber:(CDUnknownBlockType)arg1;
 - (_Bool)isUnifiedCardDestinationOfTypeEnabled:(unsigned long long)arg1;
 - (_Bool)isUnifiedCardComponentOfTypeEnabled:(unsigned long long)arg1;
+- (_Bool)isDirectMessageServiceDiskLoadAsyncEnabled;
 - (_Bool)isSimpleQuotedTweetEnabled;
 - (_Bool)isLivePipelineEventsScribeEnabled;
 - (_Bool)isSpamFilteredFollowsAlwaysForceEnabled;
@@ -1028,9 +1005,9 @@
 @property(readonly, nonatomic) TFNTwitterCardPersistedStateManager *cardPersistedStateManager;
 - (void)updateTimesShownUserMuteConfirmationAlert;
 - (_Bool)shouldDisplayUserMuteConfirmationAlert;
-- (_Bool)isNewHeartbeatTrackerEnabled;
+- (_Bool)isV3HeartbeatTrackerEnabled;
+- (_Bool)isV2HeartbeatTrackerEnabled;
 - (_Bool)isVideoAnalyticsScribeThriftVerifyRequiredFieldsEnabled;
-- (void)migrateToAppOAuthCredentialsWithCompletion:(CDUnknownBlockType)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

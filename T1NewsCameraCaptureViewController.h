@@ -20,7 +20,7 @@
 #import <T1Twitter/TFNTooltipDelegate-Protocol.h>
 #import <T1Twitter/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSArray, NSLayoutConstraint, NSString, PTVAPIResponseErrorInfo, PTVTwitterCameraViewController, T1NewsCameraAccountGeoDataProviderUpdater, T1NewsCameraCaptureContext, T1NewsCameraCapturePresentation, T1NewsCameraComposition, T1NewsCameraEventHashtagsFetcher, T1NewsCameraFetchResult, T1NewsCameraModeSelectorViewController, T1NewsCameraOutboxControlButtonViewController, T1NewsCameraPlacesFetcher, T1NewsCameraServiceAuthorizationViewController, T1NewsCameraWelcomeViewController, T1PeriscopeAccount, TAVAudioSessionModeToken, TFNSwappingContainerViewControllerHelper, TFNTwitterAccount, TFSTimer, TFSTwitterScribeContext, UIButton, UIImageView, UILayoutGuide, UIPinchGestureRecognizer, UITapGestureRecognizer, UIView, UIViewController;
+@class NSArray, NSLayoutConstraint, NSString, PTVAPIResponseErrorInfo, PTVTwitterCameraViewController, T1NewsCameraAccountGeoDataProviderUpdater, T1NewsCameraCaptureContext, T1NewsCameraCapturePresentation, T1NewsCameraEventHashtagsFetcher, T1NewsCameraFetchResult, T1NewsCameraModeSelectorViewController, T1NewsCameraOutboxControlButtonViewController, T1NewsCameraPlacesFetcher, T1NewsCameraServiceAuthorizationViewController, T1NewsCameraWelcomeViewController, T1PeriscopeAccount, TAVAudioSessionModeToken, TFNSwappingContainerViewControllerHelper, TFNTwitterAccount, TFSTimer, TFSTwitterScribeContext, UIButton, UIImageView, UILayoutGuide, UIPinchGestureRecognizer, UITapGestureRecognizer, UIView, UIViewController;
 @protocol T1NewsCameraCaptureViewControllerDelegate;
 
 @interface T1NewsCameraCaptureViewController : TFNViewController <PTVTwitterCameraCommonDelegate, T1NewsCameraAccountGeoDataProviderUpdaterDelegate, T1NewsCameraEventHashtagsFetcherDelegate, T1NewsCameraModeSelectorViewControllerDelegate, T1NewsCameraOutboxControlButtonViewControllerDelegate, T1NewsCameraPlacesFetcherDelegate, T1NewsCameraServiceAuthorizationViewControllerDelegate, T1NewsCameraWelcomeViewControllerDelegate, T1TweetOutboxViewControllerDelegate, TFNSwappingContainerViewControllerHelperDelegate, TFNTooltipDelegate, UIGestureRecognizerDelegate, T1DashNewsCameraPresented>
@@ -39,7 +39,7 @@
     _Bool _needsToPresentOutboxViewController;
     _Bool _dismissed;
     _Bool _lastCameraViewImageEnabled;
-    T1NewsCameraComposition *_initialComposition;
+    NSString *_initialCompositionText;
     id <T1NewsCameraCaptureViewControllerDelegate> _delegate;
     T1NewsCameraCaptureContext *_context;
     TFNTwitterAccount *_account;
@@ -160,8 +160,8 @@
 - (_Bool)disablesDismissal;
 - (_Bool)isControlsHidden;
 - (_Bool)isCameraControlsHidden;
-- (void)setInitialComposition:(id)arg1;
-- (id)initialComposition;
+- (void)setInitialCompositionText:(id)arg1;
+- (id)initialCompositionText;
 - (void).cxx_destruct;
 - (void)tooltipDidTap:(id)arg1;
 - (void)newsCameraEventHashtagsFetcher:(id)arg1 didFetchCurrentEventHashtags:(id)arg2 error:(id)arg3;
@@ -311,6 +311,7 @@
 - (void)_t1_main_startCameraSessionLive;
 - (void)_t1_main_startCameraSessionCamera;
 - (void)_t1_main_startCameraSession;
+- (id)compositionInReplyToContext;
 - (void)_t1_main_updateAccountCurrentLocation;
 - (void)requestsUpdateCurrentLocationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_t1_main_updateEventHashtagsFetcher;

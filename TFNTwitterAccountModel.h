@@ -38,7 +38,6 @@
 + (id)databaseFileFullPathWithInstanceName:(id)arg1;
 + (id)defaultDatabaseFileName;
 + (id)SQLParameterStringWithCount:(long long)arg1;
-+ (void)setCS2UserEnabled:(_Bool)arg1;
 + (void)_closeWriteConnection:(id)arg1;
 @property(retain, nonatomic) TFNDatabaseConnection *backgroundReadWriteConnection; // @synthesize backgroundReadWriteConnection=_backgroundReadWriteConnection;
 @property(nonatomic) __weak TFNTwitterAccount *account; // @synthesize account=_account;
@@ -53,24 +52,16 @@
 - (void)_prepareStatuses:(id)arg1;
 - (id)_newConnection;
 - (void)_openBackgroundReadWriteConnection;
-- (_Bool)_insertUser:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
-- (_Bool)writeUsersIntoShadowTable:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (_Bool)writeStatusesIntoShadowTable:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
-- (void)moveStatusesAndUsersToProductionTablesForTests;
 - (void)_moveToProduction:(int)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)_usersForIDs:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (void)lookUpNonDefinitiveUsersForIDs:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)lookUpUsersForIDs:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (id)_userForUsername:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (void)lookUpUserForUsername:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (id)_userForID:(long long)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (void)lookUpUserForID:(long long)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)_tfn_userLookupAndFailingUserIDsForPlistDictionaries:(id)arg1 userCache:(struct NSDictionary *)arg2;
-- (_Bool)_loadAllCardUsersInStatuses:(id)arg1 userCache:(id)arg2 legacyModelSupport:(id)arg3 transaction:(id)arg4 error:(id *)arg5;
+- (_Bool)_loadAllCardUsersInStatuses:(id)arg1 userCache:(id)arg2 legacyModelSupport:(id)arg3 error:(id *)arg4;
 - (_Bool)loadAllCardUsersInStatuses:(id)arg1 userCache:(id)arg2 legacyModelSupport:(id)arg3 error:(id *)arg4;
 - (id)_statusWithResultSet:(id)arg1 userCache:(id)arg2;
-- (id)_statusesUsingUserTableForIDs:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
-- (id)_statusesUsingCS2ForIDs:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (id)_statusesForIDs:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (_Bool)_hydrateAdditionalTweetReferences:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
 - (id)_hydrateAllStatuses:(id)arg1 transaction:(id)arg2 error:(id *)arg3;
@@ -112,7 +103,6 @@
 - (id)_definitiveTimelineChunk:(id)arg1 cs2Transaction:(id)arg2;
 - (id)definitiveTimelineChunk:(id)arg1;
 - (void)_updateUserCacheIndicesWithUser:(id)arg1;
-- (void)registerDirectMessageUser:(id)arg1;
 - (id)_definitiveUser:(id)arg1 cs2Transaction:(id)arg2;
 - (id)definitiveUser:(id)arg1;
 - (void)_updateLegacySuggestsModuleFields:(id)arg1 withModule:(id)arg2;
@@ -125,7 +115,6 @@
 - (id)_cachedUserForID:(long long)arg1;
 - (id)deprecatedCachedStatusForID:(long long)arg1;
 - (void)waitUntilAllOperationsAreFinished;
-@property(readonly, nonatomic, getter=isCS2UserEnabled) _Bool cs2UserEnabled;
 - (void)dealloc;
 - (id)initWithAccount:(id)arg1 databaseFileFullPath:(id)arg2 modelContext:(id)arg3;
 

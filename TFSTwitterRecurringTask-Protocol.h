@@ -6,9 +6,10 @@
 
 #import <T1Twitter/NSObject-Protocol.h>
 
-@class TFSTwitterRecurringTaskEvent, TFSTwitterRecurringTaskService;
+@class NSString, TFSTwitterRecurringTaskEvent, TFSTwitterRecurringTaskService;
 
 @protocol TFSTwitterRecurringTask <NSObject>
+- (NSString *)tfs_taskState;
 - (void)tfs_triggerFromService:(TFSTwitterRecurringTaskService *)arg1 event:(TFSTwitterRecurringTaskEvent *)arg2 completion:(void (^)(void))arg3;
 
 @optional

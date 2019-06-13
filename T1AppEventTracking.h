@@ -26,7 +26,6 @@
 + (void)trackNonReferredOpenWithAccountOrNil:(id)arg1;
 + (void)trackFirstLaunchReferred:(_Bool)arg1;
 + (void)trackWithActionType:(id)arg1 integrationType:(id)arg2 account:(id)arg3;
-+ (void)_t1_fetchAppleSearchAttributionParametersWithCompletion:(CDUnknownBlockType)arg1;
 + (void)_t1_fetchCarrierAndAdIDFAWithParameters:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)_t1_callAppEventTrackingWithAccount:(id)arg1 parameters:(id)arg2;
 + (id)_t1_parametersWithRefSrc:(id)arg1 matClickId:(id)arg2 actionType:(id)arg3 integrationType:(id)arg4;

@@ -10,10 +10,11 @@
 #import <T1Twitter/T1OnboardingWaitable-Protocol.h>
 #import <T1Twitter/T1SignedOutViewController-Protocol.h>
 
-@class NSMutableArray, NSString, T1OnboardingFlowAssistant, T1SignedOutScribeHelper, UIActivityIndicatorView;
+@class NSMutableArray, NSString, T1OnboardingFlowAssistant, T1SignedOutScribeHelper, UIActivityIndicatorView, UIView;
 
 @interface T1CombinedSignUpWelcomeViewController : TFNNavigationController <T1OnboardingWaitable, T1OnboardingFlowControllerDelegate, T1SignedOutViewController>
 {
+    UIView *_loadingOverlayView;
     UIActivityIndicatorView *_activityIndicatorView;
     T1OnboardingFlowAssistant *_flowAssistant;
     T1SignedOutScribeHelper *_scribeHelper;
@@ -23,7 +24,7 @@
 
 - (void).cxx_destruct;
 - (void)scribeViewImpressionWithParameters:(id)arg1;
-- (void)private_setLoading:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)private_setLoading:(_Bool)arg1 overlay:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)private_loadConfigurationIfNeeded;
 - (void)stopWaiting;
 - (void)waitWithMessage:(id)arg1;
@@ -34,6 +35,7 @@
 - (_Bool)shouldPushViewController:(id)arg1 fromPresentationType:(long long)arg2 toPresentationType:(long long)arg3;
 - (long long)preferredStatusBarStyle;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

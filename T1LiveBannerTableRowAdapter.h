@@ -13,10 +13,10 @@
 
 @interface T1LiveBannerTableRowAdapter : TFNItemsTableRowAdapter <T1MultiEventLiveBannerViewDelegate>
 {
+    T1MultiEventLiveBannerView *_sizingMultiEventBannerView;
     id <T1LiveBannerTableRowAdapterDelegate> _delegate;
     TFNTwitterAccount *_account;
     TIPImagePipeline *_imagePipeline;
-    T1MultiEventLiveBannerView *_sizingMultiEventBannerView;
     NSMapTable *_multiEventBannerViewToBannerEntryTable;
     NSMapTable *_multiEventBannerViewToViewControllerTable;
     T1LiveBannerScribe *_liveBannerScribe;
@@ -33,7 +33,6 @@
 @property(readonly, nonatomic) T1LiveBannerScribe *liveBannerScribe; // @synthesize liveBannerScribe=_liveBannerScribe;
 @property(readonly, nonatomic) NSMapTable *multiEventBannerViewToViewControllerTable; // @synthesize multiEventBannerViewToViewControllerTable=_multiEventBannerViewToViewControllerTable;
 @property(readonly, nonatomic) NSMapTable *multiEventBannerViewToBannerEntryTable; // @synthesize multiEventBannerViewToBannerEntryTable=_multiEventBannerViewToBannerEntryTable;
-@property(readonly, nonatomic) T1MultiEventLiveBannerView *sizingMultiEventBannerView; // @synthesize sizingMultiEventBannerView=_sizingMultiEventBannerView;
 @property(readonly, nonatomic) TIPImagePipeline *imagePipeline; // @synthesize imagePipeline=_imagePipeline;
 @property(readonly, nonatomic) TFNTwitterAccount *account; // @synthesize account=_account;
 @property(readonly, nonatomic) __weak id <T1LiveBannerTableRowAdapterDelegate> delegate; // @synthesize delegate=_delegate;
@@ -52,6 +51,7 @@
 - (void)dataViewController:(id)arg1 willDisplayCell:(id)arg2 forItem:(id)arg3 withOptions:(id)arg4 atIndexPath:(id)arg5;
 - (double)dataViewController:(id)arg1 tableViewHeightForItem:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4;
 - (id)dataViewController:(id)arg1 tableViewCellForItem:(id)arg2 withOptions:(id)arg3 atIndexPath:(id)arg4;
+@property(readonly, nonatomic) T1MultiEventLiveBannerView *sizingMultiEventBannerView; // @synthesize sizingMultiEventBannerView=_sizingMultiEventBannerView;
 - (id)initWithLiveBannerScribe:(id)arg1 delegate:(id)arg2 account:(id)arg3;
 - (id)initWithDelegate:(id)arg1 account:(id)arg2;
 - (id)init;

@@ -7,8 +7,6 @@
 #import <TFNUI/TFNImageSequenceConfiguration.h>
 
 @interface TFNImageSequenceConfiguration (TFNTwitterAdditions)
-+ (id)heartImageSequenceConfigurationForTweetDetailsSakura;
-+ (id)heartImageSequenceConfigurationForTimelineSakura;
 + (id)heartImageSequenceConfigurationForMoments;
 + (id)heartImageSequenceConfigurationForTweetDetails;
 + (id)heartImageSequenceConfigurationForTimeline;

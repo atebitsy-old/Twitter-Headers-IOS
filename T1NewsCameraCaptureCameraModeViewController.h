@@ -19,8 +19,8 @@
 
 @interface T1NewsCameraCaptureCameraModeViewController : TFNViewController <T1NewsCameraCaptureCameraModeConfirmationViewControllerDelegate, T1NewsCameraCaptureCameraModeEditViewControllerDelegate, T1NewsCameraCaptureCameraModeRecordViewControllerDelegate, T1NewsCameraCaptureViewControllerCameraSessionDelegate, T1NewsCameraCaptureViewControllerEventHashtagsDelegate, T1NewsCameraCaptureViewControllerPlacesDelegate, TFNSwappingContainerViewControllerHelperDelegate, PTVTwitterCameraCaptureDelegate>
 {
-    T1NewsCameraCaptureViewController *_captureViewController;
     TFSTwitterScribeContext *_scribeContext;
+    T1NewsCameraCaptureViewController *_captureViewController;
     unsigned long long _state;
     TFNSwappingContainerViewControllerHelper *_containerViewControllerHelper;
     T1NewsCameraCaptureCameraModeRecordViewController *_recordViewController;
@@ -43,8 +43,8 @@
 @property(retain, nonatomic) T1NewsCameraCaptureCameraModeRecordViewController *recordViewController; // @synthesize recordViewController=_recordViewController;
 @property(retain, nonatomic) TFNSwappingContainerViewControllerHelper *containerViewControllerHelper; // @synthesize containerViewControllerHelper=_containerViewControllerHelper;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
+@property(readonly, nonatomic) __weak T1NewsCameraCaptureViewController *captureViewController; // @synthesize captureViewController=_captureViewController;
 @property(copy, nonatomic) TFSTwitterScribeContext *scribeContext; // @synthesize scribeContext=_scribeContext;
-@property(nonatomic) __weak T1NewsCameraCaptureViewController *captureViewController; // @synthesize captureViewController=_captureViewController;
 - (void).cxx_destruct;
 - (void)newsCameraCaptureCameraModeConfirmationController:(id)arg1 didAddAttachment:(id)arg2;
 - (void)newsCameraCaptureCameraModeConfirmationControllerDidCancel:(id)arg1;
@@ -91,11 +91,12 @@
 - (void)_t1_main_updateRecordingViewController;
 - (void)_t1_main_updateRecordingState;
 - (id)_t1_main_loadConfirmationViewController;
+- (void)_t1_main_prepareEditViewController;
 - (id)_t1_main_loadEditViewController;
 - (id)_t1_main_loadRecordViewController;
 - (_Bool)_t1_main_useConfirmationViewController;
 - (void)_t1_main_updateContentViewControllerAnimated:(_Bool)arg1;
-- (id)init;
+- (id)initWithCaptureViewController:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

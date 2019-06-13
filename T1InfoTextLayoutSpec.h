@@ -31,7 +31,7 @@
 + (id)_t1_badgeForOptions:(unsigned long long)arg1 account:(id)arg2;
 + (struct CGSize)_t1_badgeSizeForOptions:(unsigned long long)arg1;
 + (id)_t1_userTextColorForOptions:(unsigned long long)arg1 userColorScheme:(long long)arg2;
-+ (_Bool)shouldShowInfoTextForViewModel:(id)arg1 options:(unsigned long long)arg2;
++ (_Bool)shouldShowInfoTextForViewModel:(id)arg1 options:(unsigned long long)arg2 account:(id)arg3;
 + (id)layoutWithOriginalSpec:(id)arg1 replacedTitle:(id)arg2;
 + (id)layoutForUserViewModel:(id)arg1 options:(unsigned long long)arg2 account:(id)arg3 font:(id)arg4 userColorScheme:(long long)arg5 willLayout:(_Bool)arg6;
 + (id)layoutForViewModel:(id)arg1 options:(unsigned long long)arg2 account:(id)arg3 willLayout:(_Bool)arg4;

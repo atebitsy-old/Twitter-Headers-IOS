@@ -296,6 +296,7 @@
 - (void)_t1_main_updateForText;
 - (void)_t1_main_storeLastSelectedCameraPaletteID:(id)arg1;
 - (void)_t1_main_restoreLastSelectedCameraPaletteID;
+- (void)_t1_main_validateCompositionReplyStatusInfo;
 - (void)_t1_main_updateThreadObserverDisabled;
 - (void)_t1_main_updateThreadObserver;
 - (void)_t1_main_updateAutocompleteViewController;

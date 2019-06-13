@@ -52,6 +52,7 @@
     CDStruct_ce75bf4d _flags;
     TFNTwitterFeedbackInfo *_feedbackInfo;
     NSArray *_collectionStatuses;
+    TFNTwitterUser *_fromUser;
     TFNTwitterCanonicalStatus *_canonicalStatus;
     long long _quoteID;
     TFNTwitterStatus *_quotedStatus;
@@ -174,6 +175,7 @@
 @property(retain, nonatomic) TFNTwitterStatus *quotedStatus; // @synthesize quotedStatus=_quotedStatus;
 @property(nonatomic) long long quoteID; // @synthesize quoteID=_quoteID;
 @property(readonly, nonatomic) TFNTwitterCanonicalStatus *canonicalStatus; // @synthesize canonicalStatus=_canonicalStatus;
+@property(retain, nonatomic) TFNTwitterUser *fromUser; // @synthesize fromUser=_fromUser;
 @property(retain, nonatomic) TFNTwitterFeedbackInfo *feedbackInfo; // @synthesize feedbackInfo=_feedbackInfo;
 @property(readonly, nonatomic, getter=isDismissing) _Bool dismissing;
 - (void).cxx_destruct;
@@ -350,7 +352,6 @@
 @property(readonly, nonatomic) long long inReplyToUserID;
 @property(readonly, nonatomic) long long inReplyToStatusID;
 @property(readonly, nonatomic) NSDate *date;
-@property(retain, nonatomic) TFNTwitterUser *fromUser;
 @property(readonly, nonatomic) NSString *originalText;
 @property(readonly, nonatomic) long long statusID;
 - (_Bool)_tfn_shouldOmitCardURLForCardData:(id)arg1;
@@ -385,8 +386,8 @@
 - (id)initWithJSONDictionary:(id)arg1 users:(id)arg2 statusID:(long long)arg3 hasValidCanonicalStatus:(_Bool)arg4 isRTBCreative:(_Bool)arg5;
 - (id)initWithJSONDictionary:(id)arg1 users:(id)arg2 statusID:(long long)arg3 hasValidCanonicalStatus:(_Bool)arg4;
 - (id)initWithCS2Status:(id)arg1 fromUser:(id)arg2 retweetedStatus:(id)arg3 retweetedStatusFromUser:(id)arg4 quotedStatus:(id)arg5 quotedStatusFromUser:(id)arg6;
-- (id)initWithCanonicalStatus:(id)arg1 hasValidCanonicalStatus:(_Bool)arg2;
-- (id)initWithCanonicalStatus:(id)arg1;
+- (id)initWithCanonicalStatus:(id)arg1 fromUser:(id)arg2 hasValidCanonicalStatus:(_Bool)arg3;
+- (id)initWithCanonicalStatus:(id)arg1 fromUser:(id)arg2;
 - (id)momentsRangesWithOptions:(unsigned long long)arg1 truncationRange:(id)arg2;
 - (id)momentsDisplayAttributedStringWithOptions:(unsigned long long)arg1 font:(id)arg2 color:(id)arg3 lineSpacing:(double)arg4 truncationRange:(id)arg5 hasCTA:(_Bool)arg6;
 - (_Bool)_rangeHasColisionWithHashflag:(struct _NSRange)arg1 options:(unsigned long long)arg2;
@@ -394,7 +395,6 @@
 - (_Bool)_removeTrailingCharacterSet:(id)arg1 fromString:(id)arg2;
 @property(readonly, nonatomic) _Bool shouldOmitCollectionLink;
 @property(readonly, nonatomic) _Bool shouldShowCollectionCarousel;
-@property(readonly, nonatomic) _Bool isPartOfSpecialEvent;
 - (_Bool)isSelfThreadTweet;
 @property(readonly, nonatomic, getter=isFillerTweet) _Bool fillerTweet;
 @property(readonly, nonatomic, getter=displayAsSelfThreadTweet) _Bool selfThreadTweet;

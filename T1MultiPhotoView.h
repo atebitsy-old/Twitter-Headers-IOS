@@ -15,7 +15,6 @@
 {
     id <NSObject> _updateNotificationObservers[4];
     _Bool _useAdaptiveMediaLayout;
-    _Bool _stickerBadgeEnabled;
     _Bool _borderHidden;
     _Bool _imageViewSubviewsAccessibilityDisabled;
     _Bool _shouldIgnoreFocusRectangles;
@@ -56,7 +55,6 @@
 @property(nonatomic) _Bool borderHidden; // @synthesize borderHidden=_borderHidden;
 @property(nonatomic) double borderCornerRadius; // @synthesize borderCornerRadius=_borderCornerRadius;
 @property(nonatomic) double gutterWidth; // @synthesize gutterWidth=_gutterWidth;
-@property(nonatomic, getter=isStickerBadgeEnabled) _Bool stickerBadgeEnabled; // @synthesize stickerBadgeEnabled=_stickerBadgeEnabled;
 @property(nonatomic) _Bool useAdaptiveMediaLayout; // @synthesize useAdaptiveMediaLayout=_useAdaptiveMediaLayout;
 @property(copy, nonatomic) CDUnknownBlockType multiPhotoLoadFailedBlock; // @synthesize multiPhotoLoadFailedBlock=_multiPhotoLoadFailedBlock;
 @property(copy, nonatomic) CDUnknownBlockType multiPhotoLoadedBlock; // @synthesize multiPhotoLoadedBlock=_multiPhotoLoadedBlock;
@@ -86,7 +84,6 @@
 - (void)layoutSubviews;
 - (void)_t1_updateAltTextBadgeFrame:(id)arg1;
 - (void)_addAltTextBadgeToImageView:(id)arg1 atIndex:(unsigned long long)arg2;
-- (void)_addStickerBadgeToImageView:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)_initializePlaceholderView;
 - (id)_initializeImageViewAtIndex:(unsigned long long)arg1;
 - (void)_updateNumberOfVisibleImageViews:(unsigned long long)arg1;

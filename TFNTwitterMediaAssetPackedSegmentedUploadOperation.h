@@ -42,13 +42,12 @@
 - (void)_tfn_main_packedSegmentedUploadDidProgress:(float)arg1;
 - (void)mediaAssetRenderOperation:(id)arg1 didProgress:(float)arg2;
 - (void)cancel;
-- (id)_tfn_performanceScribeOperationWithDependencies:(id)arg1 updateBlock:(CDUnknownBlockType)arg2;
 - (id)_tfn_background_completeOperationOperation;
 - (void)_tfn_background_updateResultStateWithOperations:(id)arg1;
 - (id)_tfn_background_updateResultStateOperationWithDependencies:(id)arg1;
 - (void)_tfn_main_run;
 - (void)run;
-- (id)initWithAccount:(id)arg1 identifier:(id)arg2 configuration:(id)arg3 asset:(id)arg4 uploadSource:(long long)arg5 uploadSourceType:(unsigned long long)arg6 networkQualityProvider:(id)arg7 networkTransactionMetrics:(id)arg8;
+- (id)initWithAccount:(id)arg1 identifier:(id)arg2 configuration:(id)arg3 asset:(id)arg4 uploadSource:(long long)arg5 networkQualityProvider:(id)arg6 networkTransactionMetrics:(id)arg7;
 - (id)init;
 
 // Remaining properties

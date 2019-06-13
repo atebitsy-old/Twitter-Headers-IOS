@@ -152,6 +152,7 @@
 @property(readonly, nonatomic) long long characterCount;
 @property(readonly, copy, nonatomic) NSString *textForCharacterCount;
 - (long long)_tfn_secureLinkLength;
+- (_Bool)isSelfThreadReplyFromUserID:(long long)arg1;
 @property(readonly, nonatomic) NSNumber *replyToStatusIDNumber;
 @property(readonly, nonatomic, getter=isReply) _Bool reply;
 - (_Bool)hasPoll;

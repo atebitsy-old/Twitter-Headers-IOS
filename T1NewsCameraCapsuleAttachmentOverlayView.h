@@ -9,7 +9,7 @@
 #import <T1Twitter/TLPSubscriptionDelegate-Protocol.h>
 #import <T1Twitter/UIScrollViewDelegate-Protocol.h>
 
-@class NSArray, NSString, T1AvatarImageView, T1InfoTextView, T1NewsCameraAsymmetricCornerView, T1StatusAuthorView, T1StatusBodyTextView, T1TweetDetailsActionView, TFNAsymmetricalCornerView, TFNGradientView, TFNProgressView, TFNTouchDownGestureRecognizer, TFNTwitterAccount, TLPSubscription, UIImageView, UILabel, UILongPressGestureRecognizer, UIScrollView, UITapGestureRecognizer;
+@class NSString, T1AvatarImageView, T1InfoTextView, T1NewsCameraAsymmetricCornerView, T1StatusAuthorView, T1StatusBodyTextView, T1TweetDetailsActionView, TFNAsymmetricalCornerView, TFNGradientView, TFNProgressView, TFNTouchDownGestureRecognizer, TFNTwitterAccount, TLPSubscription, UIImageView, UILabel, UILongPressGestureRecognizer, UIScrollView, UITapGestureRecognizer;
 @protocol T1NewsCameraCapsuleAttachmentOverlayViewDelegate, T1StatusViewModel;
 
 @interface T1NewsCameraCapsuleAttachmentOverlayView : UIView <UIScrollViewDelegate, TLPSubscriptionDelegate>
@@ -45,10 +45,8 @@
     UITapGestureRecognizer *_authorTapRecognizer;
     UITapGestureRecognizer *_avatarTapRecognizer;
     TFNTouchDownGestureRecognizer *_pressRecognizer;
-    NSArray *_customActions;
 }
 
-@property(retain, nonatomic) NSArray *customActions; // @synthesize customActions=_customActions;
 @property(readonly, nonatomic) TFNTouchDownGestureRecognizer *pressRecognizer; // @synthesize pressRecognizer=_pressRecognizer;
 @property(readonly, nonatomic) UITapGestureRecognizer *avatarTapRecognizer; // @synthesize avatarTapRecognizer=_avatarTapRecognizer;
 @property(readonly, nonatomic) UITapGestureRecognizer *authorTapRecognizer; // @synthesize authorTapRecognizer=_authorTapRecognizer;

@@ -6,13 +6,21 @@
 
 #import <objc/NSObject.h>
 
+@class NSSet;
+@protocol TFNTwitterRecurringTaskContextPanelIDProvider;
+
 @interface TFNTwitterRecurringTaskContext : NSObject
 {
     long long _loadSource;
+    id <TFNTwitterRecurringTaskContextPanelIDProvider> _panelIDProvider;
+    NSSet *_priorityPanelIDs;
 }
 
+@property(readonly, copy, nonatomic) NSSet *priorityPanelIDs; // @synthesize priorityPanelIDs=_priorityPanelIDs;
+@property(readonly, nonatomic) __weak id <TFNTwitterRecurringTaskContextPanelIDProvider> panelIDProvider; // @synthesize panelIDProvider=_panelIDProvider;
 @property(readonly, nonatomic) long long loadSource; // @synthesize loadSource=_loadSource;
-- (id)initWithLoadSource:(long long)arg1;
+- (void).cxx_destruct;
+- (id)initWithLoadSource:(long long)arg1 panelIDProvider:(id)arg2 priorityPanelIDs:(id)arg3;
 - (id)init;
 
 @end

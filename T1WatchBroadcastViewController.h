@@ -14,7 +14,7 @@
 #import <T1Twitter/T1WatchBroadcastViewControllerModelDelegate-Protocol.h>
 #import <T1Twitter/TFNPresented-Protocol.h>
 
-@class NSString, PTVMergeWatchBroadcastViewController, T1ComposeController, T1PeriscopeFollowPromptViewController, T1WatchBroadcastExternalVideoPlayer, T1WatchBroadcastViewControllerModel, T1WatchBroadcastViewControllerPresenter, TFNPaddedButton, UIButton, UIView, UIViewController, UIWindow;
+@class NSString, PTVMergeWatchBroadcastViewController, T1ComposeController, T1PeriscopeFollowPromptViewController, T1WatchBroadcastExternalVideoPlayer, T1WatchBroadcastViewControllerModel, T1WatchBroadcastViewControllerPresenter, TFNPaddedButton, UIView, UIViewController, UIWindow;
 @protocol T1AutoplayFullscreenCoordinator, T1WatchBroadcastViewControllerDelegate, TFNTwitterDockable;
 
 @interface T1WatchBroadcastViewController : TFNViewController <T1WatchBroadcastViewControllerModelDelegate, PTVCustomTwitterViewDelegate, PTVDismissButtonDelegate, T1WatchBroadcastExternalVideoPlayerDelegate, T1ComposeControllerDelegate, PTVBroadcastWatcherObserver, TFNPresented>
@@ -37,7 +37,7 @@
     T1PeriscopeFollowPromptViewController *_overflowFollowPromptViewController;
     TFNPaddedButton *_dockButton;
     TFNPaddedButton *_backToEventButton;
-    UIButton *_dismissButtonView;
+    UIView *_dismissButtonView;
     T1ComposeController *_composeTweetController;
     CDUnknownBlockType _onPresentationCompletionBlock;
     UIWindow *_presentingWindow;
@@ -51,7 +51,7 @@
 @property(nonatomic) _Bool didShowLocalChatMessage; // @synthesize didShowLocalChatMessage=_didShowLocalChatMessage;
 @property(copy, nonatomic) CDUnknownBlockType onPresentationCompletionBlock; // @synthesize onPresentationCompletionBlock=_onPresentationCompletionBlock;
 @property(retain, nonatomic) T1ComposeController *composeTweetController; // @synthesize composeTweetController=_composeTweetController;
-@property(retain, nonatomic) UIButton *dismissButtonView; // @synthesize dismissButtonView=_dismissButtonView;
+@property(retain, nonatomic) UIView *dismissButtonView; // @synthesize dismissButtonView=_dismissButtonView;
 @property(retain, nonatomic) TFNPaddedButton *backToEventButton; // @synthesize backToEventButton=_backToEventButton;
 @property(retain, nonatomic) TFNPaddedButton *dockButton; // @synthesize dockButton=_dockButton;
 @property(retain, nonatomic) T1PeriscopeFollowPromptViewController *overflowFollowPromptViewController; // @synthesize overflowFollowPromptViewController=_overflowFollowPromptViewController;

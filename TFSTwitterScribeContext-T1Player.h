@@ -9,10 +9,6 @@
 @class TAVScribeContext;
 
 @interface TFSTwitterScribeContext (T1Player)
-+ (id)scribeElementFromEntityMedia:(id)arg1;
-+ (id)scribeElementFromSessionSource:(id)arg1;
 @property(readonly, nonatomic) TAVScribeContext *tavScribeContext;
-- (id)scribeContextWithElementFromEntityMedia:(id)arg1;
-- (id)scribeContextWithElementFromSessionSource:(id)arg1;
 @end
 

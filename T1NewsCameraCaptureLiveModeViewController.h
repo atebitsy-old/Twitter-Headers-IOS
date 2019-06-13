@@ -30,10 +30,10 @@
     _Bool _isPresentingRectifyViewController;
     _Bool _presented;
     _Bool _isDismissing;
-    T1NewsCameraCaptureViewController *_captureViewController;
     unsigned long long _periscopePreBroadcastModeState;
     PTVAPIResponseErrorInfo *_periscopeAccountAuthenticationErrorInfo;
     TFSTwitterScribeContext *_scribeContext;
+    T1NewsCameraCaptureViewController *_captureViewController;
     UIView *_backgroundShade;
     T1NewsCameraControlButton *_backButton;
     UIButton *_stopBroadcastButton;
@@ -109,10 +109,10 @@
 @property(retain, nonatomic) UIButton *stopBroadcastButton; // @synthesize stopBroadcastButton=_stopBroadcastButton;
 @property(retain, nonatomic) T1NewsCameraControlButton *backButton; // @synthesize backButton=_backButton;
 @property(retain, nonatomic) UIView *backgroundShade; // @synthesize backgroundShade=_backgroundShade;
+@property(readonly, nonatomic) __weak T1NewsCameraCaptureViewController *captureViewController; // @synthesize captureViewController=_captureViewController;
 @property(copy, nonatomic) TFSTwitterScribeContext *scribeContext; // @synthesize scribeContext=_scribeContext;
 @property(retain, nonatomic) PTVAPIResponseErrorInfo *periscopeAccountAuthenticationErrorInfo; // @synthesize periscopeAccountAuthenticationErrorInfo=_periscopeAccountAuthenticationErrorInfo;
 @property(readonly, nonatomic) unsigned long long periscopePreBroadcastModeState; // @synthesize periscopePreBroadcastModeState=_periscopePreBroadcastModeState;
-@property(nonatomic) __weak T1NewsCameraCaptureViewController *captureViewController; // @synthesize captureViewController=_captureViewController;
 - (void).cxx_destruct;
 - (id)scribeComponent;
 - (id)scribeSection;
@@ -233,7 +233,7 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
-- (id)init;
+- (id)initWithCaptureViewController:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

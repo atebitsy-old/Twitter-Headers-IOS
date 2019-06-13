@@ -30,7 +30,6 @@
 @property(copy, nonatomic) NSString *passwordText;
 @property(copy, nonatomic) NSString *usernameText;
 - (void)_accountsLoadingStatusDidChange;
-- (_Bool)isSubmittable;
 - (id)init;
 - (id)initWithUsernameHintText:(id)arg1 passwordHintText:(id)arg2;
 

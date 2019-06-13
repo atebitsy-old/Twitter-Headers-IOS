@@ -6,20 +6,19 @@
 
 #import <objc/NSObject.h>
 
-#import <T1Twitter/NSCoding-Protocol.h>
 #import <T1Twitter/TFNDirectMessageUserCache-Protocol.h>
 
-@class NSArray, NSMapTable, NSMutableDictionary, NSMutableSet, NSString, TFNDirectMessageActivityLog, TFNDirectMessageInbox, TFNTwitterAccountModel;
+@class NSArray, NSMapTable, NSMutableDictionary, NSMutableSet, NSString, TFNDirectMessageActivityLog, TFNDirectMessageContextState, TFNDirectMessageInbox, TFSModelContext;
 @protocol OS_dispatch_queue;
 
-@interface TFNDirectMessageModel : NSObject <NSCoding, TFNDirectMessageUserCache>
+@interface TFNDirectMessageModel : NSObject <TFNDirectMessageUserCache>
 {
     NSObject<OS_dispatch_queue> *_cachedUserAccessQueue;
     NSObject<OS_dispatch_queue> *_cachedCustomProfileAccessQueue;
     NSMapTable *_cachedUsersByUserID;
     NSMapTable *_cachedCustomProfilesByCustomProfileID;
     TFNDirectMessageActivityLog *_activityLog;
-    TFNTwitterAccountModel *_accountModel;
+    TFSModelContext *_modelContext;
     NSMutableDictionary *_outgoingMessages;
     TFNDirectMessageInbox *_inbox;
     NSMutableDictionary *_maxDeletedEventIDs;
@@ -37,7 +36,7 @@
 @property(readonly, nonatomic) NSMutableDictionary *maxDeletedEventIDs; // @synthesize maxDeletedEventIDs=_maxDeletedEventIDs;
 @property(readonly, nonatomic) TFNDirectMessageInbox *inbox; // @synthesize inbox=_inbox;
 @property(readonly, nonatomic) NSMutableDictionary *outgoingMessages; // @synthesize outgoingMessages=_outgoingMessages;
-@property(retain, nonatomic) TFNTwitterAccountModel *accountModel; // @synthesize accountModel=_accountModel;
+@property(retain, nonatomic) TFSModelContext *modelContext; // @synthesize modelContext=_modelContext;
 - (void).cxx_destruct;
 - (id)cachedCustomProfileForCustomProfileID:(id)arg1;
 - (void)insertCustomProfile:(id)arg1;
@@ -66,8 +65,8 @@
 - (id)findUnnamedConversationWithParticipants:(id)arg1;
 - (id)cachedUnnamedGroupConversations;
 @property(readonly, nonatomic) NSArray *cachedDirectMessageConversations;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
+@property(readonly, nonatomic) TFNDirectMessageContextState *contextState;
+- (id)initWithContextState:(id)arg1;
 - (id)initWithInbox:(id)arg1;
 
 // Remaining properties
